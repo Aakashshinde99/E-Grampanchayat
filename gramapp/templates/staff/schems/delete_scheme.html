@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Scheme - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-red-700 text-center">
+        🗑️ {% trans "Delete Scheme" %}
+    </h1>
+
+    <!-- ✅ Confirmation Box -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 max-w-lg mx-auto transition-all transform hover:scale-105 text-center">
+
+        <!-- ✅ Confirmation Message -->
+        <p class="text-gray-700 text-lg">{% trans "Are you sure you want to delete this scheme?" %}</p>
+        <p class="text-gray-800 font-semibold mt-2">{{ scheme.title }}</p>
+
+        <!-- ✅ Form -->
+        <form method="POST" class="mt-6">
+            {% csrf_token %}
+
+            <!-- ✅ Form Actions -->
+            <div class="flex justify-center gap-4">
+                <a href="{% url 'manage_schemes' %}" 
+                   class="bg-gray-500 hover:bg-gray-600 text-white px-2 py-1 rounded-md transition-all transform hover:scale-105">
+                     {% trans "Cancel" %}
+                </a>
+                <button type="submit" 
+                        class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded-md transition-all transform hover:scale-105">
+                     {% trans "Confirm Delete" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

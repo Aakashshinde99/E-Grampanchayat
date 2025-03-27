@@ -1,0 +1,1974 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-19 00:48+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\gramapp\models.py:28
+msgid "Citizen"
+msgstr "नागरिक"
+
+#: .\gramapp\models.py:29
+msgid "Staff"
+msgstr "कर्मचारी"
+
+#: .\gramapp\models.py:30
+msgid "Admin"
+msgstr "प्रशासक"
+
+#: .\gramapp\templates\home.html:12
+msgid "Choose Your Language:"
+msgstr "तुमची भाषा निवडा:"
+
+#: .\gramapp\templates\home.html:16
+msgid "English"
+msgstr "इंग्रजी"
+
+#: .\gramapp\templates\home.html:20
+msgid "Hindi"
+msgstr "हिंदी"
+
+#: .\gramapp\templates\home.html:24
+msgid "Marathi"
+msgstr "मराठी"
+
+#: .\gramapp\templates\home.html:34
+msgid "Welcome to Grampanchayat Portal"
+msgstr "ग्रामपंचायत पोर्टलमध्ये आपले स्वागत आहे"
+
+#: .\gramapp\templates\home.html:37
+msgid "Empowering Villages, Building Futures"
+msgstr "गावे सक्षम करा, भविष्य घडवा"
+
+#: .\gramapp\templates\home.html:42
+msgid "Get Started"
+msgstr "सुरू करा"
+
+#: .\gramapp\templates\home.html:57
+msgid "User Login"
+msgstr "वापरकर्ता लॉगिन"
+
+#: .\gramapp\templates\home.html:59
+msgid "Manage services and applications."
+msgstr "सेवा आणि अर्ज व्यवस्थापित करा."
+
+#: .\gramapp\templates\home.html:62 .\gramapp\templates\home.html:88
+msgid "Login"
+msgstr "लॉगिन करा"
+
+#: .\gramapp\templates\home.html:70
+msgid "User Registration"
+msgstr "वापरकर्ता नोंदणी"
+
+#: .\gramapp\templates\home.html:72
+msgid "New user? Register now."
+msgstr "नवीन वापरकर्ता? आत्ताच नोंदणी करा."
+
+#: .\gramapp\templates\home.html:75
+msgid "Register"
+msgstr "नोंदणी करा"
+
+#: .\gramapp\templates\home.html:83
+msgid "Staff Login"
+msgstr "कर्मचारी लॉगिन"
+
+#: .\gramapp\templates\home.html:85
+msgid "Login for Panchayat staff."
+msgstr "पंचायत कर्मचार्‍यांसाठी लॉगिन करा."
+
+#: gramapp/templates/user/user_register.html:25
+msgid "Create an Account"
+msgstr "खाते तयार करा"
+
+#: gramapp/templates/user/user_register.html:40
+msgid "First Name"
+msgstr "प्रथम नाव"
+
+#: gramapp/templates/user/user_register.html:42
+msgid "Enter your first name"
+msgstr "तुमचे पहिले नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:47
+msgid "Last Name"
+msgstr "आडनाव"
+
+#: gramapp/templates/user/user_register.html:49
+msgid "Enter your last name"
+msgstr "तुमचे आडनाव प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:56
+msgid "Choose a username"
+msgstr "वापरकर्ता नाव निवडा"
+
+#: gramapp/templates/user/user_register.html:61
+msgid "Email"
+msgstr "ईमेल"
+
+#: gramapp/templates/user/user_register.html:63
+msgid "Enter your email"
+msgstr "तुमचा ईमेल प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:70
+msgid "Create a password"
+msgstr "संकेतशब्द तयार करा"
+
+#: gramapp/templates/user/user_register.html:75
+msgid "Confirm Password"
+msgstr "संकेतशब्दाची पुष्टी करा"
+
+#: gramapp/templates/user/user_register.html:77
+msgid "Confirm your password"
+msgstr "तुमचा संकेतशब्द पुष्टी करा"
+
+#: gramapp/templates/user/user_register.html:82
+msgid "Profile Picture"
+msgstr "प्रोफाइल चित्र"
+
+#: gramapp/templates/user/user_register.html:88
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+#: gramapp/templates/user/user_register.html:90
+msgid "Enter your phone number"
+msgstr "तुमचा फोन नंबर प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:95
+msgid "Address"
+msgstr "पत्ता"
+
+#: gramapp/templates/user/user_register.html:97
+msgid "Enter your address"
+msgstr "तुमचा पत्ता प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:102
+msgid "Aadhar Number"
+msgstr "आधार क्रमांक"
+
+#: gramapp/templates/user/user_register.html:104
+msgid "Enter your Aadhar number"
+msgstr "तुमचा आधार क्रमांक प्रविष्ट करा"
+
+#: gramapp/templates/user/user_register.html:109
+msgid "PAN Number"
+msgstr "पॅन नंबर"
+
+#: gramapp/templates/user/user_register.html:111
+msgid "Enter your PAN number"
+msgstr "तुमचा पॅन नंबर प्रविष्ट करा"
+
+
+#: gramapp/templates/user/user_register.html:122
+msgid "Already have an account?"
+msgstr "आधीच खाते आहे?"
+
+#: gramapp/templates/user/user_register.html:124
+msgid "Login here"
+msgstr "येथे लॉगिन करा"
+
+#: gramapp/templates/user/user_login.html:15
+msgid "Back to Home"
+msgstr "मुख्यपृष्ठावर परत"
+
+
+#: gramapp/templates/user/user_login.html:33
+msgid "Username"
+msgstr "वापरकर्ता नाव"
+
+
+#: gramapp/templates/user/user_login.html:42
+msgid "Password"
+msgstr "संकेतशब्द"
+
+
+#: gramapp/templates/user/user_login.html:50
+msgid "Invalid username or password. Please try again."
+msgstr "अवैध वापरकर्ता नाव किंवा संकेतशब्द. कृपया पुन्हा प्रयत्न करा."
+
+#: gramapp/templates/user/user_login.html:56
+msgid "Not registered?"
+msgstr "नोंदणी केलेली नाही?"
+
+#: gramapp/templates/user/user_login.html:57
+msgid "Create an account"
+msgstr "खाते तयार करा"
+
+######## certificate #########
+#: gramapp/templates/user/Certificates/certificates.html:5
+msgid "Certificates"
+msgstr "प्रमाणपत्रे"
+
+#: gramapp/templates/user/Certificates/certificates.html:9
+msgid "Apply for Certificates"
+msgstr "प्रमाणपत्रांसाठी अर्ज करा"
+
+#: gramapp/templates/user/Certificates/certificates.html:14
+msgid "Birth Certificate"
+msgstr "जन्म प्रमाणपत्र"
+
+#: gramapp/templates/user/Certificates/certificates.html:22
+msgid "Death Certificate"
+msgstr "मृत्यू प्रमाणपत्र"
+
+#: gramapp/templates/user/Certificates/certificates.html:30
+msgid "Marriage Certificate"
+msgstr "विवाह प्रमाणपत्र"
+
+#: gramapp/templates/user/Certificates/certificates.html:38
+msgid "Domicile Certificate"
+msgstr "अधिवास प्रमाणपत्र"
+
+#: gramapp/templates/user/Certificates/certificates.html:47
+msgid "Apply Now"
+msgstr "आत्ताच अर्ज करा"
+
+#: gramapp/templates/user/Certificates/certificates.html:55
+msgid "Your Applied Certificates"
+msgstr "तुम्ही अर्ज केलेली प्रमाणपत्रे"
+
+#: gramapp/templates/user/Certificates/certificates.html:61
+msgid "Submitted"
+msgstr "सबमिट केले"
+
+#: gramapp/templates/user/Certificates/certificates.html:62
+msgid "Status"
+msgstr "स्थिती"
+
+#: gramapp/templates/user/Certificates/certificates.html:63
+msgid "Download"
+msgstr "डाउनलोड करा"
+
+#: gramapp/templates/user/Certificates/certificates.html:70
+msgid "Pending"
+msgstr "प्रलंबित"
+
+#: gramapp/templates/user/Certificates/certificates.html:72
+msgid "Approved"
+msgstr "मंजूर"
+
+#: gramapp/templates/user/Certificates/certificates.html:74
+msgid "Rejected"
+msgstr "नाकारले"
+
+#: gramapp/templates/user/Certificates/certificates.html:81
+msgid "Not Available"
+msgstr "उपलब्ध नाही"
+
+#: gramapp/templates/user/Certificates/certificates.html:90
+msgid "You have not applied for any certificates yet."
+msgstr "तुम्ही अजून कोणत्याही प्रमाणपत्रासाठी अर्ज केलेला नाही."
+
+
+
+
+###### birth
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:9
+msgid "Apply for Birth Certificate"
+msgstr "जन्म प्रमाणपत्रासाठी अर्ज करा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:17
+msgid "Full Name"
+msgstr "पूर्ण नाव"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:19
+msgid "Enter full name"
+msgstr "पूर्ण नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:24
+msgid "Date of Birth"
+msgstr "जन्मतारीख"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:26
+msgid "Select date of birth"
+msgstr "जन्मतारीख निवडा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:31
+msgid "Parent's Name"
+msgstr "पालकांचे नाव"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:33
+msgid "Enter parent's name"
+msgstr "पालकांचे नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:40
+msgid "Upload Required Documents"
+msgstr "आवश्यक कागदपत्रे अपलोड करा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:42
+msgid "Only PDF files are allowed."
+msgstr "फक्त PDF फायली परवानगी आहेत."
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:50
+msgid "📩 Submit Application"
+msgstr "📩 अर्ज सबमिट करा"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:58
+msgid "📄 Required Documents & Conditions"
+msgstr "📄 आवश्यक कागदपत्रे आणि अटी"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:63
+msgid "📌 Required Documents"
+msgstr "📌 आवश्यक कागदपत्रे"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:73
+msgid "⚠️ Conditions for Application"
+msgstr "⚠️ अर्जासाठी अटी"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:83
+msgid "📝 Application Process"
+msgstr "📝 अर्ज प्रक्रिया"
+
+#: gramapp/templates/user/Certificates/birth_certificate.html:93
+msgid "For more details, visit the Panchayat Office."
+msgstr "अधिक माहितीसाठी, पंचायत कार्यालयात भेट द्या."
+
+
+
+#: gramapp/templates/user/Certificates/death_certificate.html:9
+msgid "Apply for Death Certificate"
+msgstr "मृत्यू प्रमाणपत्रासाठी अर्ज करा"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:17
+msgid "Deceased's Full Name"
+msgstr "मृत व्यक्तीचे पूर्ण नाव"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:19
+msgid "Enter deceased's full name"
+msgstr "मृत व्यक्तीचे पूर्ण नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:24
+msgid "Date of Death"
+msgstr "मृत्यूची तारीख"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:26
+msgid "Select date of death"
+msgstr "मृत्यूची तारीख निवडा"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:31
+msgid "Place of Death"
+msgstr "मृत्यूचे ठिकाण"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:33
+msgid "Enter place of death"
+msgstr "मृत्यूचे ठिकाण प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:38
+msgid "Cause of Death"
+msgstr "मृत्यूचे कारण"
+
+#: gramapp/templates/user/Certificates/death_certificate.html:40
+msgid "Enter cause of death"
+msgstr "मृत्यूचे कारण प्रविष्ट करा"
+
+
+##### Domicile
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:9
+msgid "🏡 Apply for Domicile Certificate"
+msgstr "🏡 स्थायी रहिवासी प्रमाणपत्रासाठी अर्ज करा"
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:17
+msgid "👤 Full Name"
+msgstr "👤 पूर्ण नाव"
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:19
+msgid "Enter your full name"
+msgstr "तुमचे पूर्ण नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:24
+msgid "👨‍👩‍👦 Father's/Husband's Name"
+msgstr "👨‍👩‍👦 वडिलांचे/पतीचे नाव"
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:26
+msgid "Enter father's/husband's name"
+msgstr "वडिलांचे/पतीचे नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/domicile_certificate.html:31
+msgid "🏠 Address"
+msgstr "🏠 पत्ता"
+
+
+###### Marriage
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:9
+msgid "💍 Apply for Marriage Certificate"
+msgstr "💍 विवाह प्रमाणपत्रासाठी अर्ज करा"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:17
+msgid "Husband's Full Name"
+msgstr "पतीचे संपूर्ण नाव"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:19
+msgid "Enter husband's full name"
+msgstr "पतीचे संपूर्ण नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:24
+msgid "Wife's Full Name"
+msgstr "पत्नीचे संपूर्ण नाव"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:26
+msgid "Enter wife's full name"
+msgstr "पत्नीचे संपूर्ण नाव प्रविष्ट करा"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:31
+msgid "Date of Marriage"
+msgstr "विवाहाची तारीख"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:33
+msgid "Select your marriage date"
+msgstr "तुमची विवाहाची तारीख निवडा"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:38
+msgid "Place of Marriage"
+msgstr "विवाहाचे ठिकाण"
+
+#: gramapp/templates/user/Certificates/marriage_certificate.html:40
+msgid "Enter place of marriage"
+msgstr "विवाहाचे ठिकाण प्रविष्ट करा"
+
+
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:5
+msgid "Tax Management - Panchayat App"
+msgstr "कर व्यवस्थापन - पंचायत ॲप"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:7
+msgid "Tax Management"
+msgstr "कर व्यवस्थापन"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:10
+msgid "Manage & Pay Your Taxes"
+msgstr "तुमचे कर व्यवस्थापित करा आणि भरा"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:11
+msgid "Secure and hassle-free tax payment"
+msgstr "सुरक्षित आणि त्रासमुक्त कर भरणा"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:19
+msgid "Outstanding Amount:"
+msgstr "बाकी रक्कम:"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:28
+msgid "Pay Now"
+msgstr "आत्ता भरा"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:31
+msgid "Tax paid for this year ✅"
+msgstr "या वर्षासाठी कर भरला ✅"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:38
+msgid "Your Payment History"
+msgstr "तुमचा पेमेंट इतिहास"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:42
+msgid "Tax Name"
+msgstr "कराचे नाव"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:43
+msgid "Amount Paid"
+msgstr "भरलेली रक्कम"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:44
+msgid "Payment Date"
+msgstr "पेमेंट तारीख"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:45
+msgid "Receipt"
+msgstr "पावती"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:54
+msgid "Download Receipt"
+msgstr "पावती डाउनलोड करा"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:60
+msgid "No payments made yet."
+msgstr "अद्याप कोणतेही पेमेंट केले नाही."
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:79
+msgid "Payment Receipt"
+msgstr "भरणा पावती"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:80
+msgid "Tax:"
+msgstr "कर:"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:81
+msgid "Amount Paid:"
+msgstr "भरलेली रक्कम:"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:82
+msgid "Date:"
+msgstr "तारीख:"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:83
+msgid "Payment ID:"
+msgstr "पेमेंट आयडी:"
+
+#: gramapp/templates/user/Water_Property_Tax/tax.html:85
+msgid "Close"
+msgstr "बंद करा"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:5
+msgid "Panchayat Meetings - Panchayat App"
+msgstr "पंचायत सभा - पंचायत ॲप"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:7
+msgid "Panchayat Meetings"
+msgstr "पंचायत सभा"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:10
+msgid "Upcoming Meetings"
+msgstr "आगामी सभा"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:17
+msgid "🗓️"
+msgstr "🗓️"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:18
+msgid "⏰"
+msgstr "⏰"
+
+#: gramapp/templates/user/Gramsabha_Meetings/sabhameet.html:24
+msgid "No upcoming meetings."
+msgstr "कोणतीही आगामी सभा नाही."
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:5
+msgid "Shramdan & Community Initiatives - Panchayat App"
+msgstr "श्रमदान आणि सामुदायिक उपक्रम - पंचायत अॅप"
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:7
+msgid "Shramdan & Community"
+msgstr "श्रमदान आणि समुदाय"
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:10
+msgid "Participate in Community Initiatives"
+msgstr "सामुदायिक उपक्रमांमध्ये सहभागी व्हा"
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:15
+msgid "Shramdan is an opportunity to give back to the community. Explore events and participate in various Abhiyaans to make a difference."
+msgstr "श्रमदान ही समाजासाठी योगदान देण्याची संधी आहे. कार्यक्रमांचा शोध घ्या आणि विविध अभियानांमध्ये सहभागी व्हा."
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:21
+msgid "Explore Events"
+msgstr "कार्यक्रम अन्वेषण करा"
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:33
+msgid "How to Participate"
+msgstr "कसे सहभागी व्हावे"
+
+#: gramapp/templates/user/Shramdan_Abhiyaan/shramdan.html:36
+msgid "To participate in Shramdan activities, check out the upcoming events or contact your local Panchayat office."
+msgstr "श्रमदान उपक्रमांमध्ये सहभागी होण्यासाठी, आगामी कार्यक्रम तपासा किंवा आपल्या स्थानिक पंचायत कार्यालयाशी संपर्क साधा."
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:5
+msgid "Health & Education Schemes - Panchayat App"
+msgstr "आरोग्य आणि शिक्षण योजना - पंचायत अॅप"
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:7
+msgid "Health & Education Schemes"
+msgstr "आरोग्य आणि शिक्षण योजना"
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:11
+msgid "🏥 Health Schemes"
+msgstr "🏥 आरोग्य योजना"
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:15
+msgid "📚 Education Schemes"
+msgstr "📚 शिक्षण योजना"
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:25
+msgid "No health schemes available."
+msgstr "कोणत्याही आरोग्य योजना उपलब्ध नाहीत."
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:40
+msgid "No education schemes available."
+msgstr "कोणत्याही शिक्षण योजना उपलब्ध नाहीत."
+
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:30
+#: gramapp/templates/user/Health_Education_Schemes/schemes.html:45
+msgid "🔗 Learn More"
+msgstr "🔗 अधिक जाणून घ्या"
+
+msgid "Helpdesk Support - Panchayat App"
+msgstr "हेल्पडेस्क समर्थन - पंचायत अॅप"
+
+msgid "Helpdesk Support"
+msgstr "हेल्पडेस्क समर्थन"
+
+msgid "Contact Support"
+msgstr "संपर्क समर्थन"
+
+msgid "Facing an issue? Need assistance? Contact us, and we'll be happy to help!"
+msgstr "कोणतीही समस्या आहे का? मदतीची गरज आहे? आमच्याशी संपर्क साधा, आम्ही मदतीसाठी येथे आहोत!"
+
+msgid "Your Name"
+msgstr "तुमचे नाव"
+
+msgid "Enter your name"
+msgstr "तुमचे नाव प्रविष्ट करा"
+
+msgid "Phone"
+msgstr "फोन"
+
+msgid "Message"
+msgstr "संदेश"
+
+msgid "Surveys"
+msgstr "सर्वेक्षण"
+
+msgid "Contribute Your Opinions and Feedback"
+msgstr "तुमच्या मते आणि अभिप्राय द्या"
+
+msgid "Your voice matters! Participate in our surveys and help shape the future of your community. Share your thoughts and make a difference."
+msgstr "तुमचा आवाज महत्त्वाचा आहे! आमच्या सर्वेक्षणांमध्ये भाग घ्या आणि तुमच्या समुदायाचे भविष्य घडवण्यासाठी मदत करा. तुमचे विचार शेअर करा आणि बदल घडवा."
+
+msgid "Ongoing Surveys"
+msgstr "सद्यस्थितीतील सर्वेक्षण"
+
+msgid "Take part in the latest surveys conducted by your Panchayat."
+msgstr "तुमच्या पंचायतद्वारे आयोजित केलेल्या नवीनतम सर्वेक्षणांमध्ये भाग घ्या."
+
+msgid "View Surveys"
+msgstr "सर्वेक्षण पहा"
+
+msgid "Submit Feedback"
+msgstr "अभिप्राय पाठवा"
+
+msgid "Share your valuable feedback directly with us."
+msgstr "तुमचा मौल्यवान अभिप्राय थेट आमच्यासोबत शेअर करा."
+
+msgid "Results & Insights"
+msgstr "निकाल आणि अंतर्दृष्टी"
+
+msgid "Explore outcomes and insights from completed surveys."
+msgstr "पूर्ण झालेल्या सर्वेक्षणांचे परिणाम आणि अंतर्दृष्टी पहा."
+
+
+
+
+
+msgid "Participate in Active Surveys"
+msgstr "सक्रिय सर्वेक्षणांमध्ये भाग घ्या"
+
+
+msgid "Ends:"
+msgstr "समाप्ती:"
+
+msgid "Questions:"
+msgstr "प्रश्न:"
+
+msgid "Created by:"
+msgstr "निर्माता:"
+
+msgid "Completed"
+msgstr "पूर्ण झाले"
+
+msgid "Take Survey"
+msgstr "सर्वेक्षण घ्या"
+
+msgid "No ongoing surveys available."
+msgstr "सद्यस्थितीत कोणतेही सर्वेक्षण उपलब्ध नाही."
+
+msgid "Survey Results & Insights - Panchayat App"
+msgstr "सर्वेक्षण निकाल आणि अंतर्दृष्टी - पंचायत अॅप"
+
+msgid "Survey Results & Insights"
+msgstr "सर्वेक्षण निकाल आणि अंतर्दृष्टी"
+
+msgid "View insights and results from completed surveys."
+msgstr "पूर्ण झालेल्या सर्वेक्षणांचे निकाल आणि अंतर्दृष्टी पहा."
+
+msgid "Ended:"
+msgstr "समाप्त झाले:"
+
+
+msgid "Total Responses:"
+msgstr "एकूण प्रतिसाद:"
+
+
+msgid "View Responses"
+msgstr "प्रतिक्रिया पहा"
+
+
+msgid "Submit Feedback - Panchayat App"
+msgstr "अभिप्राय सबमिट करा - पंचायत अॅप"
+
+msgid "Submit Your Feedback"
+msgstr "आपला अभिप्राय सबमिट करा"
+
+msgid "We Value Your Feedback"
+msgstr "आम्ही तुमच्या अभिप्रायाचे मूल्य मानतो"
+
+msgid "Let us know your suggestions or concerns. Your input helps us improve the community experience."
+msgstr "तुमचे सुचवलेले बदल किंवा चिंता आम्हाला कळवा. तुमचा अभिप्राय समुदायाचा अनुभव सुधारण्यास मदत करतो."
+
+msgid "Your Feedback"
+msgstr "तुमचा अभिप्राय"
+
+
+msgid "Events - Panchayat App"
+msgstr "घटना - पंचायत अॅप"
+
+
+msgid "Village Events & Gatherings"
+msgstr "गावातील कार्यक्रम आणि सभा"
+
+msgid "Stay updated with the latest events happening in your community."
+msgstr "तुमच्या समुदायात होणाऱ्या नवीनतम कार्यक्रमांबद्दल अद्ययावत राहा."
+
+msgid "Event Image"
+msgstr "कार्यक्रम प्रतिमा"
+
+msgid "View Details"
+msgstr "तपशील पहा"
+
+msgid "No upcoming events at the moment."
+msgstr "सध्या कोणतेही आगामी कार्यक्रम नाहीत."
+
+msgid "Gallery - Panchayat App"
+msgstr "गॅलरी - पंचायत अॅप"
+
+msgid "Event Photo Gallery"
+msgstr "कार्यक्रम फोटो गॅलरी"
+
+msgid "Events Gallery"
+msgstr "कार्यक्रम गॅलरी"
+
+msgid "Explore moments from various Gram Panchayat events and initiatives."
+msgstr "विविध ग्रामपंचायत कार्यक्रम आणि उपक्रमांचे क्षण शोधा."
+
+msgid "Village Event"
+msgstr "गावाचा कार्यक्रम"
+
+msgid "Farmer Meeting"
+msgstr "शेतकरी बैठक"
+
+msgid "Cultural Program"
+msgstr "सांस्कृतिक कार्यक्रम"
+
+msgid "Festival Celebration"
+msgstr "सण उत्सव"
+
+msgid "Women Empowerment Event"
+msgstr "महिला सशक्तीकरण कार्यक्रम"
+
+msgid "Education Initiative"
+msgstr "शिक्षण उपक्रम"
+
+msgid "Environmental Drive"
+msgstr "पर्यावरण मोहिम"
+
+msgid "Health Awareness Camp"
+msgstr "आरोग्य जागरूकता शिबीर"
+
+msgid "Gram Panchayat Events Gallery"
+msgstr "ग्रामपंचायत कार्यक्रम गॅलरी"
+
+msgid "Explore memorable moments from various Gram Panchayat events and initiatives."
+msgstr "विविध ग्रामपंचायत कार्यक्रम आणि उपक्रमांतील संस्मरणीय क्षण शोधा."
+
+msgid "No images available at the moment."
+msgstr "सध्या कोणतीही प्रतिमा उपलब्ध नाही."
+
+msgid "Village Dashboard - Panchayat App"
+msgstr "गाव डॅशबोर्ड - पंचायत अॅप"
+
+msgid "Village Dashboard"
+msgstr "गाव डॅशबोर्ड"
+
+msgid "Village Statistics"
+msgstr "गावाची आकडेवारी"
+
+msgid "Key insights and metrics about the village development and initiatives."
+msgstr "गावाच्या विकास आणि उपक्रमांबद्दल महत्त्वाच्या माहिती आणि मेट्रिक्स."
+
+msgid "Population"
+msgstr "लोकसंख्या"
+
+msgid "Literacy Rate"
+msgstr "साक्षरता दर"
+
+msgid "Ongoing Projects"
+msgstr "सुरू असलेली प्रकल्प"
+
+msgid "Annual Budget"
+msgstr "वार्षिक बजेट"
+
+msgid "Village Location"
+msgstr "गावाचा ठिकाण"
+
+msgid "Employment Rate"
+msgstr "रोजगार दर"
+
+msgid "Recent Updates"
+msgstr "ताज्या अद्यतने"
+
+msgid "Latest announcements and ongoing initiatives in the village."
+msgstr "गावातील ताज्या घोषणा आणि चालू उपक्रम."
+
+msgid "No recent updates available."
+msgstr "कोणतीही ताजी अद्यतने उपलब्ध नाहीत."
+
+msgid "Panchayat Profile - Panchayat App"
+msgstr "पंचायत प्रोफाइल - पंचायत अॅप"
+
+msgid "Panchayat Profile"
+msgstr "पंचायत प्रोफाइल"
+
+msgid "Panchayat Members"
+msgstr "पंचायत सदस्य"
+
+msgid "Meet the key members leading the village governance."
+msgstr "गाव प्रशासनाचे नेतृत्व करणाऱ्या प्रमुख सदस्यांची भेट घ्या."
+
+msgid "No Panchayat members found."
+msgstr "कोणतेही पंचायत सदस्य आढळले नाहीत."
+
+msgid "Job Opportunities - Panchayat App"
+msgstr "नोकरी संधी - पंचायत अॅप"
+
+msgid "Job Opportunities"
+msgstr "नोकरी संधी"
+
+msgid "Location"
+msgstr "स्थान"
+
+msgid "Salary"
+msgstr "पगार"
+
+msgid "Not specified"
+msgstr "निर्दिष्ट नाही"
+
+msgid "Contact"
+msgstr "संपर्क"
+
+msgid "Job Application"
+msgstr "नोकरीसाठी अर्ज"
+
+msgid "Dear"
+msgstr "प्रिय"
+
+msgid "I would like to apply for the"
+msgstr "मी या पदासाठी अर्ज करू इच्छितो"
+
+msgid "position at"
+msgstr "या ठिकाणी"
+
+msgid "Please let me know the next steps."
+msgstr "कृपया मला पुढील टप्प्यांविषयी कळवा."
+
+msgid "Thank you,"
+msgstr "धन्यवाद,"
+
+
+
+msgid "No job opportunities available at the moment."
+msgstr "सध्या कोणत्याही नोकरीच्या संधी उपलब्ध नाहीत."
+
+msgid "To apply for"
+msgstr "या पदासाठी अर्ज करण्यासाठी"
+
+msgid "please contact"
+msgstr "कृपया संपर्क साधा"
+
+msgid "Local Tourism - Panchayat App"
+msgstr "स्थानिक पर्यटन - पंचायत अॅप"
+
+msgid "Local Tourism & Assistance"
+msgstr "स्थानिक पर्यटन आणि सहाय्य"
+
+
+
+msgid "Best Time to Visit"
+msgstr "भेट देण्यासाठी सर्वोत्तम वेळ"
+
+msgid "Anytime"
+msgstr "कोणत्याही वेळी"
+
+
+msgid "Not available"
+msgstr "उपलब्ध नाही"
+
+msgid "No tourism spots available at the moment."
+msgstr "सध्या कोणतेही पर्यटन स्थळे उपलब्ध नाहीत."
+
+msgid "Back to Dashboard"
+msgstr "डॅशबोर्डवर परत जा"
+
+msgid "Default Profile"
+msgstr "मूलभूत प्रोफाइल"
+
+msgid "Personal Details"
+msgstr "वैयक्तिक माहिती"
+
+msgid "Aadhar No"
+msgstr "आधार क्रमांक"
+
+msgid "PAN No"
+msgstr "पॅन क्रमांक"
+
+msgid "Logout"
+msgstr "बाहेर पडा"
+
+msgid "E-Grampanchayat"
+msgstr "ई-ग्रामपंचायत"
+
+msgid "Profile"
+msgstr "प्रोफाइल"
+
+msgid "Back"
+msgstr "मागे"
+
+msgid "Dashboard"
+msgstr "डॅशबोर्ड"
+
+msgid "Staff Profile - Panchayat App"
+msgstr "कर्मचारी प्रोफाइल - पंचायत अॅप"
+
+msgid "Staff Details"
+msgstr "कर्मचारी तपशील"
+
+msgid "Department"
+msgstr "विभाग"
+
+msgid "Role"
+msgstr "भूमिका"
+
+msgid "Joined On"
+msgstr "सामील झाले"
+
+msgid "Assigned Certificate Applications"
+msgstr "नियुक्त प्रमाणपत्र अर्ज"
+
+msgid "ID"
+msgstr "आयडी"
+
+msgid "No assigned certificates at the moment."
+msgstr "सध्या कोणतीही नियुक्त प्रमाणपत्रे नाहीत."
+
+msgid "Staff Dashboard - Panchayat App"
+msgstr "कर्मचारी डॅशबोर्ड - पंचायत अॅप"
+
+msgid "Welcome, "
+msgstr "स्वागत आहे, "
+
+msgid "Manage services efficiently."
+msgstr "सेवा कार्यक्षमतेने व्यवस्थापित करा."
+
+msgid "Certificate Management"
+msgstr "प्रमाणपत्र व्यवस्थापन"
+
+msgid "Manage Birth, Death, Marriage & Domicile Certificates."
+msgstr "जन्म, मृत्यू, विवाह आणि रहिवासी प्रमाणपत्रे व्यवस्थापित करा."
+
+
+
+msgid "Manage Certificates"
+msgstr "प्रमाणपत्रे व्यवस्थापित करा"
+
+
+
+msgid "Manage and track tax payments."
+msgstr "कर पेमेंट व्यवस्थापित आणि ट्रॅक करा."
+
+msgid "Manage Taxes"
+msgstr "कर व्यवस्थापित करा"
+
+
+
+msgid "Manage job postings in the village."
+msgstr "गावातील नोकरीच्या जाहिराती व्यवस्थापित करा."
+
+msgid "Total Jobs"
+msgstr "एकूण नोकऱ्या"
+
+msgid "Manage Jobs"
+msgstr "नोकऱ्या व्यवस्थापित करा"
+
+msgid "Panchayat Profiles"
+msgstr "पंचायत प्रोफाइल"
+
+msgid "Manage Panchayat members and their details."
+msgstr "पंचायत सदस्य आणि त्यांचे तपशील व्यवस्थापित करा."
+
+msgid "Total Members"
+msgstr "एकूण सदस्य"
+
+msgid "Manage Profiles"
+msgstr "प्रोफाइल व्यवस्थापित करा"
+
+msgid "Helpdesk & FAQs"
+msgstr "सहाय्य केंद्र आणि वारंवार विचारले जाणारे प्रश्न"
+
+msgid "Manage support requests and FAQs."
+msgstr "सहाय्य विनंत्या आणि वारंवार विचारले जाणारे प्रश्न व्यवस्थापित करा."
+
+msgid "Manage Helpdesk"
+msgstr "सहाय्य केंद्र व्यवस्थापित करा"
+
+msgid "Manage FAQs"
+msgstr "वारंवार विचारले जाणारे प्रश्न व्यवस्थापित करा"
+
+msgid "Photo Gallery"
+msgstr "फोटो गॅलरी"
+
+msgid "Manage event images for the user gallery."
+msgstr "वापरकर्त्याच्या गॅलरीसाठी कार्यक्रम प्रतिमा व्यवस्थापित करा."
+
+msgid "Total Images"
+msgstr "एकूण प्रतिमा"
+
+msgid "Manage Gallery"
+msgstr "गॅलरी व्यवस्थापित करा"
+
+msgid "Manage community surveys and responses."
+msgstr "समुदाय सर्वेक्षणे आणि प्रतिसाद व्यवस्थापित करा."
+
+msgid "Total Surveys"
+msgstr "एकूण सर्वेक्षणे"
+
+msgid "Active"
+msgstr "सक्रिय"
+
+msgid "Manage Surveys"
+msgstr "सर्वेक्षणे व्यवस्थापित करा"
+
+msgid "Schemes Management"
+msgstr "योजना व्यवस्थापन"
+
+msgid "Manage health & education schemes."
+msgstr "आरोग्य आणि शिक्षण योजना व्यवस्थापित करा."
+
+msgid "Manage Schemes"
+msgstr "योजना व्यवस्थापित करा"
+
+msgid "Local Tourism"
+msgstr "स्थानिक पर्यटन"
+
+msgid "Manage tourism spots & assistance."
+msgstr "पर्यटन स्थळे आणि सहाय्यता व्यवस्थापित करा."
+
+msgid "Total Places"
+msgstr "एकूण स्थळे"
+
+msgid "Manage Tourism"
+msgstr "पर्यटन व्यवस्थापित करा"
+
+
+
+
+
+msgid "Document"
+msgstr "दस्तऐवज"
+
+
+
+msgid "Action"
+msgstr "कृती"
+
+
+
+msgid "✅ Approve"
+msgstr "✅ मंजूर करा"
+
+msgid "❌ Reject"
+msgstr "❌ नाकारले"
+
+msgid "📄 View Document"
+msgstr "📄 दस्तऐवज पहा"
+
+msgid "Processed"
+msgstr "प्रक्रिया पूर्ण"
+
+msgid "No pending applications."
+msgstr "कोणतीही प्रलंबित अर्ज नाहीत."
+
+msgid "Add New Tax"
+msgstr "नवीन कर जोडा"
+
+msgid "Outstanding"
+msgstr "थकबाकी"
+
+msgid "Actions"
+msgstr "क्रिया"
+
+msgid "Edit"
+msgstr "संपादित करा"
+
+msgid "No taxes available."
+msgstr "कोणतेही कर उपलब्ध नाहीत."
+
+msgid "Recent Tax Payments"
+msgstr "अलीकडील कर देयके"
+
+msgid "Tax Type"
+msgstr "कर प्रकार"
+
+msgid "Amount"
+msgstr "रक्कम"
+
+msgid "No tax payments recorded."
+msgstr "कोणतेही कर देयके नोंदवलेले नाहीत."
+
+msgid "Edit Tax"
+msgstr "कर संपादित करा"
+
+
+
+msgid "Outstanding Amount"
+msgstr "थकबाकी रक्कम"
+
+msgid "Save Changes"
+msgstr "बदल जतन करा"
+
+
+
+msgid "Description"
+msgstr "वर्णन"
+
+msgid "Outstanding Amount (₹)"
+msgstr "थकबाकी रक्कम (₹)"
+
+msgid "Add Tax"
+msgstr "कर जोडा"
+
+msgid "Job Opportunities Management"
+msgstr "नोकरी संधी व्यवस्थापन"
+
+msgid "Add New Job"
+msgstr "नवीन नोकरी जोडा"
+
+msgid "Available Job Opportunities"
+msgstr "उपलब्ध नोकरी संधी"
+
+msgid "Job Title"
+msgstr "नोकरी शीर्षक"
+
+msgid "Company"
+msgstr "कंपनी"
+
+
+
+msgid "Delete"
+msgstr "हटवा"
+
+msgid "No job opportunities available."
+msgstr "कोणत्याही नोकरी संधी उपलब्ध नाहीत."
+
+msgid "Add Job Opportunity - Panchayat App"
+msgstr "नोकरीची संधी जोडा - पंचायत अॅप"
+
+msgid "Add Job Opportunity"
+msgstr "नोकरीची संधी जोडा"
+
+
+msgid "Company Name"
+msgstr "कंपनीचे नाव"
+
+
+
+msgid "Salary (INR)"
+msgstr "पगार (INR)"
+
+msgid "Job Description"
+msgstr "नोकरीचे वर्णन"
+
+msgid "Cancel"
+msgstr "रद्द करा"
+
+msgid "Add Job"
+msgstr "नोकरी जोडा"
+
+msgid "Delete Job - Panchayat App"
+msgstr "नोकरी हटवा - पंचायत अॅप"
+
+msgid "Confirm Deletion"
+msgstr "हटविण्याची पुष्टी करा"
+
+msgid "Are you sure you want to delete the job:"
+msgstr "तुम्हाला खात्री आहे का की तुम्ही ही नोकरी हटवू इच्छिता:"
+
+msgid "Tourism Management - Panchayat App"
+msgstr "पर्यटन व्यवस्थापन - पंचायत अॅप"
+
+msgid "Local Tourism Management"
+msgstr "स्थानिक पर्यटन व्यवस्थापन"
+
+msgid "Add New Spot"
+msgstr "नवीन पर्यटन स्थळ जोडा"
+
+msgid "Tourism Spots"
+msgstr "पर्यटन स्थळे"
+
+
+
+msgid "Best Time"
+msgstr "सर्वोत्तम वेळ"
+
+
+
+msgid "No tourism spots available."
+msgstr "कोणतीही पर्यटन स्थळे उपलब्ध नाहीत."
+
+msgid "Add Tourism Spot - Panchayat App"
+msgstr "पर्यटन स्थळ जोडा - पंचायत अॅप"
+
+msgid "Add New Tourism Spot"
+msgstr "नवीन पर्यटन स्थळ जोडा"
+
+msgid "Spot Name"
+msgstr "स्थळाचे नाव"
+
+
+
+msgid "Contact Information"
+msgstr "संपर्क माहिती"
+
+msgid "Optional"
+msgstr "ऐच्छिक"
+
+msgid "Add Spot"
+msgstr "स्थळ जोडा"
+
+msgid "Manage Village Dashboard - Panchayat App"
+msgstr "गाव डॅशबोर्ड व्यवस्थापन - पंचायत अॅप"
+
+msgid "Manage Village Dashboard"
+msgstr "गाव डॅशबोर्ड व्यवस्थापित करा"
+
+
+
+msgid "Literacy Rate (%)"
+msgstr "साक्षरता दर (%)"
+
+
+
+msgid "Employment Rate (%)"
+msgstr "रोजगार दर (%)"
+
+msgid "Update Statistics"
+msgstr "आकडेवारी अपडेट करा"
+
+msgid "Manage Village Updates"
+msgstr "गाव अपडेट व्यवस्थापित करा"
+
+msgid "Update Title"
+msgstr "अपडेट शीर्षक"
+
+msgid "Update Description"
+msgstr "अपडेट वर्णन"
+
+msgid "Add Update"
+msgstr "अपडेट जोडा"
+
+msgid "Title"
+msgstr "शीर्षक"
+
+
+
+msgid "No updates available."
+msgstr "कोणतेही अपडेट उपलब्ध नाहीत."
+
+msgid "Manage Panchayat Members - Panchayat App"
+msgstr "पंचायत सदस्य व्यवस्थापन - पंचायत अॅप"
+
+msgid "Manage Panchayat Members"
+msgstr "पंचायत सदस्य व्यवस्थापित करा"
+
+msgid "Add New Member"
+msgstr "नवीन सदस्य जोडा"
+
+
+msgid "Name"
+msgstr "नाव"
+
+
+
+msgid "No members found."
+msgstr "कोणतेही सदस्य आढळले नाहीत."
+
+msgid "Add Panchayat Member - Panchayat App"
+msgstr "पंचायत सदस्य जोडा - पंचायत अॅप"
+
+msgid "Add Panchayat Member"
+msgstr "पंचायत सदस्य जोडा"
+
+
+
+msgid "Image URL"
+msgstr "प्रतिमा URL"
+
+msgid "Add Member"
+msgstr "सदस्य जोडा"
+
+
+
+msgid "Schedule and manage Gram Sabha meetings."
+msgstr "ग्रामसभा बैठकींचे वेळापत्रक आणि व्यवस्थापन करा."
+
+msgid "Total Meetings"
+msgstr "एकूण सभा"
+
+msgid "Manage Meetings"
+msgstr "सभांचे व्यवस्थापन करा"
+
+
+msgid "Manage Meetings - Panchayat App"
+msgstr "सभेचे व्यवस्थापन - पंचायत अॅप"
+
+
+
+msgid "Add New Meeting"
+msgstr "नवीन सभा जोडा"
+
+msgid "Scheduled Meetings"
+msgstr "योजना केलेल्या सभा"
+
+
+
+msgid "Date"
+msgstr "तारीख"
+
+msgid "Time"
+msgstr "वेळ"
+
+
+
+msgid "No meetings scheduled."
+msgstr "कोणत्याही सभा नियोजित नाहीत."
+
+msgid "Add Meeting - Panchayat App"
+msgstr "बैठक जोडा - पंचायत अॅप"
+
+
+
+
+
+
+msgid "Add Meeting"
+msgstr "बैठक जोडा"
+
+msgid "Manage Schemes - Panchayat App"
+msgstr "योजना व्यवस्थापन - पंचायत अॅप"
+
+
+
+msgid "Add New Scheme"
+msgstr "नवीन योजना जोडा"
+
+msgid "Health Schemes"
+msgstr "आरोग्य योजना"
+
+msgid "Education Schemes"
+msgstr "शिक्षण योजना"
+
+msgid "Add Scheme - Panchayat App"
+msgstr "योजना जोडा - पंचायत अॅप"
+
+msgid "Add Scheme"
+msgstr "योजना जोडा"
+
+
+
+msgid "Category"
+msgstr "वर्ग"
+
+msgid "Health"
+msgstr "आरोग्य"
+
+msgid "Education"
+msgstr "शिक्षण"
+
+msgid "Eligibility"
+msgstr "पात्रता"
+
+msgid "Link"
+msgstr "लिंक"
+
+msgid "Manage Helpdesk - Panchayat App"
+msgstr "मदत केंद्र व्यवस्थापन - पंचायत अॅप"
+
+msgid "Manage Helpdesk Support"
+msgstr "मदत केंद्र समर्थन व्यवस्थापित करा"
+
+msgid "Support Requests"
+msgstr "समर्थन विनंत्या"
+
+msgid "Mark as Resolved"
+msgstr "निकाली काढा"
+
+msgid "No support requests available."
+msgstr "कोणत्याही समर्थन विनंत्या उपलब्ध नाहीत."
+
+msgid "Manage FAQs - Panchayat App"
+msgstr "FAQ व्यवस्थापन - पंचायत अॅप"
+
+
+
+msgid "Add New FAQ"
+msgstr "नवीन FAQ जोडा"
+
+msgid "FAQs"
+msgstr "वारंवार विचारले जाणारे प्रश्न"
+
+
+
+
+
+msgid "No FAQs available."
+msgstr "कोणतेही FAQ उपलब्ध नाहीत."
+
+msgid "Edit FAQ - Panchayat App"
+msgstr "FAQ संपादित करा - पंचायत अॅप"
+
+msgid "Edit FAQ"
+msgstr "FAQ संपादित करा"
+
+msgid "Question"
+msgstr "प्रश्न"
+
+msgid "Answer"
+msgstr "उत्तर"
+
+msgid "Update FAQ"
+msgstr "FAQ अद्यतनित करा"
+
+msgid "Back to FAQ List"
+msgstr "FAQ यादीत परत जा"
+
+msgid "Delete FAQ - Panchayat App"
+msgstr "FAQ हटवा - पंचायत अॅप"
+
+msgid "Delete FAQ"
+msgstr "FAQ हटवा"
+
+msgid "Are you sure you want to delete this FAQ?"
+msgstr "तुम्हाला ही FAQ हटवायची खात्री आहे का?"
+
+msgid "Confirm Delete"
+msgstr "हटवा पुष्टी करा"
+
+msgid "Cancel & Go Back"
+msgstr "रद्द करा आणि परत जा"
+
+msgid "Add FAQ - Panchayat App"
+msgstr "FAQ जोडा - पंचायत अॅप"
+
+
+
+
+
+
+msgid "Add FAQ"
+msgstr "FAQ जोडा"
+
+
+
+msgid "Add New Image"
+msgstr "नवीन प्रतिमा जोडा"
+
+
+
+msgid "No images available."
+msgstr "कोणत्याही प्रतिमा उपलब्ध नाहीत."
+
+msgid "Add Image to Gallery"
+msgstr "गॅलरीमध्ये प्रतिमा जोडा"
+
+
+
+msgid "Upload Image"
+msgstr "प्रतिमा अपलोड करा"
+
+msgid "Add Survey - Panchayat App"
+msgstr "सर्वेक्षण जोडा - पंचायत ॲप"
+
+msgid "Add New Survey"
+msgstr "नवीन सर्वेक्षण जोडा"
+
+
+
+msgid "Add Survey"
+msgstr "सर्वेक्षण जोडा"
+
+msgid "Back to Surveys"
+msgstr "सर्वेक्षणांवर परत जा"
+
+msgid "Delete Feedback - Panchayat App"
+msgstr "प्रतिक्रिया हटवा - पंचायत ॲप"
+
+msgid "Delete Feedback"
+msgstr "प्रतिक्रिया हटवा"
+
+msgid "Are you sure you want to delete this feedback?"
+msgstr "आपल्याला ही प्रतिक्रिया हटवायची आहे का?"
+
+msgid "User"
+msgstr "वापरकर्ता"
+
+msgid "Anonymous"
+msgstr "अनामिक"
+
+msgid "Submitted on"
+msgstr "सादर दिनांक"
+
+
+
+msgid "Yes, Delete Feedback"
+msgstr "होय, प्रतिक्रिया हटवा"
+
+
+
+msgid "Delete Survey - Panchayat App"
+msgstr "सर्वेक्षण हटवा - पंचायत ॲप"
+
+msgid "Delete Survey"
+msgstr "सर्वेक्षण हटवा"
+
+msgid "Are you sure you want to delete the survey"
+msgstr "आपल्याला हे सर्वेक्षण हटवायचे आहे का"
+
+msgid "This action is irreversible."
+msgstr "ही क्रिया अपरिवर्तनीय आहे."
+
+msgid "Yes, Delete Survey"
+msgstr "होय, सर्वेक्षण हटवा"
+
+
+
+msgid "Manage Surveys - Panchayat App"
+msgstr "सर्वेक्षण व्यवस्थापन - पंचायत ॲप"
+
+
+
+
+
+msgid "Available Surveys"
+msgstr "उपलब्ध सर्वेक्षण"
+
+
+
+msgid "Closed"
+msgstr "बंद"
+
+
+
+
+
+msgid "Activate"
+msgstr "सक्रिय करा"
+
+
+
+msgid "No surveys available."
+msgstr "कोणतेही सर्वेक्षण उपलब्ध नाहीत."
+
+msgid "Citizen Feedback on Surveys"
+msgstr "सर्वेक्षणावरील नागरिक प्रतिक्रिया"
+
+msgid "View feedback submitted by citizens regarding surveys."
+msgstr "सर्वेक्षणासंबंधी नागरिकांनी दिलेल्या प्रतिक्रियांचा आढावा घ्या."
+
+
+
+
+
+msgid "Date Submitted"
+msgstr "सबमिट करण्याची तारीख"
+
+
+
+msgid "No feedback available."
+msgstr "कोणतीही प्रतिक्रिया उपलब्ध नाही."
+
+msgid "Survey Responses - Panchayat App"
+msgstr "सर्वेक्षण प्रतिसाद - पंचायत ॲप"
+
+msgid "Survey Responses"
+msgstr "सर्वेक्षण प्रतिसाद"
+
+msgid "Responses submitted by users for the survey"
+msgstr "सर्वेक्षणासाठी वापरकर्त्यांनी सादर केलेले प्रतिसाद"
+
+msgid "Survey Details"
+msgstr "सर्वेक्षण तपशील"
+
+
+
+msgid "Created On"
+msgstr "निर्माण तारीख"
+
+
+
+
+
+msgid "User Responses"
+msgstr "वापरकर्ता प्रतिसाद"
+
+
+
+msgid "Response"
+msgstr "प्रतिसाद"
+
+msgid "Submitted At"
+msgstr "सबमिट केलेली वेळ"
+
+msgid "No response provided"
+msgstr "कोणताही प्रतिसाद दिला नाही"
+
+msgid "No responses available."
+msgstr "कोणतेही प्रतिसाद उपलब्ध नाहीत."
+
+msgid "Back to Survey List"
+msgstr "सर्वेक्षण यादीकडे परत जा"
+
+
+msgid "Birth Certificate - Panchayat App"
+msgstr "जन्म प्रमाणपत्र - पंचायत अ‍ॅप"
+
+
+
+
+
+
+
+msgid "Enter parent’s name"
+msgstr "पालकांचे नाव प्रविष्ट करा"
+
+
+
+msgid "Submit Application"
+msgstr "अर्ज सबमिट करा"
+
+msgid "Required Documents & Conditions"
+msgstr "आवश्यक कागदपत्रे आणि अटी"
+
+msgid "Required Documents"
+msgstr "आवश्यक कागदपत्रे"
+
+msgid "Proof of Birth:"
+msgstr "जन्माचा पुरावा:"
+
+msgid "Hospital birth certificate or affidavit for home birth."
+msgstr "रुग्णालयाचे जन्म प्रमाणपत्र किंवा घरगुती जन्मासाठी शपथपत्र."
+
+msgid "Identity Proof of Parents:"
+msgstr "पालकांचे ओळखपत्र:"
+
+msgid "Aadhaar Card, Voter ID, Passport, or Driving License."
+msgstr "आधार कार्ड, मतदार ओळखपत्र, पासपोर्ट किंवा ड्रायव्हिंग लायसन्स."
+
+msgid "Address Proof:"
+msgstr "पत्त्याचा पुरावा:"
+
+msgid "Ration Card, Utility Bill, or Property Tax Receipt."
+msgstr "रेशन कार्ड, वीज/पाणी बिल किंवा मालमत्ता कर पावती."
+
+msgid "Parent’s Marriage Certificate:"
+msgstr "पालकांचे विवाह प्रमाणपत्र:"
+
+msgid "If available."
+msgstr "जर उपलब्ध असेल."
+
+msgid "Affidavit:"
+msgstr "शपथपत्र:"
+
+msgid "Required for delayed registration beyond 21 days."
+msgstr "२१ दिवसांपेक्षा अधिक उशीर झाल्यास शपथपत्र आवश्यक आहे."
+
+msgid "Conditions for Application"
+msgstr "अर्जासाठी अटी"
+
+msgid "Births should be registered within 21 days at the Gram Panchayat."
+msgstr "जन्म २१ दिवसांच्या आत ग्रामपंचायतीत नोंदवले जाणे आवश्यक आहे."
+
+msgid "Late registrations (21-30 days) require a fee of ₹2."
+msgstr "उशिरा नोंदणी (२१-३० दिवस) साठी ₹२ शुल्क आवश्यक आहे."
+
+msgid "Registrations beyond 30 days need permission from authorities and an affidavit."
+msgstr "३० दिवसांपेक्षा जास्त उशीर झाल्यास अधिकाऱ्यांची परवानगी आणि शपथपत्र आवश्यक आहे."
+
+msgid "For registrations beyond one year, a magistrate’s order is necessary."
+msgstr "एक वर्षांपेक्षा अधिक उशीर झाल्यास, न्यायाधीशाचा आदेश आवश्यक आहे."
+
+msgid "Application Process"
+msgstr "अर्ज प्रक्रिया"
+
+msgid "Fill in all required details correctly."
+msgstr "सर्व आवश्यक माहिती अचूकपणे भरा."
+
+msgid "Attach all necessary documents."
+msgstr "सर्व आवश्यक कागदपत्रे जोडा."
+
+msgid "Submit the form."
+msgstr "फॉर्म सबमिट करा."
+
+msgid "After verification, the birth certificate will be issued within 5-7 working days."
+msgstr "सत्यापनानंतर ५-७ कार्यदिवसांमध्ये जन्म प्रमाणपत्र दिले जाईल."
+
+
+
+msgid "Death Certificate - Panchayat App"
+msgstr "मृत्यू प्रमाणपत्र - पंचायत अ‍ॅप"
+
+
+msgid "Enter full name of the deceased"
+msgstr "मृत व्यक्तीचे संपूर्ण नाव प्रविष्ट करा"
+
+
+
+
+msgid "Medical Certificate:"
+msgstr "वैद्यकीय प्रमाणपत्र:"
+
+msgid "Issued by a hospital or registered medical practitioner."
+msgstr "रुग्णालय किंवा नोंदणीकृत वैद्यकीय व्यवसायीकाने जारी केलेले."
+
+msgid "Identity Proof of Deceased:"
+msgstr "मृत व्यक्तीचे ओळखपत्र:"
+
+msgid "Aadhaar Card, Passport, or Voter ID."
+msgstr "आधार कार्ड, पासपोर्ट किंवा मतदार ओळखपत्र."
+
+msgid "Identity Proof of Applicant:"
+msgstr "अर्जदाराचे ओळखपत्र:"
+
+msgid "Aadhaar Card, Voter ID, or Passport."
+msgstr "आधार कार्ड, मतदार ओळखपत्र किंवा पासपोर्ट."
+
+
+
+msgid "Required in case of delayed registration beyond 21 days."
+msgstr "२१ दिवसांपेक्षा उशिर झाल्यास शपथपत्र आवश्यक आहे."
+
+
+
+msgid "Deaths should be registered within 21 days at the Gram Panchayat."
+msgstr "मृत्यू २१ दिवसांच्या आत ग्रामपंचायतीत नोंदवणे आवश्यक आहे."
+
+
+
+
+
+msgid "After verification, the death certificate will be issued within 5-7 working days."
+msgstr "सत्यापनानंतर, ५-७ कार्यदिवसांमध्ये मृत्यू प्रमाणपत्र दिले जाईल."
+
+
+msgid "Marriage Certificate - Panchayat App"
+msgstr "विवाह प्रमाणपत्र - पंचायत अ‍ॅप"
+
+
+msgid "Apply for Marriage Certificate"
+msgstr "विवाह प्रमाणपत्रासाठी अर्ज करा"
+
+
+msgid "Enter husband’s full name"
+msgstr "पतीचे संपूर्ण नाव प्रविष्ट करा"
+
+
+msgid "Enter wife’s full name"
+msgstr "पत्नीचे संपूर्ण नाव प्रविष्ट करा"
+
+
+
+msgid "Identity Proof:"
+msgstr "ओळखपत्र:"
+
+msgid "Aadhaar Card, Voter ID, Passport, or Driving License of both spouses."
+msgstr "आधार कार्ड, मतदार ओळखपत्र, पासपोर्ट किंवा दोघांचे वाहन परवाना."
+
+
+msgid "Marriage Invitation Card:"
+msgstr "विवाह निमंत्रण पत्रिका:"
+
+
+
+msgid "Photographs:"
+msgstr "छायाचित्रे:"
+
+msgid "Passport-sized photos of both spouses."
+msgstr "दोघांचे पासपोर्ट-साईज फोटो."
+
+
+msgid "Declaration of marriage from both spouses."
+msgstr "दोघांच्या विवाहाचा जाहीरनामा."
+
+
+msgid "Marriage must be registered within 30 days at the Gram Panchayat."
+msgstr "विवाह ३० दिवसांच्या आत ग्रामपंचायतीत नोंदवणे आवश्यक आहे."
+
+msgid "Late registrations require an affidavit and a penalty fee."
+msgstr "उशिरा नोंदणीसाठी शपथपत्र आणि दंड शुल्क आवश्यक आहे."
+
+msgid "Both spouses must be at least 18 years (for females) and 21 years (for males)."
+msgstr "स्त्रियांसाठी किमान १८ वर्षे आणि पुरुषांसाठी २१ वर्षे पूर्ण असणे आवश्यक आहे."
+
+msgid "Marriage should be conducted legally as per Hindu Marriage Act or Special Marriage Act."
+msgstr "विवाह हिंदू विवाह अधिनियम किंवा विशेष विवाह अधिनियमानुसार कायदेशीर असावा."
+
+
+
+
+msgid "After verification, the marriage certificate will be issued within 7-10 working days."
+msgstr "सत्यापनानंतर, विवाह प्रमाणपत्र ७-१० कार्यदिवसांमध्ये दिले जाईल."
+
+
+msgid "Water and Property Tax"
+msgstr "पाणी आणि मालमत्ता कर"
+
+msgid "Manage and pay your taxes efficiently."
+msgstr "तुमच्या करांचे व्यवस्थापन आणि भरणे कार्यक्षमतेने करा."
+
+
+msgid "Shramdan & Abhiyaans"
+msgstr "श्रमदान आणि अभियान"
+
+msgid "Participate in community initiatives."
+msgstr "समुदायाच्या उपक्रमांमध्ये सहभागी व्हा."
+
+
+msgid "Gramsabha Meetings"
+msgstr "ग्रामसभा बैठका"
+
+msgid "Stay updated on upcoming discussions."
+msgstr "आगामी चर्चांबद्दल अद्ययावत रहा."
+
+msgid "See Schedule"
+msgstr "वेळापत्रक पहा"
+
+
+msgid "Apply for birth, death or marriage certificates."
+msgstr "जन्म, मृत्यू किंवा लग्न प्रमाणपत्रासाठी अर्ज करा."
+
+
+msgid "Explore available schemes and benefits."
+msgstr "उपलब्ध योजना आणि लाभांचा शोध घ्या."
+
+msgid "Learn More"
+msgstr "अधिक जाणून घ्या"
+
+
+msgid "Get assistance with your queries."
+msgstr "तुमच्या प्रश्नांसाठी मदत मिळवा."
+
+msgid "Contact Us"
+msgstr "आमच्याशी संपर्क साधा"
+
+
+msgid "Contribute your opinions and feedback."
+msgstr "तुमचे मत आणि अभिप्राय द्या."
+
+msgid "Participate"
+msgstr "सहभागी व्हा"
+
+msgid "Event Announcements"
+msgstr "कार्यक्रम जाहिराती"
+
+msgid "Check out the latest events in the village."
+msgstr "गावातील नवीनतम कार्यक्रम तपासा."
+
+msgid "View Events"
+msgstr "कार्यक्रम पहा"
+
+
+msgid "Relive memories from past events."
+msgstr "मागील कार्यक्रमांमधील आठवणी पुन्हा जगा."
+
+msgid "Browse Photos"
+msgstr "फोटो ब्राउझ करा"
+
+
+msgid "Access village statistics and updates."
+msgstr "गावाची आकडेवारी आणि अद्यतने मिळवा."
+
+msgid "View Dashboard"
+msgstr "डॅशबोर्ड पहा"
+
+
+msgid "Learn about Panchayat members and their roles."
+msgstr "पंचायत सदस्य आणि त्यांच्या भूमिकांबद्दल जाणून घ्या."
+
+msgid "Meet the Team"
+msgstr "संघाला भेट द्या"
+
+
+msgid "Find job openings in your village."
+msgstr "तुमच्या गावात नोकरीच्या संधी शोधा."
+
+msgid "View Jobs"
+msgstr "नोकऱ्या पहा"
+
+
+msgid "Explore local tourist spots & help services."
+msgstr "स्थानिक पर्यटन स्थळे आणि मदत सेवा एक्सप्लोर करा."
+
+msgid "View Locations"
+msgstr "स्थाने पहा"
+
+
+msgid "Menu"
+msgstr "मेनू"
+
+
+msgid "Taxes"
+msgstr "कर"
+
+
+
+msgid "Helpdesk"
+msgstr "हेल्पडेस्क"
+
+msgid "Manage Job Opportunities"
+msgstr "नोकरीच्या संधी व्यवस्थापित करा"
+
+msgid "Manage Local Tourism"
+msgstr "स्थानिक पर्यटन व्यवस्थापित करा"
+
+
+msgid "Staff Dashboard"
+msgstr "कर्मचारी डॅशबोर्ड"
+
+
+
+msgid "No new notifications"
+msgstr "नवीन सूचना नाहीत"
+
+msgid "Notifications"
+msgstr "सूचना"
+
+
+msgid "Update village statistics & insights."
+msgstr "गावाची आकडेवारी आणि अंतर्दृष्टी अद्ययावत करा."
+
+msgid "Manage Dashboard"
+msgstr "डॅशबोर्ड व्यवस्थापित करा"
+
+msgid "Gallery Images"
+msgstr "गॅलरी प्रतिमा"
+
+msgid "Birth"
+msgstr "जन्म"
+
+msgid "Death"
+msgstr "मृत्यू"
+
+msgid "Marriage"
+msgstr "विवाह"
+
+msgid "Domicile"
+msgstr "निवास"
+

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Manage Schemes - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        📜 {% trans "Manage Schemes" %}
+    </h1>
+
+    <!-- ✅ Add Scheme Button -->
+    <div class="text-center">
+        <a href="{% url 'add_scheme' %}" 
+           class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm sm:text-base">
+            ➕ {% trans "Add New Scheme" %}
+        </a>
+    </div>
+
+    <!-- ✅ Health Schemes Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-105">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
+            🏥 {% trans "Health Schemes" %}
+        </h2>
+
+        <!-- ✅ Health Schemes List -->
+        {% if health_schemes %}
+        <ul class="space-y-3">
+            {% for scheme in health_schemes %}
+            <li class="border-b pb-3 flex justify-between items-center">
+                <p class="text-sm font-medium text-gray-800">{{ scheme.title }}</p>
+                <div class="flex gap-3">
+                    <a href="{% url 'edit_scheme' scheme.id %}" 
+                       class="text-blue-600 hover:text-blue-800 transition-all transform hover:scale-105">
+                         {% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'delete_scheme' scheme.id %}" 
+                       class="text-red-600 hover:text-red-800 transition-all transform hover:scale-105">
+                         {% trans "Delete" %}
+                    </a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-gray-500 text-center">{% trans "No health schemes available." %}</p>
+        {% endif %}
+    </div>
+
+    <!-- ✅ Education Schemes Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 mt-6 transition-all transform hover:scale-105">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-green-700 mb-4 text-center">
+            📚 {% trans "Education Schemes" %}
+        </h2>
+
+        <!-- ✅ Education Schemes List -->
+        {% if education_schemes %}
+        <ul class="space-y-3">
+            {% for scheme in education_schemes %}
+            <li class="border-b pb-3 flex justify-between items-center">
+                <p class="text-sm font-medium text-gray-800">{{ scheme.title }}</p>
+                <div class="flex gap-3">
+                    <a href="{% url 'edit_scheme' scheme.id %}" 
+                       class="text-blue-600 hover:text-blue-800 transition-all transform hover:scale-105">
+                         {% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'delete_scheme' scheme.id %}" 
+                       class="text-red-600 hover:text-red-800 transition-all transform hover:scale-105">
+                         {% trans "Delete" %}
+                    </a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-gray-500 text-center">{% trans "No education schemes available." %}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

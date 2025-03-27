@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Survey Responses - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-6 p-4 sm:p-6 max-w-5xl mx-auto">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-xl sm:text-2xl font-bold text-green-700 text-center">
+        📊 {% trans "Survey Responses" %}
+    </h1>
+
+    <!-- ✅ Survey Details Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
+            📝 {% trans "Survey Details" %}
+        </h2>
+
+        <!-- ✅ Survey Details -->
+        <div class="space-y-2 text-sm sm:text-base text-gray-700">
+            <p><strong>{% trans "Title" %}:</strong> {{ survey.title }}</p>
+            <p><strong>{% trans "Description" %}:</strong> {{ survey.description }}</p>
+            <p><strong>{% trans "Created On" %}:</strong> {{ survey.created_at|date:"d M Y" }}</p>
+            <p><strong>{% trans "Status" %}:</strong> 
+                <span class="px-2 py-1 rounded-full text-xs sm:text-sm font-medium {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">
+                    {% if survey.is_active %}🟢 {% trans "Active" %}{% else %}🔴 {% trans "Closed" %}{% endif %}
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ✅ User Responses Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
+            📩 {% trans "User Responses" %}
+        </h2>
+
+        <!-- ✅ Responses Table -->
+        {% if responses %}
+        <div class="overflow-x-auto rounded-lg">
+            <table class="w-full border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "User" %}</th>
+                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "Response" %}</th>
+                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "Submitted At" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for response in responses %}
+                    <tr class="border-b hover:bg-gray-50 transition">
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.user.username }}</td>
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.response|default:_("No response provided") }}</td>
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.submitted_at|date:"d M Y, H:i A" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <!-- Empty State -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+            <p class="text-gray-500 text-sm sm:text-base">🚫 {% trans "No responses available." %}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- ✅ Back Link -->
+    <div class="text-center">
+        <a href="{% url 'manage_surveys' %}" 
+           class="text-blue-600 hover:text-blue-700 hover:underline transition">
+            🔙 {% trans "Back to Survey List" %}
+        </a>
+    </div>
+</div>
+{% endblock %}

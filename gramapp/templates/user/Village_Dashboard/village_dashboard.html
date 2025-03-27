@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Village Dashboard - Panchayat App" %}{% endblock %}
+{% block page_title %}📊 {% trans "Village Dashboard" %}{% endblock %}
+
+{% block content %}
+<main class="p-1 mb-12">
+
+    <!-- ✅ Page Header -->
+    <h2 class="text-lg sm:text-2xl font-bold text-blue-700 text-center mb-2">
+        🏡 {% trans "Village Statistics" %}
+    </h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mb-4">
+        {% trans "Key insights and metrics about the village development and initiatives." %}
+    </p>
+
+    <!-- ✅ Statistics Grid (Mobile-Friendly) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 text-center">
+        <div class="bg-green-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-green-800">👨‍👩‍👧‍👦 {% trans "Population" %}</h3>
+            <p class="text-base sm:text-xl font-bold">{{ village_stats.population }}</p>
+        </div>
+        <div class="bg-blue-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-blue-800">📚 {% trans "Literacy Rate" %}</h3>
+            <p class="text-base sm:text-xl font-bold">{{ village_stats.literacy_rate }}%</p>
+        </div>
+        <div class="bg-yellow-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-yellow-800">🏗️ {% trans "Ongoing Projects" %}</h3>
+            <p class="text-base sm:text-xl font-bold">{{ village_stats.ongoing_projects }}</p>
+        </div>
+        <div class="bg-red-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-red-800">💰 {% trans "Annual Budget" %}</h3>
+            <p class="text-base sm:text-xl font-bold">₹{{ village_stats.annual_budget }}</p>
+        </div>
+        <div class="bg-purple-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-purple-800">📍 {% trans "Village Location" %}</h3>
+            <p class="text-base sm:text-xl font-bold">{{ village_stats.village_location }}</p>
+        </div>
+        <div class="bg-indigo-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+            <h3 class="text-sm sm:text-lg font-semibold text-indigo-800">💼 {% trans "Employment Rate" %}</h3>
+            <p class="text-base sm:text-xl font-bold">{{ village_stats.employment_rate }}%</p>
+        </div>
+    </div>
+
+    <!-- ✅ Recent Updates Section -->
+    <section class="bg-white shadow-md rounded-lg p-3 sm:p-4 mt-4">
+        <h2 class="text-sm sm:text-xl font-bold text-blue-700 text-center mb-2">
+            📰 {% trans "Recent Updates" %}
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-600 text-center mb-4">
+            {% trans "Latest announcements and ongoing initiatives in the village." %}
+        </p>
+
+        <ul class="space-y-3">
+            {% for update in updates %}
+            <li class="bg-gray-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
+                <strong class="text-blue-700 text-xs sm:text-sm">{{ update.title }}:</strong> 
+                <p class="text-xs sm:text-sm text-gray-700">{{ update.description }}</p>
+            </li>
+            {% empty %}
+            <p class="text-gray-500 text-center text-sm">{% trans "No recent updates available." %}</p>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

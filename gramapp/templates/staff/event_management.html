@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Event Management{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-semibold text-gray-800 mb-4">📅 Event Management</h2>
+
+<!-- Event Actions -->
+<div class="mb-4">
+    <a href="{% url 'create_event' %}" class="bg-blue-600 text-white py-2 px-4 rounded">➕ Create Event</a>
+</div>
+
+<!-- Table with Upcoming Events -->
+<table class="min-w-full border border-gray-300">
+    <thead>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4 border">Event Name</th>
+            <th class="py-2 px-4 border">Date</th>
+            <th class="py-2 px-4 border">Location</th>
+            <th class="py-2 px-4 border">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in upcoming_events %}
+        <tr class="border-b">
+            <td class="py-2 px-4 border">{{ event.name }}</td>
+            <td class="py-2 px-4 border">{{ event.date }}</td>
+            <td class="py-2 px-4 border">{{ event.location }}</td>
+            <td class="py-2 px-4 border">
+                <a href="{% url 'edit_event' event.id %}" class="text-yellow-600">Edit</a> | 
+                <a href="{% url 'cancel_event' event.id %}" class="text-red-600">Cancel</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-gray-500 text-center py-3">No upcoming events</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

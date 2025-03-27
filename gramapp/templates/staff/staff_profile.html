@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Staff Profile - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-2 max-w-3xl mx-auto mb-10">
+
+    <!-- Back to Dashboard Button -->
+    <div class="mb-4">
+        <a href="{% url 'staff_dashboard' %}" class="text-blue-600 hover:underline flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            {% trans "Back to Dashboard" %}
+        </a>
+    </div>
+
+    <!-- Profile Picture & Name -->
+    <div class="flex flex-col items-center">
+        <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-blue-500">
+            {% if staff_profile.profile_picture %}
+            <img src="{{ staff_profile.profile_picture.url }}" alt="{% trans 'Profile Picture' %}" class="w-full h-full object-cover">
+            {% else %}
+            <img src="https://via.placeholder.com/150" alt="{% trans 'Default Profile' %}" class="w-full h-full object-cover">
+            {% endif %}
+        </div>
+
+        <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mt-3 text-center">
+            {{ staff.first_name|title }} {{ staff.last_name|title }}
+        </h2>
+        <p class="text-gray-500 text-sm">{{ staff.email }}</p>
+        <p class="text-gray-700 text-sm font-medium">📌 {{ staff_profile.role }}</p>
+    </div>
+
+    <!-- Staff Details Section -->
+    <div class="mt-6 bg-white shadow-md rounded-lg p-4 sm:p-6 space-y-4">
+        <h2 class="text-xl font-bold text-gray-700">{% trans "Staff Details" %}</h2>
+
+        <div>
+            <label class="block text-gray-600 font-medium">📞 {% trans "Phone" %}:</label>
+            <p class="border p-2 w-full rounded-md bg-gray-100 text-sm sm:text-base">{{ staff_profile.phoneno }}</p>
+        </div>
+        <div>
+            <label class="block text-gray-600 font-medium">📍 {% trans "Department" %}:</label>
+            <p class="border p-2 w-full rounded-md bg-gray-100 text-sm sm:text-base">{{ staff_profile.department }}</p>
+        </div>
+        <div>
+            <label class="block text-gray-600 font-medium">🎓 {% trans "Role" %}:</label>
+            <p class="border p-2 w-full rounded-md bg-gray-100 text-sm sm:text-base">{{ staff_profile.role }}</p>
+        </div>
+        <div>
+            <label class="block text-gray-600 font-medium">📆 {% trans "Joined On" %}:</label>
+            <p class="border p-2 w-full rounded-md bg-gray-100 text-sm sm:text-base">{{ staff.date_joined|date:"d M Y" }}</p>
+        </div>
+    </div>
+
+    <!-- Assigned Certificates Section -->
+    <div class="mt-8 bg-white shadow-md rounded-lg p-4 sm:p-6">
+        <h2 class="text-xl font-bold text-green-700 mb-4">{% trans "Assigned Certificate Applications" %}</h2>
+
+        {% for category, applications in assigned_certificates.items %}
+        {% if applications %}
+        <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-700">{{ category }}</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-full bg-white border border-gray-300 shadow-sm mt-2">
+                    <thead>
+                        <tr class="bg-gray-100 text-sm sm:text-base">
+                            <th class="py-2 px-2 sm:px-4 border text-left">{% trans "ID" %}</th>
+                            <th class="py-2 px-2 sm:px-4 border text-left">{% trans "Citizen" %}</th>
+                            <th class="py-2 px-2 sm:px-4 border text-left">{% trans "Submitted" %}</th>
+                            <th class="py-2 px-2 sm:px-4 border text-left">{% trans "Status" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applications %}
+                        <tr class="border-b text-sm sm:text-base">
+                            <td class="py-2 px-2 sm:px-4 border">{{ application.id }}</td>
+                            <td class="py-2 px-2 sm:px-4 border">{{ application.user.first_name }} {{ application.user.last_name }}</td>
+                            <td class="py-2 px-2 sm:px-4 border">{{ application.submitted_at|date:"d M Y" }}</td>
+                            <td class="py-2 px-2 sm:px-4 border">
+                                {% if application.status == "Pending" %}
+                                <span class="text-yellow-600 font-semibold">{% trans "Pending" %}</span>
+                                {% elif application.status == "Approved" %}
+                                <span class="text-green-600 font-semibold">{% trans "Approved" %}</span>
+                                {% else %}
+                                <span class="text-red-600 font-semibold">{% trans "Rejected" %}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p class="text-gray-600">{% trans "No assigned certificates at the moment." %}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Logout Button -->
+    <a href="{% url 'staff_logout' %}"
+        class="block mt-6 px-4 py-2 text-center bg-red-500 text-white rounded-md hover:bg-red-700 transition text-sm sm:text-base">
+        🚪 {% trans "Logout" %}
+    </a>
+
+</main>
+{% endblock %}

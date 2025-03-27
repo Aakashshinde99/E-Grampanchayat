@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block title %}{% trans "Birth Certificate - Panchayat App" %}{% endblock %}
+{% block page_title %}{% trans "Birth Certificate" %}{% endblock %}
+
+{% block content %}
+<!-- Birth Certificate Application Form -->
+<div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-5 sm:p-6">
+    <h2 class="text-base font-bold text-blue-700 text-center mb-4">📜 {% trans "Apply for Birth Certificate" %}</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-3">
+        {% csrf_token %}
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="mb-2">
+                {% for message in messages %}
+                    <p class="text-xs {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Full Name" %}</label>
+            <input type="text" name="full_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200" 
+                   placeholder="{% trans 'Enter full name' %}">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Date of Birth" %}</label>
+            <input type="date" name="dob" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Parent's Name" %}</label>
+            <input type="text" name="parent_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200" 
+                   placeholder="{% trans 'Enter parent’s name' %}">
+        </div>
+
+        <div class="flex flex-col items-start w-full">
+            <label class="block text-xs font-medium text-gray-700">{% trans "Upload Required Documents" %}</label>
+            <input type="file" name="document" required accept=".pdf"
+                   class="w-full mt-1 px-2 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
+            <p class="text-[10px] text-gray-500 mt-1">{% trans "Only PDF files are allowed." %}</p>
+        </div>
+
+        <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white px-3 py-1.5 text-xs rounded-md hover:bg-blue-700 transition-all mx-auto block">
+            📩 {% trans "Submit Application" %}
+        </button>
+    </form>
+</div>
+
+<!-- Required Documents and Conditions Section -->
+<div class="max-w-2xl mx-auto mt-5 mb-12 p-5 bg-white rounded-lg shadow-md">
+    <h3 class="text-md font-semibold text-gray-800 mb-3">📄 {% trans "Required Documents & Conditions" %}</h3>
+
+    <div class="space-y-2">
+        <h4 class="text-sm font-medium text-gray-700">📌 {% trans "Required Documents" %}</h4>
+        <ul class="list-disc list-inside text-xs text-gray-700 space-y-1">
+            <li><strong>{% trans "Proof of Birth:" %}</strong> {% trans "Hospital birth certificate or affidavit for home birth." %}</li>
+            <li><strong>{% trans "Identity Proof of Parents:" %}</strong> {% trans "Aadhaar Card, Voter ID, Passport, or Driving License." %}</li>
+            <li><strong>{% trans "Address Proof:" %}</strong> {% trans "Ration Card, Utility Bill, or Property Tax Receipt." %}</li>
+            <li><strong>{% trans "Parent’s Marriage Certificate:" %}</strong> {% trans "If available." %}</li>
+            <li><strong>{% trans "Affidavit:" %}</strong> {% trans "Required for delayed registration beyond 21 days." %}</li>
+        </ul>
+
+        <h4 class="text-sm font-medium text-gray-700 mt-3">⚠️ {% trans "Conditions for Application" %}</h4>
+        <ul class="list-disc list-inside text-xs text-gray-700 space-y-1">
+            <li>{% trans "Births should be registered within 21 days at the Gram Panchayat." %}</li>
+            <li>{% trans "Late registrations (21-30 days) require a fee of ₹2." %}</li>
+            <li>{% trans "Registrations beyond 30 days need permission from authorities and an affidavit." %}</li>
+            <li>{% trans "For registrations beyond one year, a magistrate’s order is necessary." %}</li>
+        </ul>
+
+        <h4 class="text-sm font-medium text-gray-700 mt-3">📝 {% trans "Application Process" %}</h4>
+        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1">
+            <li>{% trans "Fill in all required details correctly." %}</li>
+            <li>{% trans "Attach all necessary documents." %}</li>
+            <li>{% trans "Submit the form." %}</li>
+            <li>{% trans "After verification, the birth certificate will be issued within 5-7 working days." %}</li>
+        </ol>
+
+        <p class="text-[10px] text-gray-600 mt-3">{% trans "For more details, visit the Panchayat Office." %}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Delete Survey - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-4 sm:p-6 max-w-lg mx-auto">
+
+    <!-- ✅ Confirmation Card -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 text-center transition-all transform hover:scale-100">
+
+        <!-- ✅ Heading -->
+        <h2 class="text-xl sm:text-2xl font-bold text-red-700 mb-4">
+            🗑️ {% trans "Delete Survey" %}
+        </h2>
+
+        <!-- ✅ Confirmation Message -->
+        <p class="text-gray-600 text-sm sm:text-base">
+            {% trans "Are you sure you want to delete the survey" %} 
+            <strong class="text-red-700">"{{ survey.title }}"</strong>? 
+            {% trans "This action is irreversible." %}
+        </p>
+
+        <!-- ✅ Form -->
+        <form method="POST" class="mt-6">
+            {% csrf_token %}
+            <div class="flex justify-center gap-3">
+                <!-- Delete Button -->
+                <button type="submit" 
+                        class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md text-sm sm:text-base font-medium shadow-md transition-transform hover:scale-105">
+                     {% trans "Yes" %}
+                </button>
+                <!-- Cancel Link -->
+                <a href="{% url 'manage_surveys' %}" 
+                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2 rounded-md text-sm sm:text-base font-medium shadow-md transition-transform hover:scale-105">
+                    {% trans "Cancel" %}
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

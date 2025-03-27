@@ -1,0 +1,299 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "E-Grampanchayat" %}</title>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- ✅ Conditional Navbar (Hides only on Home Page) -->
+    {% block navbar %}
+    <nav class="bg-green-600 shadow-md text-white px-3 py-2 flex justify-between items-center h-12 relative">
+        <div class="flex items-center space-x-3">
+            {% if request.user.is_authenticated %}
+            <button id="menuButton" class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"
+                    stroke="currentColor" fill="none" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            {% endif %}
+            <h2 class="text-sm sm:text-base font-bold">{% trans "E-Grampanchayat" %}</h2>
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div class="relative flex items-center justify-center space-x-4">
+
+            <!-- 🔔 Notification Bell -->
+            <div class="relative">
+                <button id="notificationButton" class="focus:outline-none">
+                    🔔
+                    <span id="notificationBadge"
+                        class="absolute -top-1 -right-2 bg-red-500 text-white text-xs px-1 rounded-full hidden">
+                    </span>
+                </button>
+
+                <div id="notificationDropdown"
+                    class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-3 hidden">
+                    <h3 class="text-gray-700 font-semibold border-b pb-2">Notifications</h3>
+                    <div id="notificationList" class="mt-2 space-y-2">
+                        {% for notification in request.user.notifications.all|slice:":5" %}
+                        <p class="text-sm text-gray-700">{{ notification.message }}</p>
+                        {% empty %}
+                        <p class="text-sm text-gray-500">No new notifications</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 👤 Profile Dropdown -->
+            <div class="relative">
+                <button id="profileDropdownButton" class="focus:outline-none flex items-center justify-center">
+                    <img src="{% if request.user.profile.first.profile_picture_base64 %}data:image/jpeg;base64,{{ request.user.profile.first.profile_picture_base64 }}{% else %}{% static 'images/default-profile.png' %}{% endif %}"
+                        alt="{% trans 'Profile' %}" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white">
+                </button>
+
+                <div id="profileDropdownMenu"
+                    class="absolute top-full right-0 mt-2 bg-white text-gray-700 rounded-lg shadow-md w-36 hidden z-50">
+                    {% with request.user.profile.first as user_profile %}
+                    {% if user_profile and user_profile.user_type == "staff" %}
+                    <a href="{% url 'staff_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans "Profile" %}</a>
+                    {% else %}
+                    <a href="{% url 'user_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans "Profile" %}</a>
+                    {% endif %}
+                    {% endwith %}
+                    <a href="{% url 'logout' %}" class="block px-3 py-1 text-sm text-red-500 hover:bg-gray-100">{% trans "Logout" %}</a>
+                </div>
+            </div>
+
+        </div>
+        {% endif %}
+
+
+    </nav>
+    {% endblock navbar %}
+
+    <!-- ✅ Sidebar Menu (Hidden by Default) -->
+    {% if request.user.is_authenticated and not hide_navbar %}
+    {% with request.user.profile.first as user_profile %}
+    <aside id="sidebarMenu"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="flex justify-between items-center px-4 py-3 border-b">
+            <h2 class="text-lg font-semibold">{% trans "Menu" %}</h2>
+            <button id="closeMenuButton" class="text-gray-600 text-lg">✖</button>
+        </div>
+
+        <!-- ✅ Sidebar for Citizens -->
+        {% if user_profile and user_profile.user_type == "citizen" %}
+        <!-- ✅ Menu Links -->
+        <ul class="p-4 space-y-3">
+            <li><a href="{% url 'dashboard_view' %}" class="block text-gray-700 hover:text-green-600">🏡 {% trans
+                    "Dashboard" %}</a></li>
+            <li><a href="{% url 'tax' %}" class="block text-gray-700 hover:text-green-600">💰 {% trans "Taxes" %}</a>
+            </li>
+            <li><a href="{% url 'certificates_page' %}" class="block text-gray-700 hover:text-green-600">📜 {% trans
+                    "Certificates" %}</a></li>
+            <li><a href="{% url 'shramdan_page' %}" class="block text-gray-700 hover:text-green-600">🤝 {% trans
+                    "Shramdan & Abhiyaans" %}</a></li>
+            <li><a href="{% url 'sabha_meetings_page' %}" class="block text-gray-700 hover:text-green-600">📅 {% trans
+                    "Gramsabha Meetings" %}</a></li>
+            <li><a href="{% url 'health_education_page' %}" class="block text-gray-700 hover:text-green-600">🏥 {% trans
+                    "Health & Education Schemes" %}</a></li>
+            <li><a href="{% url 'helpdesk_page' %}" class="block text-gray-700 hover:text-green-600">🆘 {% trans
+                    "Helpdesk Support" %}</a></li>
+            <li><a href="{% url 'surveys' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Surveys"
+                    %}</a></li>
+            <li><a href="{% url 'events' %}" class="block text-gray-700 hover:text-green-600">📢 {% trans "Event
+                    Announcements" %}</a></li>
+            <li><a href="{% url 'user_gallery' %}" class="block text-gray-700 hover:text-green-600">📸 {% trans "Photo
+                    Gallery" %}</a></li>
+            <li><a href="{% url 'village_dashboard' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans
+                    "Village Dashboard" %}</a></li>
+            <li><a href="{% url 'panchayat_profile' %}" class="block text-gray-700 hover:text-green-600">🏛 {% trans
+                    "Panchayat Profiles" %}</a></li>
+            <li><a href="{% url 'user_job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {%
+                    trans "Job Opportunities" %}</a></li>
+            <li><a href="{% url 'user_tourism' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans "Local
+                    Tourism" %}</a></li>
+        </ul>
+
+        <!-- ✅ Sidebar for Staff -->
+        {% elif user_profile and user_profile.user_type == "staff" %}
+        <ul class="p-4 space-y-3">
+            <li><a href="{% url 'staff_dashboard' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans
+                    "Staff Dashboard" %}</a></li>
+            <li><a href="{% url 'certificate_management' %}" class="block text-gray-700 hover:text-green-600">📜 {%
+                    trans "Certificates" %}</a></li>
+            <li><a href="{% url 'tax_management' %}" class="block text-gray-700 hover:text-green-600">💰 {% trans
+                    "Manage Taxes" %}</a></li>
+            <li><a href="{% url 'manage_meetings' %}" class="block text-gray-700 hover:text-green-600">📅 {% trans
+                    "Manage Meetings" %}</a></li>
+            <li><a href="{% url 'manage_panchayat' %}" class="block text-gray-700 hover:text-green-600">🏛 {% trans
+                    "Panchayat Profiles" %}</a></li>
+            <li><a href="{% url 'manage_gallery' %}" class="block text-gray-700 hover:text-green-600">📸 {% trans
+                    "Manage Gallery" %}</a></li>
+            <li><a href="{% url 'manage_schemes' %}" class="block text-gray-700 hover:text-green-600">📜 {% trans
+                    "Manage Schemes" %}</a></li>
+            <li><a href="{% url 'manage_helpdesk' %}" class="block text-gray-700 hover:text-green-600">🆘 {% trans
+                    "Helpdesk" %}</a></li>
+            <li><a href="{% url 'job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {% trans
+                    "Manage Job Opportunities" %}</a></li> <!-- ✅ Added -->
+            <li><a href="{% url 'tourism_management' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans
+                    "Manage Local Tourism" %}</a></li> <!-- ✅ Added -->
+            <li><a href="{% url 'manage_surveys' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans
+                    "Manage Surveys" %}</a></li> <!-- ✅ Added -->
+        </ul>
+
+        {% endif %}
+    </aside>
+    {% endwith %}
+    {% endif %}
+
+    <!-- ✅ Main Content -->
+    <div class="flex-grow max-w-screen-lg mx-auto p-4 w-full">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- ✅ Bottom Navigation (Appears After Dashboard Pages) -->
+    {% block bottom_nav %}
+    {% if request.user.is_authenticated %}
+    <div
+        class="fixed bottom-3 left-1/2 transform -translate-x-1/2 bg-white shadow-md rounded-full px-3 py-1 flex items-center space-x-4 border border-gray-300 z-50 text-gray-600 text-xs">
+        <!-- 🔙 Back Button -->
+        <a href="javascript:history.back()"
+            class="hover:text-green-600 transition-all flex flex-col items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+            <span>{% trans "Back" %}</span>
+        </a>
+
+        <!-- 🏠 Dashboard Button -->
+        {% if user_profile and user_profile.user_type == 'staff' %}
+        <a href="{% url 'staff_dashboard' %}"
+            class="hover:text-green-600 transition-all flex flex-col items-center text-center">
+            {% else %}
+            <a href="{% url 'dashboard_view' %}"
+                class="hover:text-green-600 transition-all flex flex-col items-center text-center">
+                {% endif %}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M9 21V12h6v9"></path>
+                </svg>
+                <span>{% trans "Dashboard" %}</span>
+            </a>
+
+            <!-- 👤 Profile Button -->
+            {% if user_profile and user_profile.user_type == 'staff' %}
+            <a href="{% url 'staff_profile' %}"
+                class="hover:text-green-600 transition-all flex flex-col items-center text-center">
+                {% else %}
+                <a href="{% url 'user_profile' %}"
+                    class="hover:text-green-600 transition-all flex flex-col items-center text-center">
+                    {% endif %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 14.5a4 4 0 110-8 4 4 0 010 8zM6 19.5a6 6 0 0112 0"></path>
+                    </svg>
+                    <span>{% trans "Profile" %}</span>
+                </a>
+
+    </div>
+    {% endif %}
+    {% endblock %}
+
+    <!-- ✅ JavaScript for Sidebar & Profile Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileButton = document.getElementById("profileDropdownButton");
+            const profileMenu = document.getElementById("profileDropdownMenu");
+            const menuButton = document.getElementById("menuButton");
+            const sidebarMenu = document.getElementById("sidebarMenu");
+            const closeMenuButton = document.getElementById("closeMenuButton");
+
+            if (profileButton && profileMenu) {
+                profileButton.addEventListener("click", function () {
+                    profileMenu.classList.toggle("hidden");
+                });
+            }
+
+            if (menuButton && sidebarMenu && closeMenuButton) {
+                menuButton.addEventListener("click", function () {
+                    sidebarMenu.classList.remove("-translate-x-full");
+                });
+                closeMenuButton.addEventListener("click", function () {
+                    sidebarMenu.classList.add("-translate-x-full");
+                });
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("menuButton").addEventListener("click", () => {
+                document.getElementById("sidebarMenu").classList.remove("-translate-x-full");
+            });
+            document.getElementById("closeMenuButton").addEventListener("click", () => {
+                document.getElementById("sidebarMenu").classList.add("-translate-x-full");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const notificationButton = document.getElementById("notificationButton");
+            const notificationDropdown = document.getElementById("notificationDropdown");
+            const notificationList = document.getElementById("notificationList");
+            const notificationBadge = document.getElementById("notificationBadge");
+
+            function fetchNotifications() {
+                fetch("{% url 'get_notifications' %}")
+                    .then(response => response.json())
+                    .then(data => {
+                        notificationList.innerHTML = "";
+                        if (data.notifications.length > 0) {
+                            data.notifications.forEach(notification => {
+                                let notificationItem = document.createElement("div");
+                                notificationItem.classList.add("p-2", "border-b", "text-sm", "text-gray-700");
+                                notificationItem.innerHTML = `<p>${notification.message}</p><small class="text-gray-500">${notification.created_at}</small>`;
+                                notificationList.appendChild(notificationItem);
+                            });
+                            notificationBadge.textContent = data.unread_count;
+                            notificationBadge.classList.remove("hidden");
+                        } else {
+                            notificationList.innerHTML = "<p class='text-gray-500 text-sm'>{% trans 'No new notifications' %}</p>";
+                            notificationBadge.classList.add("hidden");
+                        }
+                    })
+                    .catch(error => console.error("Error fetching notifications:", error));
+            }
+
+            // Fetch notifications on page load
+            fetchNotifications();
+
+            // Refresh notifications every 30 seconds
+            setInterval(fetchNotifications, 30000);
+
+            // Toggle Notification Dropdown
+            notificationButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                notificationDropdown.classList.toggle("hidden");
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
+                    notificationDropdown.classList.add("hidden");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

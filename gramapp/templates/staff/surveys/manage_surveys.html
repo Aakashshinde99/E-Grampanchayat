@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Manage Surveys - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-4 sm:p-6 max-w-4xl mx-auto">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-xl sm:text-2xl font-bold text-blue-800 text-center">
+        📊 {% trans "Manage Surveys" %}
+    </h1>
+
+    <!-- ✅ Add New Survey Button -->
+    <div class="flex justify-center mt-2">
+        <a href="{% url 'add_survey' %}"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-sm sm:text-base font-medium shadow-sm transition-transform hover:scale-105">
+            ➕ {% trans "Add New Survey" %}
+        </a>
+    </div>
+
+    <!-- ✅ Surveys List -->
+    <div class="mt-2 space-y-4">
+        {% if surveys %}
+        {% for survey in surveys %}
+        <!-- Survey Card -->
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-md transition relative">
+
+            <!-- Status Tag at Top-Right Corner -->
+            <div class="absolute top-2 right-2">
+                <div class="flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %} shadow-sm">
+                        {% if survey.is_active %}✅ {% trans "Active" %}{% else %}🚫 {% trans "Closed" %}{% endif %}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Survey Title -->
+            <h3 class="text-blue-800 font-semibold text-base sm:text-lg truncate pr-16">{{ survey.title }}</h3>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row gap-2 mt-3">
+                <div class="flex gap-2">
+                    <a href="{% url 'view_survey_responses' survey.id %}"
+                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center shadow-sm transition">
+                        📄 {% trans "View" %}
+                    </a>
+                    <a href="{% url 'toggle_survey_status' survey.id %}"
+                        class="flex-1 {% if survey.is_active %}bg-yellow-500 hover:bg-yellow-600{% else %}bg-green-500 hover:bg-green-600{% endif %} text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center shadow-sm transition">
+                        {% if survey.is_active %}🚫 {% trans "Close" %}{% else %}✅ {% trans "Activate" %}{% endif %}
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'delete_survey' survey.id %}"
+                        class="flex-1 bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center shadow-sm transition">
+                        🗑 {% trans "Delete" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <!-- Empty State -->
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 text-center">
+            <p class="text-gray-500 text-sm sm:text-base">🚫 {% trans "No surveys available." %}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- ✅ Citizen Feedback Section -->
+    <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-sm p-4 mb-9">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-lg sm:text-xl font-bold text-blue-800 text-center mb-4">
+            📬 {% trans "Citizen Feedback" %}
+        </h2>
+
+        <!-- ✅ Feedback List -->
+        <div class="space-y-4">
+            {% if survey_feedbacks %}
+                {% for feedback in survey_feedbacks %}
+                <!-- Feedback Card -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-md transition">
+                    <!-- Feedback Details -->
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">
+                                {% trans "From:" %} <span class="font-semibold">{{ feedback.user.username|default:"{% trans 'Anonymous' %}" }}</span>
+                            </p>
+                            <p class="text-sm text-gray-600 mt-1">
+                                {{ feedback.message }}
+                            </p>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            {{ feedback.submitted_at|date:"d M, Y" }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Empty State -->
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 text-center">
+                    <p class="text-gray-500 text-sm sm:text-base">🚫 {% trans "No feedback available." %}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

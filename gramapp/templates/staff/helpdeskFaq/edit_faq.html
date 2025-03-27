@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Edit FAQ - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-2 sm:p-4 mb-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-blue-700 text-center">✏️ {% trans "Edit FAQ" %}</h2>
+
+    <div class="mt-6 bg-white shadow-lg rounded-lg p-4 sm:p-6 max-w-lg mx-auto">
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <!-- Question Input -->
+            <label class="block text-sm font-semibold text-gray-700">❓ {% trans "Question" %}</label>
+            <input type="text" name="question" value="{{ faq.question }}" required 
+                class="w-full px-3 py-2 border rounded-md focus:ring focus:ring-blue-300">
+
+            <!-- Answer Input -->
+            <label class="block text-sm font-semibold text-gray-700">💡 {% trans "Answer" %}</label>
+            <textarea name="answer" rows="2" required 
+                class="w-full px-3 py-2 border rounded-md focus:ring focus:ring-blue-300">{{ faq.answer }}</textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                ✅ {% trans "Update FAQ" %}
+            </button>
+        </form>
+
+        <!-- Back Button -->
+        <div class="mt-4 text-center">
+            <a href="{% url 'manage_faqs' %}" class="text-blue-600 hover:underline">🔙 {% trans "Back to FAQ List" %}</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

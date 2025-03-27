@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Local Tourism - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-2 mb-12">
+    <!-- ✅ Page Heading -->
+    <h2 class="text-lg sm:text-2xl font-bold text-green-700 text-center my-4">
+        🏞 {% trans "Local Tourism & Assistance" %}
+    </h2>
+
+    <!-- ✅ Tourism Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-2">
+        {% for place in places %}
+        <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-green-500 transition transform hover:scale-105 hover:shadow-lg">
+
+            <!-- ✅ Place Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800">{{ place.name }}</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1">{{ place.description }}</p>
+
+            <!-- ✅ Place Details -->
+            <div class="mt-2 space-y-1">
+                <p class="text-xs sm:text-sm text-gray-600">📍 <strong>{% trans "Location" %}:</strong> {{ place.location }}</p>
+                <p class="text-xs sm:text-sm text-gray-600">⏳ <strong>{% trans "Best Time to Visit" %}:</strong> {{ place.best_time_to_visit|default:_("Anytime") }}</p>
+                <p class="text-xs sm:text-sm text-gray-600">📞 <strong>{% trans "Contact" %}:</strong> {{ place.contact_info|default:_("Not available") }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 text-center col-span-full">{% trans "No tourism spots available at the moment." %}</p>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

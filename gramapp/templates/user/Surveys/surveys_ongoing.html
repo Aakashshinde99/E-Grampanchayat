@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block title %}{% trans "Ongoing Surveys - Panchayat App" %}{% endblock %}
+{% block page_title %}📌 {% trans "Ongoing Surveys" %}{% endblock %}
+
+{% block content %}
+<main class="p-0 max-w-5xl mx-auto mb-12"> <!-- ✅ Removed extra padding for full width -->
+
+    <!-- ✅ Page Header -->
+    <h2 class="text-base sm:text-lg font-bold text-blue-700 text-center mb-2">
+        📢 {% trans "Participate in Active Surveys" %}
+    </h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mb-4">
+        {% trans "Your opinion matters! Take part in currently open surveys." %}
+    </p>
+
+    <!-- ✅ Survey Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 px-2"> <!-- ✅ Auto-fit for mobile -->
+        {% for survey in surveys %}
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-3 flex flex-col transition transform hover:scale-105 hover:shadow-md">
+
+            <!-- ✅ Survey Title & Deadline -->
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-sm sm:text-base font-semibold text-blue-700">{{ survey.title }}</h3>
+                <span class="bg-red-500 text-white text-[10px] sm:text-xs px-2 py-1 rounded-md shadow">
+                    🗓 {% trans "Ends:" %} {{ survey.end_date|date:"d M" }}
+                </span>
+            </div>
+
+            <!-- ✅ Survey Description -->
+            <p class="text-xs sm:text-sm text-gray-600 flex-1">
+                {{ survey.description|truncatewords:15 }}
+            </p>
+
+            <!-- ✅ Survey Meta Data -->
+            <div class="text-[10px] sm:text-xs text-gray-500 flex flex-wrap gap-1 mt-2">
+                <span>❓ {% trans "Questions:" %} <strong>{{ survey.questions.count }}</strong></span>
+                {% if survey.created_by %}
+                <span>👤 {% trans "By:" %} <strong>{{ survey.created_by.get_full_name }}</strong></span>
+                {% endif %}
+            </div>
+
+            <!-- ✅ Survey Action Button (Sticks to Bottom) -->
+            {% if survey.id in completed_surveys %}
+            <button class="mt-auto w-full bg-gray-400 text-white text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 rounded-lg cursor-not-allowed" disabled>
+                ✅ {% trans "Completed" %}
+            </button>
+            {% else %}
+            <a href="{% url 'surveys_ongoing' %}"
+                class="mt-auto w-full bg-blue-600 text-white text-center text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-500 transition">
+                📝 {% trans "Take Survey" %}
+            </a>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p class="text-gray-500 text-center col-span-full">🚫 {% trans "No ongoing surveys available." %}</p>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

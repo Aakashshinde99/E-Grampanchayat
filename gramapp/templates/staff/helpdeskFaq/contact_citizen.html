@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Contact Citizen - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<div class="flex flex-col gap-4 p-4">
+    <h1 class="text-lg sm:text-2xl font-bold text-blue-700 text-center">
+        📞 {% trans "Contact Citizen" %}
+    </h1>
+
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 max-w-lg mx-auto">
+        <p class="text-gray-700"><strong>{% trans "Citizen Name" %}:</strong> {{ support_request.name }}</p>
+        <p class="text-gray-700"><strong>{% trans "Email" %}:</strong> {{ support_request.email }}</p>
+        <p class="text-gray-700"><strong>{% trans "Message" %}:</strong> {{ support_request.message }}</p>
+
+        <form method="POST" class="mt-4 space-y-4">
+            {% csrf_token %}
+            <div>
+                <label class="block text-sm font-medium text-gray-700">{% trans "Reply Message" %}</label>
+                <textarea name="reply_message" rows="4" required class="w-full px-3 py-2 border rounded-md"></textarea>
+            </div>
+
+            <div class="flex justify-between gap-4">
+                <a href="{% url 'manage_helpdesk' %}" class="text-gray-600 hover:text-red-600">🔙 {% trans "Cancel" %}</a>
+                <button type="submit" class="bg-green-600 text-white px-2 py-1 rounded-md">
+                     {% trans "Send Response" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

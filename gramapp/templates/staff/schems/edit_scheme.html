@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Scheme - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-blue-700 text-center">
+        ✏️ {% trans "Edit Scheme" %}
+    </h1>
+
+    <!-- ✅ Form Container -->
+    <div class="mb-9 border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 max-w-lg mx-auto transition-all transform hover:scale-105">
+
+        <!-- ✅ Form -->
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <!-- ✅ Title Field -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">📜 {% trans "Title" %}</label>
+                <input type="text" name="title" value="{{ scheme.title }}" required 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                       placeholder="{% trans "Enter scheme title" %}">
+            </div>
+
+            <!-- ✅ Eligibility Field -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">✅ {% trans "Eligibility" %}</label>
+                <textarea name="eligibility" rows="3" required 
+                          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                          placeholder="{% trans "Enter eligibility criteria" %}">{{ scheme.eligibility }}</textarea>
+            </div>
+
+            <!-- ✅ Category Field -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">📌 {% trans "Category" %}</label>
+                <select name="category" required 
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <option value="health" {% if scheme.category == "health" %}selected{% endif %}>{% trans "Health" %}</option>
+                    <option value="education" {% if scheme.category == "education" %}selected{% endif %}>{% trans "Education" %}</option>
+                </select>
+            </div>
+
+            <!-- ✅ Link Field -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">🔗 {% trans "Link (Optional)" %}</label>
+                <input type="url" name="link" value="{{ scheme.link }}" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                       placeholder="{% trans "Enter scheme link" %}">
+            </div>
+
+            <!-- ✅ Form Actions -->
+            <div class="flex justify-between mt-6 gap-4">
+                <a href="{% url 'manage_schemes' %}" 
+                   class="text-gray-600 hover:text-red-600 transition-all transform hover:scale-105">
+                    🔙 {% trans "Cancel" %}
+                </a>
+                <button type="submit" 
+                        class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition-all transform hover:scale-105">
+                     {% trans "Save Changes" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Link Validation -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const linkInput = document.querySelector("input[name='link']");
+
+        linkInput.addEventListener("input", function () {
+            const link = linkInput.value;
+            const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+            if (!urlRegex.test(link)) {
+                linkInput.setCustomValidity("{% trans "Please enter a valid URL." %}");
+            } else {
+                linkInput.setCustomValidity("");
+            }
+        });
+    });
+</script>
+{% endblock %}

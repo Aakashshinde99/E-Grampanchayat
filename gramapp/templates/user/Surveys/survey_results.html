@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Survey Results & Insights - Panchayat App" %}{% endblock %}
+{% block page_title %}📊 {% trans "Survey Results & Insights" %}{% endblock %}
+
+{% block content %}
+<main class="p-0 max-w-5xl mx-auto mb-12"> <!-- ✅ Full width for better mobile adaptation -->
+
+    <!-- ✅ Page Header -->
+    <h2 class="text-lg sm:text-xl font-bold text-blue-700 text-center mb-2">
+        📈 {% trans "Survey Results & Insights" %}
+    </h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mb-4 px-3">
+        {% trans "View insights and results from completed surveys." %}
+    </p>
+
+    <!-- ✅ Survey Results Grid (Auto Layout for Mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 px-2">
+        {% for survey in surveys %}
+        <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-5 transition transform hover:scale-105 hover:shadow-lg">
+            
+            <!-- ✅ Survey Title & End Date -->
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-sm sm:text-lg font-semibold text-blue-700">{{ survey.title }}</h3>
+                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-md shadow-md">
+                    🗓 {% trans "Ended:" %} {{ survey.end_date|date:"d M, Y" }}
+                </span>
+            </div>
+
+            <!-- ✅ Survey Description -->
+            <p class="text-xs sm:text-sm text-gray-600 mb-2">
+                {{ survey.description|truncatewords:20 }}
+            </p>
+
+            <!-- ✅ Survey Statistics -->
+            <div class="text-xs sm:text-sm text-gray-500 flex flex-wrap gap-2 mb-2">
+                <span class="flex items-center gap-1">❓ {% trans "Questions:" %} <strong>{{ survey.questions.count }}</strong></span>
+                <span class="flex items-center gap-1">📊 {% trans "Total Responses:" %} <strong>{{ survey.responses.count }}</strong></span>
+                {% if survey.created_by %}
+                <span class="flex items-center gap-1">👤 {% trans "Created by:" %} <strong>{{ survey.created_by.get_full_name }}</strong></span>
+                {% endif %}
+            </div>
+
+            <!-- ✅ View Responses Button -->
+            <a href="{% url 'survey_results' %}"
+                class="block mt-3 w-full bg-blue-600 text-white text-center text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-500 transition">
+                🔍 {% trans "View Responses" %}
+            </a>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 text-center col-span-full text-xs sm:text-sm">🚫 {% trans "No survey results available." %}</p>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

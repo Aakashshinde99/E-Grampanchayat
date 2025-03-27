@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Add Job Opportunity - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-4 max-w-lg mx-auto bg-white shadow-md rounded-lg mt-6 mb-10">
+    <h2 class="text-xl font-bold text-green-700 text-center">➕ {% trans "Add Job Opportunity" %}</h2>
+
+    <!-- Job Form -->
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Job Title" %}</label>
+        <input type="text" name="job_title" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3" required>
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Company Name" %}</label>
+        <input type="text" name="company_name" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3" required>
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Location" %}</label>
+        <input type="text" name="location" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3" required>
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Salary (INR)" %}</label>
+        <input type="number" name="salary" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3" required>
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Job Description" %}</label>
+        <textarea name="description" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3" rows="4"
+            required></textarea>
+
+        <label class="block text-sm font-medium text-gray-700">{% trans "Contact Email" %}</label>
+        <input type="email" name="contact_email" class="w-full p-2 border border-gray-300 rounded-lg mt-1 mb-3"
+            required>
+
+        <div class="flex justify-between mt-4">
+            <a href="{% url 'job_opportunities' %}" class="text-gray-600 hover:text-red-600">🔙 {% trans "Cancel" %}</a>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">✅ {% trans "Add Job" %}</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

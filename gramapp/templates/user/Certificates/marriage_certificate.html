@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block title %}{% trans "Marriage Certificate - Panchayat App" %}{% endblock %}
+{% block page_title %}{% trans "Marriage Certificate" %}{% endblock %}
+
+{% block content %}
+<!-- Marriage Certificate Application Form -->
+<div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-5 sm:p-6">
+    <h2 class="text-base font-bold text-blue-700 text-center mb-4">💍 {% trans "Apply for Marriage Certificate" %}</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-3">
+        {% csrf_token %}
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="mb-2">
+                {% for message in messages %}
+                    <p class="text-xs {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Husband's Full Name" %}</label>
+            <input type="text" name="husband_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                   placeholder="{% trans 'Enter husband’s full name' %}">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Wife's Full Name" %}</label>
+            <input type="text" name="wife_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                   placeholder="{% trans 'Enter wife’s full name' %}">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Date of Marriage" %}</label>
+            <input type="date" name="date_of_marriage" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Place of Marriage" %}</label>
+            <input type="text" name="place_of_marriage" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                   placeholder="{% trans 'Enter place of marriage' %}">
+        </div>
+
+        <div>
+            <label class="block text-xs font-medium text-gray-700">{% trans "Upload Required Documents" %}</label>
+            <input type="file" name="documents" required accept=".pdf" class="w-full mt-1 px-2 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
+            <p class="text-[10px] text-gray-500 mt-1">{% trans "Only PDF files are allowed." %}</p>
+        </div>
+
+        <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white px-3 py-1.5 text-xs rounded-md hover:bg-blue-700 transition-all mx-auto block">
+            📩 {% trans "Submit Application" %}
+        </button>
+    </form>
+</div>
+
+<!-- Required Documents and Conditions Section -->
+<div class="max-w-2xl mx-auto mt-5 mb-12 p-5 bg-white rounded-lg shadow-md ">
+    <h3 class="text-md font-semibold text-gray-800 mb-3">📄 {% trans "Required Documents & Conditions" %}</h3>
+
+    <div class="space-y-2">
+        <h4 class="text-sm font-medium text-gray-700">📌 {% trans "Required Documents" %}</h4>
+        <ul class="list-disc list-inside text-xs text-gray-700 space-y-1">
+            <li><strong>{% trans "Identity Proof:" %}</strong> {% trans "Aadhaar Card, Voter ID, Passport, or Driving License of both spouses." %}</li>
+            <li><strong>{% trans "Address Proof:" %}</strong> {% trans "Ration Card, Utility Bill, or Property Tax Receipt." %}</li>
+            <li><strong>{% trans "Marriage Invitation Card:" %}</strong> {% trans "If available." %}</li>
+            <li><strong>{% trans "Photographs:" %}</strong> {% trans "Passport-sized photos of both spouses." %}</li>
+            <li><strong>{% trans "Affidavit:" %}</strong> {% trans "Declaration of marriage from both spouses." %}</li>
+        </ul>
+
+        <h4 class="text-sm font-medium text-gray-700 mt-3">⚠️ {% trans "Conditions for Application" %}</h4>
+        <ul class="list-disc list-inside text-xs text-gray-700 space-y-1">
+            <li>{% trans "Marriage must be registered within 30 days at the Gram Panchayat." %}</li>
+            <li>{% trans "Late registrations require an affidavit and a penalty fee." %}</li>
+            <li>{% trans "Both spouses must be at least 18 years (for females) and 21 years (for males)." %}</li>
+            <li>{% trans "Marriage should be conducted legally as per Hindu Marriage Act or Special Marriage Act." %}</li>
+        </ul>
+
+        <h4 class="text-sm font-medium text-gray-700 mt-3">📝 {% trans "Application Process" %}</h4>
+        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1">
+            <li>{% trans "Fill in all required details correctly." %}</li>
+            <li>{% trans "Attach all necessary documents." %}</li>
+            <li>{% trans "Submit the form." %}</li>
+            <li>{% trans "After verification, the marriage certificate will be issued within 7-10 working days." %}</li>
+        </ol>
+
+        <p class="text-[10px] text-gray-600 mt-3">{% trans "For more details, visit the Panchayat Office." %}</p>
+    </div>
+</div>
+{% endblock %}

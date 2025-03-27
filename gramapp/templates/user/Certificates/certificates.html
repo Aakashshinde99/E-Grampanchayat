@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Certificates - Panchayat App" %}{% endblock %}
+{% block page_title %}{% trans "Certificates" %}{% endblock %}
+
+{% block content %}
+<main class="w-full">
+
+    <!-- ✅ Header -->
+    <h3 class="text-lg font-semibold text-blue-700 text-center my-3">📜 {% trans "Apply for Certificates" %}</h3>
+
+    <!-- ✅ Certificate Application Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 px-2">
+        <!-- Birth Certificate -->
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
+            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Birth Certificate" %}</p>
+            <button onclick="window.location.href='{% url 'apply_birth_certificate' %}'"
+                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
+                {% trans "Apply Now" %}
+            </button>
+        </div>
+
+        <!-- Death Certificate -->
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
+            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Death Certificate" %}</p>
+            <button onclick="window.location.href='{% url 'apply_death_certificate' %}'"
+                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
+                {% trans "Apply Now" %}
+            </button>
+        </div>
+
+        <!-- Marriage Certificate -->
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
+            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Marriage Certificate" %}</p>
+            <button onclick="window.location.href='{% url 'apply_marriage_certificate' %}'"
+                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
+                {% trans "Apply Now" %}
+            </button>
+        </div>
+
+        <!-- Domicile Certificate -->
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
+            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Domicile Certificate" %}</p>
+            <button onclick="window.location.href='{% url 'apply_domicile_certificate' %}'"
+                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
+                {% trans "Apply Now" %}
+            </button>
+        </div>
+    </div>
+
+    <!-- ✅ Applied Certificates Section -->
+    <div class="mt-6 bg-white shadow-md rounded-lg p-4 sm:p-6">
+        <h2 class="text-lg sm:text-xl font-bold text-green-700 mb-3">📜 {% trans "Your Applied Certificates" %}</h2>
+
+        {% for category, applications in applied_services.items %}
+        {% if applications %}
+        <div class="mb-4">
+            <h3 class="text-sm sm:text-lg font-semibold text-gray-700">{{ category }}</h3>
+
+            <!-- ✅ Scrollable Table for Mobile -->
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-full border border-gray-300 bg-white shadow-sm text-xs sm:text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-1 px-2 border text-left">{% trans "ID" %}</th>
+                            <th class="py-1 px-2 border text-left">{% trans "Submitted" %}</th>
+                            <th class="py-1 px-2 border text-left">{% trans "Status" %}</th>
+                            <th class="py-1 px-2 border text-left">{% trans "Download" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applications %}
+                        <tr class="border-b">
+                            <td class="py-1 px-2 border">{{ application.id }}</td>
+                            <td class="py-1 px-2 border">{{ application.submitted_at|date:"d M Y" }}</td>
+                            <td class="py-1 px-2 border">
+                                {% if application.status == "Pending" %}
+                                <span class="text-yellow-600 font-semibold">{% trans "Pending" %}</span>
+                                {% elif application.status == "Approved" %}
+                                <span class="text-green-600 font-semibold">{% trans "Approved" %}</span>
+                                {% else %}
+                                <span class="text-red-600 font-semibold">{% trans "Rejected" %}</span>
+                                {% endif %}
+                            </td>
+                            <td class="py-1 px-2 border">
+                                {% if application.status == "Approved" and application.generated_certificate %}
+                                <a href="{{ application.generated_certificate.url }}" class="text-blue-500 underline"
+                                    target="_blank">
+                                    {% trans "Download" %}
+                                </a>
+                                {% else %}
+                                <span class="text-gray-500">{% trans "Not Available" %}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p class="text-gray-600 text-sm">{% trans "You have not applied for any certificates yet." %}</p>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

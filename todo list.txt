@@ -1,0 +1,13 @@
+Language button Done 
+
+
+card margin m-2, m-1
+text size md, sm
+dashbaord card  Language Pending
+profile image base 64 convert text
+app doc upload Pending
+
+notification bell pending 
+
+
+apk download QR code page

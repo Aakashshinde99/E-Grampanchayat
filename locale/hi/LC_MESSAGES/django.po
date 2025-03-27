@@ -1,0 +1,2954 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-25 19:56+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\gramapp\models.py:28
+#: .\gramapp\templates\staff\certificate\certificate_management.html:29
+#: .\gramapp\templates\staff\certificate\certificate_management.html:80
+#: .\gramapp\templates\staff\staff_profile.html:71
+#: .\gramapp\templates\staff\tax\tax_management.html:57
+msgid "Citizen"
+msgstr "नागरिक"
+
+#: .\gramapp\models.py:29
+msgid "Staff"
+msgstr "कर्मचारी"
+
+#: .\gramapp\models.py:30
+msgid "Admin"
+msgstr "प्रशासक"
+
+#: .\gramapp\templates\base.html:8 .\gramapp\templates\base.html:27
+msgid "E-Grampanchayat"
+msgstr "ई-ग्रामपंचायत"
+
+#: .\gramapp\templates\base.html:57 .\gramapp\templates\base.html:62
+#: .\gramapp\templates\base.html:194
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: .\gramapp\templates\base.html:63
+#: .\gramapp\templates\staff\staff_profile.html:106
+#: .\gramapp\templates\user\user_profile.html:73
+msgid "Logout"
+msgstr "लॉग आउट करें"
+
+#: .\gramapp\templates\base.html:80
+msgid "Menu"
+msgstr "मेनू"
+
+#: .\gramapp\templates\base.html:90 .\sample_data.txt:71
+msgid "Taxes"
+msgstr "कर"
+
+#: .\gramapp\templates\base.html:121
+#: .\gramapp\templates\staff\staff_dashboard.html:7
+msgid "Staff Dashboard"
+msgstr "स्टाफ डैशबोर्ड"
+
+# ########### certificates ############
+#: .\gramapp\templates\base.html:122
+#: .\gramapp\templates\staff\certificate\certificate_management.html:21
+#: .\gramapp\templates\user\Certificates\certificates.html:5
+#: .\gramapp\views.py:272 .\sample_data.txt:72
+msgid "Certificates"
+msgstr "प्रमाणपत्र"
+
+#: .\gramapp\templates\base.html:123
+#: .\gramapp\templates\staff\staff_dashboard.html:66
+#: .\gramapp\templates\staff\tax\tax_management.html:19
+msgid "Manage Taxes"
+msgstr "कर प्रबंधित करें"
+
+#: .\gramapp\templates\base.html:124
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:11
+#: .\gramapp\templates\staff\staff_dashboard.html:163
+msgid "Manage Meetings"
+msgstr "बैठकों का प्रबंधन करें"
+
+#: .\gramapp\templates\base.html:163
+msgid "Back"
+msgstr "वापस"
+
+#: .\gramapp\templates\base.html:178 .\sample_data.txt:70
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+#: .\gramapp\templates\base.html:256
+msgid "No new notifications"
+msgstr "कोई नई सूचनाएं नहीं"
+
+#: .\gramapp\templates\home.html:12
+msgid "Choose Your Language:"
+msgstr "अपनी भाषा चुनें:"
+
+#: .\gramapp\templates\home.html:28
+msgid "Welcome to Grampanchayat Portal"
+msgstr "ग्रामपंचायत पोर्टल में आपका स्वागत है"
+
+#: .\gramapp\templates\home.html:31
+msgid "Empowering Villages, Building Futures"
+msgstr "गांवों को सशक्त बनाना, भविष्य बनाना"
+
+#: .\gramapp\templates\home.html:35
+msgid "Get Started"
+msgstr "शुरू करें"
+
+#: .\gramapp\templates\home.html:49
+msgid "User Login"
+msgstr "उपयोगकर्ता लॉगिन"
+
+#: .\gramapp\templates\home.html:51
+msgid "Manage services and applications."
+msgstr "सेवाओं और अनुप्रयोगों का प्रबंधन करें।"
+
+#: .\gramapp\templates\home.html:54 .\gramapp\templates\home.html:80
+#: .\gramapp\templates\staff\staff_login.html:71
+#: .\gramapp\templates\user\user_login.html:22
+#: .\gramapp\templates\user\user_login.html:68
+msgid "Login"
+msgstr "लॉग इन करें"
+
+#: .\gramapp\templates\home.html:62
+msgid "User Registration"
+msgstr "उपयोगकर्ता पंजीकरण"
+
+#: .\gramapp\templates\home.html:64
+msgid "New user? Register now."
+msgstr "नया उपयोगकर्ता? अभी पंजीकरण करें।"
+
+#: .\gramapp\templates\home.html:67
+#: .\gramapp\templates\user\user_register.html:183
+msgid "Register"
+msgstr "रजिस्टर करें"
+
+#: .\gramapp\templates\home.html:75
+#: .\gramapp\templates\staff\staff_login.html:24
+msgid "Staff Login"
+msgstr "कर्मचारी लॉगिन"
+
+#: .\gramapp\templates\home.html:77
+msgid "Login for Panchayat staff."
+msgstr "पंचायत कर्मचारियों के लिए लॉगिन।"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:4
+#: .\gramapp\templates\staff\certificate\certificate_management.html:12
+#: .\gramapp\templates\staff\staff_dashboard.html:31
+msgid "Certificate Management"
+msgstr "प्रमाणपत्र प्रबंधन"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:30
+#: .\gramapp\templates\staff\certificate\certificate_management.html:81
+#: .\gramapp\templates\staff\staff_profile.html:72
+#: .\gramapp\templates\user\Certificates\certificates.html:67
+msgid "Submitted"
+msgstr "प्रस्तुत किया गया"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:31
+#: .\gramapp\templates\staff\certificate\certificate_management.html:83
+msgid "Document"
+msgstr "दस्तावेज़"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:32
+#: .\gramapp\templates\staff\certificate\certificate_management.html:86
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:33
+#: .\gramapp\templates\staff\staff_profile.html:73
+#: .\gramapp\templates\staff\surveys\view_responses.html:27
+#: .\gramapp\templates\user\Certificates\certificates.html:68
+msgid "Status"
+msgstr "स्थिति"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:33
+msgid "Action"
+msgstr "कार्य"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:43
+#: .\gramapp\templates\staff\certificate\certificate_management.html:83
+#, fuzzy
+#| msgid "📄 View Document"
+msgid "View Document"
+msgstr "📄 दस्तावेज़ देखें"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:47
+#: .\gramapp\templates\staff\certificate\certificate_management.html:88
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:35
+#: .\gramapp\templates\staff\staff_profile.html:84
+#: .\gramapp\templates\user\Certificates\certificates.html:79
+msgid "Pending"
+msgstr "लंबित"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:49
+#: .\gramapp\templates\staff\certificate\certificate_management.html:90
+#: .\gramapp\templates\staff\staff_profile.html:86
+#: .\gramapp\templates\user\Certificates\certificates.html:81
+msgid "Approved"
+msgstr "स्वीकृत"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:51
+#: .\gramapp\templates\staff\certificate\certificate_management.html:92
+#: .\gramapp\templates\staff\staff_profile.html:88
+#: .\gramapp\templates\user\Certificates\certificates.html:83
+msgid "Rejected"
+msgstr "अस्वीकृत"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:59
+#: .\gramapp\templates\staff\certificate\certificate_management.html:99
+#, fuzzy
+#| msgid "Approved"
+msgid "Approve"
+msgstr "स्वीकृत"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:63
+#: .\gramapp\templates\staff\certificate\certificate_management.html:103
+#, fuzzy
+#| msgid "Rejected"
+msgid "Reject"
+msgstr "अस्वीकृत"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:67
+msgid "Processed"
+msgstr "प्रक्रिया पूरी"
+
+#: .\gramapp\templates\staff\certificate\certificate_management.html:113
+msgid "No pending applications."
+msgstr "कोई लंबित आवेदन नहीं।"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:3
+msgid "Manage Village Dashboard - Panchayat App"
+msgstr "गांव डैशबोर्ड प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:11
+msgid "Manage Village Dashboard"
+msgstr "गांव डैशबोर्ड प्रबंधित करें"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:19
+#, fuzzy
+#| msgid "Village Statistics"
+msgid "Update Village Statistics"
+msgstr "गांव की सांख्यिकी"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:28
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:21
+msgid "Population"
+msgstr "जनसंख्या"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:35
+#, fuzzy, python-format
+#| msgid "Literacy Rate (%)"
+msgid "Literacy Rate (%%)"
+msgstr "साक्षरता दर (%)"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:42
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:29
+msgid "Ongoing Projects"
+msgstr "चल रहे परियोजनाएं"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:49
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:33
+msgid "Annual Budget"
+msgstr "वार्षिक बजट"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:56
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:37
+msgid "Village Location"
+msgstr "गांव का स्थान"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:63
+#, fuzzy, python-format
+#| msgid "Employment Rate (%)"
+msgid "Employment Rate (%%)"
+msgstr "रोजगार दर (%)"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:71
+msgid "Update Statistics"
+msgstr "आंकड़े अपडेट करें"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:81
+msgid "Manage Village Updates"
+msgstr "गांव अपडेट प्रबंधित करें"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:88
+msgid "Update Title"
+msgstr "अपडेट शीर्षक"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:89
+#, fuzzy
+#| msgid "Update Title"
+msgid "Enter update title"
+msgstr "अपडेट शीर्षक"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:93
+msgid "Update Description"
+msgstr "अपडेट विवरण"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:94
+#, fuzzy
+#| msgid "Update Description"
+msgid "Enter update description"
+msgstr "अपडेट विवरण"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:99
+msgid "Add Update"
+msgstr "अपडेट जोड़ें"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:108
+#: .\gramapp\templates\staff\meeting\add_meeting.html:23
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:35
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:69
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:29
+#: .\gramapp\templates\staff\schems\add_scheme.html:23
+#: .\gramapp\templates\staff\schems\edit_scheme.html:24
+#: .\gramapp\templates\staff\surveys\add_survey.html:29
+#: .\gramapp\templates\staff\surveys\view_responses.html:24
+msgid "Title"
+msgstr "शीर्षक"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:109
+#: .\gramapp\templates\staff\meeting\add_meeting.html:54
+#: .\gramapp\templates\staff\surveys\add_survey.html:38
+#: .\gramapp\templates\staff\surveys\view_responses.html:25
+#: .\gramapp\templates\staff\tax\add_tax.html:32
+#: .\gramapp\templates\staff\tourism\add_tourism.html:32
+msgid "Description"
+msgstr "विवरण"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:110
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:41
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:39
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:38
+#: .\gramapp\templates\staff\tax\tax_management.html:27
+#: .\gramapp\templates\staff\tourism\tourism_management.html:39
+msgid "Actions"
+msgstr "कार्रवाई"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:121
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:43
+#: .\gramapp\templates\staff\jobs\delete_job.html:34
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:54
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:78
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:52
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:76
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:45
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:54
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:81
+#: .\gramapp\templates\staff\schems\manage_schemes.html:43
+#: .\gramapp\templates\staff\schems\manage_schemes.html:75
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:56
+#: .\gramapp\templates\staff\tourism\tourism_management.html:51
+#: .\gramapp\templates\staff\tourism\tourism_management.html:74
+msgid "Delete"
+msgstr "हटाएं"
+
+#: .\gramapp\templates\staff\dashboard\manage_village_dashboard.html:127
+msgid "No updates available."
+msgstr "कोई अपडेट उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:3
+msgid "Add FAQ - Panchayat App"
+msgstr "FAQ जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:11
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:18
+msgid "Add New FAQ"
+msgstr "नया FAQ जोड़ें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:23
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:14
+msgid "Question"
+msgstr "प्रश्न"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:26
+msgid "Enter the question"
+msgstr ""
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:27
+msgid "Max 200 characters"
+msgstr ""
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:32
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:19
+msgid "Answer"
+msgstr "उत्तर"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:35
+#, fuzzy
+#| msgid "Enter your phone number"
+msgid "Enter the answer"
+msgstr "अपना फोन नंबर दर्ज करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:36
+msgid "Max 1000 characters"
+msgstr ""
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:43
+msgid "Add FAQ"
+msgstr "FAQ जोड़ें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\add_faq.html:52
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:31
+msgid "Back to FAQ List"
+msgstr "FAQ सूची पर वापस जाएं"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:4
+#, fuzzy
+#| msgid "Death Certificate - Panchayat App"
+msgid "Contact Citizen - Panchayat App"
+msgstr "मृत्यु प्रमाण पत्र - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:9
+#, fuzzy
+#| msgid "Contact Information"
+msgid "Contact Citizen"
+msgstr "संपर्क जानकारी"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:13
+#, fuzzy
+#| msgid "Citizen"
+msgid "Citizen Name"
+msgstr "नागरिक"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:14
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:38
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:72
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:39
+#: .\gramapp\templates\user\user_register.html:79
+msgid "Email"
+msgstr "ईमेल"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:15
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:53
+msgid "Message"
+msgstr "संदेश"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:20
+#, fuzzy
+#| msgid "Message"
+msgid "Reply Message"
+msgstr "संदेश"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:25
+#: .\gramapp\templates\staff\jobs\add_job.html:34
+#: .\gramapp\templates\staff\jobs\delete_job.html:30
+#: .\gramapp\templates\staff\meeting\add_meeting.html:65
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:62
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:50
+#: .\gramapp\templates\staff\schems\add_scheme.html:59
+#: .\gramapp\templates\staff\schems\delete_scheme.html:30
+#: .\gramapp\templates\staff\schems\edit_scheme.html:60
+#: .\gramapp\templates\staff\surveys\delete_survey.html:36
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\contact_citizen.html:27
+#, fuzzy
+#| msgid "Response"
+msgid "Send Response"
+msgstr "प्रतिक्रिया"
+
+#: .\gramapp\templates\staff\helpdeskFaq\delete_faq.html:3
+msgid "Delete FAQ - Panchayat App"
+msgstr "FAQ हटाएँ - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\delete_faq.html:7
+msgid "Delete FAQ"
+msgstr "FAQ हटाएँ"
+
+#: .\gramapp\templates\staff\helpdeskFaq\delete_faq.html:10
+msgid "Are you sure you want to delete this FAQ?"
+msgstr "क्या आप सुनिश्चित हैं कि आप इस FAQ को हटाना चाहते हैं?"
+
+#: .\gramapp\templates\staff\helpdeskFaq\delete_faq.html:16
+#: .\gramapp\templates\staff\schems\delete_scheme.html:34
+msgid "Confirm Delete"
+msgstr "हटाने की पुष्टि करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\delete_faq.html:22
+msgid "Cancel & Go Back"
+msgstr "रद्द करें और वापस जाएं"
+
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:3
+msgid "Edit FAQ - Panchayat App"
+msgstr "FAQ संपादित करें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:7
+msgid "Edit FAQ"
+msgstr "FAQ संपादित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\edit_faq.html:25
+msgid "Update FAQ"
+msgstr "FAQ अपडेट करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:3
+msgid "Manage FAQs - Panchayat App"
+msgstr "FAQ प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:11
+#: .\gramapp\templates\staff\staff_dashboard.html:241
+msgid "Manage FAQs"
+msgstr "अक्सर पूछे जाने वाले प्रश्नों को प्रबंधित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:27
+msgid "FAQs"
+msgstr "अक्सर पूछे जाने वाले प्रश्न"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:39
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:50
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:77
+#: .\gramapp\templates\staff\schems\manage_schemes.html:39
+#: .\gramapp\templates\staff\schems\manage_schemes.html:71
+#: .\gramapp\templates\staff\tax\tax_management.html:36
+msgid "Edit"
+msgstr "संपादित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_faqs.html:50
+msgid "No FAQs available."
+msgstr "कोई FAQ उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:3
+msgid "Manage Helpdesk - Panchayat App"
+msgstr "हेल्पडेस्क प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:11
+msgid "Manage Helpdesk Support"
+msgstr "हेल्पडेस्क सहायता प्रबंधित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:20
+msgid "Support Requests"
+msgstr "सहायता अनुरोध"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:37
+#, fuzzy
+#| msgid "Mark as Resolved"
+msgid "Resolved"
+msgstr "संपन्न के रूप में चिह्नित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:43
+#: .\gramapp\templates\staff\tourism\tourism_management.html:38
+#: .\gramapp\templates\staff\tourism\tourism_management.html:70
+#: .\gramapp\templates\user\Tourism\tourism.html:25
+msgid "Contact"
+msgstr "संपर्क"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:49
+msgid "Mark as Resolved"
+msgstr "संपन्न के रूप में चिह्नित करें"
+
+#: .\gramapp\templates\staff\helpdeskFaq\manage_helpdesk.html:56
+msgid "No support requests available."
+msgstr "कोई सहायता अनुरोध उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:3
+msgid "Add Job Opportunity - Panchayat App"
+msgstr "नौकरी का अवसर जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:7
+msgid "Add Job Opportunity"
+msgstr "नौकरी का अवसर जोड़ें"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:13
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:36
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:70
+msgid "Job Title"
+msgstr "नौकरी का शीर्षक"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:16
+msgid "Company Name"
+msgstr "कंपनी का नाम"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:19
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:39
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:73
+#: .\gramapp\templates\staff\meeting\add_meeting.html:46
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:38
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:72
+#: .\gramapp\templates\staff\tourism\add_tourism.html:40
+#: .\gramapp\templates\staff\tourism\tourism_management.html:36
+#: .\gramapp\templates\staff\tourism\tourism_management.html:68
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:41
+#: .\gramapp\templates\user\Tourism\tourism.html:23
+msgid "Location"
+msgstr "स्थान"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:22
+msgid "Salary (INR)"
+msgstr "वेतन (INR)"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:25
+msgid "Job Description"
+msgstr "नौकरी का विवरण"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:29
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:47
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Email"
+msgstr "संपर्क"
+
+#: .\gramapp\templates\staff\jobs\add_job.html:35
+msgid "Add Job"
+msgstr "नौकरी जोड़ें"
+
+#: .\gramapp\templates\staff\jobs\delete_job.html:4
+msgid "Delete Job - Panchayat App"
+msgstr "नौकरी हटाएं - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\jobs\delete_job.html:12
+msgid "Confirm Deletion"
+msgstr "हटाने की पुष्टि करें"
+
+#: .\gramapp\templates\staff\jobs\delete_job.html:18
+msgid "Are you sure you want to delete the job:"
+msgstr "क्या आप वाकई इस नौकरी को हटाना चाहते हैं:"
+
+#: .\gramapp\templates\staff\jobs\delete_job.html:20
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:37
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:71
+msgid "Company"
+msgstr "कंपनी"
+
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:4
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:12
+msgid "Job Opportunities Management"
+msgstr "नौकरी के अवसर प्रबंधन"
+
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:19
+msgid "Add New Job"
+msgstr "नई नौकरी जोड़ें"
+
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:28
+msgid "Available Job Opportunities"
+msgstr "उपलब्ध नौकरी के अवसर"
+
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:40
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:74
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:44
+msgid "Salary"
+msgstr "वेतन"
+
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:59
+#: .\gramapp\templates\staff\jobs\job_opportunities.html:83
+msgid "No job opportunities available."
+msgstr "कोई नौकरी के अवसर उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:3
+msgid "Add Meeting - Panchayat App"
+msgstr "बैठक जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:11
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:18
+msgid "Add New Meeting"
+msgstr "नई बैठक जोड़ें"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:26
+msgid "Enter meeting title"
+msgstr ""
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:27
+msgid "Max 100 characters"
+msgstr ""
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:32
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:36
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:70
+msgid "Date"
+msgstr "तारीख"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:39
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:37
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:71
+msgid "Time"
+msgstr "समय"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:49
+msgid "Enter meeting location"
+msgstr ""
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:57
+#, fuzzy
+#| msgid "Update Description"
+msgid "Enter meeting description"
+msgstr "अपडेट विवरण"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:58
+msgid "Max 500 characters"
+msgstr ""
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:69
+msgid "Add Meeting"
+msgstr "बैठक जोड़ें"
+
+#: .\gramapp\templates\staff\meeting\add_meeting.html:91
+msgid "Meetings can only be scheduled between 9 AM and 6 PM."
+msgstr ""
+
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:3
+msgid "Manage Meetings - Panchayat App"
+msgstr "बैठकों का प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:27
+msgid "Scheduled Meetings"
+msgstr "निर्धारित बैठकें"
+
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:58
+#: .\gramapp\templates\staff\meeting\manage_meetings.html:82
+msgid "No meetings scheduled."
+msgstr "कोई बैठक निर्धारित नहीं है।"
+
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:3
+#, fuzzy
+#| msgid "Gallery - Panchayat App"
+msgid "Add Image to Gallery - Panchayat App"
+msgstr "गैलरी - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:11
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:18
+msgid "Add New Image"
+msgstr "नई छवि जोड़ें"
+
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:20
+#, fuzzy
+#| msgid "Upload Image"
+msgid "Upload Image Details"
+msgstr "छवि अपलोड करें"
+
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:36
+#: .\gramapp\templates\staff\photoGallery\add_gallery_image.html:45
+msgid "Upload Image"
+msgstr "छवि अपलोड करें"
+
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:3
+#, fuzzy
+#| msgid "Gallery - Panchayat App"
+msgid "Manage Gallery - Panchayat App"
+msgstr "गैलरी - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:11
+#: .\gramapp\templates\staff\staff_dashboard.html:266
+msgid "Manage Gallery"
+msgstr "गैलरी प्रबंधित करें"
+
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:27
+msgid "Gallery Images"
+msgstr "गैलरी छवियाँ"
+
+#: .\gramapp\templates\staff\photoGallery\manage_gallery.html:52
+msgid "No images available."
+msgstr "कोई छवियां उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:3
+msgid "Add Panchayat Member - Panchayat App"
+msgstr "पंचायत सदस्य जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:11
+msgid "Add Panchayat Member"
+msgstr "पंचायत सदस्य जोड़ें"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:23
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:24
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:35
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:71
+msgid "Name"
+msgstr "नाम"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:26
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:27
+#, fuzzy
+#| msgid "Enter parent's name"
+msgid "Enter member's name"
+msgstr "माता-पिता का नाम दर्ज करें"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:31
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:32
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:36
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:72
+#: .\gramapp\templates\staff\staff_profile.html:49
+msgid "Role"
+msgstr "भूमिका"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:34
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:35
+msgid "Enter member's role"
+msgstr ""
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:39
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:40
+#: .\gramapp\templates\user\user_register.html:130
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:42
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:43
+#, fuzzy
+#| msgid "Enter your phone number"
+msgid "Enter member's phone number"
+msgstr "अपना फोन नंबर दर्ज करें"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:47
+msgid "Image URL"
+msgstr "इमेज URL"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:50
+msgid "Enter member's image URL"
+msgstr ""
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:66
+msgid "Add Member"
+msgstr "सदस्य जोड़ें"
+
+#: .\gramapp\templates\staff\profiles\add_panchayat_member.html:85
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:70
+msgid "Please enter a valid 10-digit phone number."
+msgstr ""
+
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:4
+#, fuzzy
+#| msgid "Add Panchayat Member - Panchayat App"
+msgid "Edit Panchayat Member - Panchayat App"
+msgstr "पंचायत सदस्य जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:12
+#, fuzzy
+#| msgid "Add Panchayat Member"
+msgid "Edit Panchayat Member"
+msgstr "पंचायत सदस्य जोड़ें"
+
+#: .\gramapp\templates\staff\profiles\edit_panchayat_member.html:54
+#: .\gramapp\templates\staff\schems\edit_scheme.html:64
+#: .\gramapp\templates\staff\tax\edit_tax.html:40
+msgid "Save Changes"
+msgstr "परिवर्तन सहेजें"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:3
+msgid "Manage Panchayat Members - Panchayat App"
+msgstr "पंचायत सदस्य प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:11
+msgid "Manage Panchayat Members"
+msgstr "पंचायत सदस्य प्रबंधित करें"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:18
+msgid "Add New Member"
+msgstr "नया सदस्य जोड़ें"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:27
+#: .\gramapp\templates\user\Panchayat_Profiles\panchayat_profile.html:11
+msgid "Panchayat Members"
+msgstr "पंचायत सदस्य"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:37
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:73
+#: .\gramapp\templates\staff\staff_profile.html:41
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:46
+#: .\gramapp\templates\user\user_profile.html:45
+msgid "Phone"
+msgstr "फ़ोन"
+
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:60
+#: .\gramapp\templates\staff\profiles\manage_panchayat_profiles.html:86
+msgid "No members found."
+msgstr "कोई सदस्य नहीं मिला।"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:3
+msgid "Add Scheme - Panchayat App"
+msgstr "योजना जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:11
+#: .\gramapp\templates\staff\schems\add_scheme.html:63
+msgid "Add Scheme"
+msgstr "योजना जोड़ें"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:26
+#: .\gramapp\templates\staff\schems\edit_scheme.html:27
+msgid "Enter scheme title"
+msgstr ""
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:31
+#: .\gramapp\templates\staff\schems\edit_scheme.html:40
+msgid "Category"
+msgstr "श्रेणी"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:34
+#: .\gramapp\templates\staff\schems\edit_scheme.html:43
+msgid "Health"
+msgstr "स्वास्थ्य"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:35
+#: .\gramapp\templates\staff\schems\edit_scheme.html:44
+msgid "Education"
+msgstr "शिक्षा"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:41
+#: .\gramapp\templates\staff\schems\edit_scheme.html:32
+msgid "Eligibility"
+msgstr "पात्रता"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:44
+#: .\gramapp\templates\staff\schems\edit_scheme.html:35
+msgid "Enter eligibility criteria"
+msgstr ""
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:49
+msgid "Link"
+msgstr "लिंक"
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:52
+#: .\gramapp\templates\staff\schems\edit_scheme.html:53
+msgid "Enter scheme link"
+msgstr ""
+
+#: .\gramapp\templates\staff\schems\add_scheme.html:79
+#: .\gramapp\templates\staff\schems\edit_scheme.html:80
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: .\gramapp\templates\staff\schems\delete_scheme.html:4
+#, fuzzy
+#| msgid "Delete Survey - Panchayat App"
+msgid "Delete Scheme - Panchayat App"
+msgstr "सर्वेक्षण हटाएँ - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\schems\delete_scheme.html:12
+#, fuzzy
+#| msgid "Health Schemes"
+msgid "Delete Scheme"
+msgstr "स्वास्थ्य योजनाएँ"
+
+#: .\gramapp\templates\staff\schems\delete_scheme.html:19
+#, fuzzy
+#| msgid "Are you sure you want to delete this FAQ?"
+msgid "Are you sure you want to delete this scheme?"
+msgstr "क्या आप सुनिश्चित हैं कि आप इस FAQ को हटाना चाहते हैं?"
+
+#: .\gramapp\templates\staff\schems\edit_scheme.html:4
+#, fuzzy
+#| msgid "Add Scheme - Panchayat App"
+msgid "Edit Scheme - Panchayat App"
+msgstr "योजना जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\schems\edit_scheme.html:12
+#, fuzzy
+#| msgid "Add Scheme"
+msgid "Edit Scheme"
+msgstr "योजना जोड़ें"
+
+#: .\gramapp\templates\staff\schems\edit_scheme.html:50
+#, fuzzy
+#| msgid "Optional"
+msgid "Link (Optional)"
+msgstr "वैकल्पिक"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:3
+msgid "Manage Schemes - Panchayat App"
+msgstr "योजनाओं का प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:11
+#: .\gramapp\templates\staff\staff_dashboard.html:211
+msgid "Manage Schemes"
+msgstr "योजनाओं का प्रबंधन करें"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:18
+msgid "Add New Scheme"
+msgstr "नई योजना जोड़ें"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:27
+#: .\gramapp\templates\user\Health_Education\healthedu.html:13
+#: .\gramapp\templates\user\Health_Education\healthedu.html:22
+msgid "Health Schemes"
+msgstr "स्वास्थ्य योजनाएँ"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:50
+#: .\gramapp\templates\user\Health_Education\healthedu.html:38
+msgid "No health schemes available."
+msgstr "कोई स्वास्थ्य योजना उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:59
+#: .\gramapp\templates\user\Health_Education\healthedu.html:16
+#: .\gramapp\templates\user\Health_Education\healthedu.html:44
+msgid "Education Schemes"
+msgstr "शिक्षा योजनाएँ"
+
+#: .\gramapp\templates\staff\schems\manage_schemes.html:82
+#: .\gramapp\templates\user\Health_Education\healthedu.html:60
+msgid "No education schemes available."
+msgstr "कोई शिक्षा योजना उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:6
+msgid "Staff Dashboard - Panchayat App"
+msgstr "कर्मचारी डैशबोर्ड - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:15
+#: .\gramapp\templates\user\user_dashboard.html:15
+#, fuzzy
+#| msgid "Welcome, "
+msgid "Welcome,"
+msgstr "स्वागत है, "
+
+#: .\gramapp\templates\staff\staff_dashboard.html:34
+msgid "Manage Birth, Death, Marriage & Domicile Certificates."
+msgstr "जन्म, मृत्यु, विवाह और निवास प्रमाणपत्र प्रबंधित करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:40
+msgid "Manage Certificates"
+msgstr "प्रमाणपत्र प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:55
+#: .\gramapp\templates\staff\tax\tax_management.html:4
+#: .\gramapp\templates\staff\tax\tax_management.html:8
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:5
+msgid "Tax Management"
+msgstr "कर प्रबंधन"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:59
+msgid "Manage and track tax payments."
+msgstr "कर भुगतान को प्रबंधित और ट्रैक करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:81
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:12
+#: .\gramapp\views.py:280 .\sample_data.txt:82
+msgid "Job Opportunities"
+msgstr "नौकरी के अवसर"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:84
+msgid "Manage job postings in the village."
+msgstr "गांव में नौकरी की पोस्टिंग प्रबंधित करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:90
+msgid "Manage Jobs"
+msgstr "नौकरियां प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:105 .\sample_data.txt:83
+msgid "Local Tourism"
+msgstr "स्थानीय पर्यटन"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:109
+msgid "Manage tourism spots & assistance."
+msgstr "पर्यटन स्थलों और सहायता का प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:115
+msgid "Manage Tourism"
+msgstr "पर्यटन प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:130
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:5
+#: .\gramapp\views.py:278 .\sample_data.txt:80
+msgid "Village Dashboard"
+msgstr "गांव डैशबोर्ड"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:133
+msgid "Update village statistics & insights."
+msgstr "गाँव के आँकड़े और अंतर्दृष्टि अपडेट करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:139
+msgid "Manage Dashboard"
+msgstr "डैशबोर्ड प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:154
+#: .\gramapp\templates\user\Gramsabha_Meetings\sabhameet.html:5
+msgid "Panchayat Meetings"
+msgstr "पंचायत बैठकें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:157
+msgid "Schedule and manage Gram Sabha meetings."
+msgstr "ग्राम सभा बैठकों का शेड्यूल और प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:178 .\gramapp\views.py:279
+#: .\sample_data.txt:81
+msgid "Panchayat Profiles"
+msgstr "पंचायत प्रोफाइल"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:181
+msgid "Manage Panchayat members and their details."
+msgstr "पंचायत सदस्यों और उनके विवरण का प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:187
+msgid "Manage Profiles"
+msgstr "प्रोफाइल प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:202
+msgid "Schemes Management"
+msgstr "योजना प्रबंधन"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:205
+msgid "Manage health & education schemes."
+msgstr "स्वास्थ्य और शिक्षा योजनाओं का प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:226
+msgid "Helpdesk & FAQs"
+msgstr "सहायता डेस्क और अक्सर पूछे जाने वाले प्रश्न"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:230
+msgid "Manage support requests and FAQs."
+msgstr "सहायता अनुरोधों और अक्सर पूछे जाने वाले प्रश्नों का प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:237
+msgid "Manage Helpdesk"
+msgstr "सहायता डेस्क प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:256 .\gramapp\views.py:277
+#: .\sample_data.txt:79
+msgid "Photo Gallery"
+msgstr "फोटो गैलरी"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:260
+msgid "Manage event images for the user gallery."
+msgstr "उपयोगकर्ता गैलरी के लिए कार्यक्रम की छवियों का प्रबंधन करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:281
+#: .\gramapp\templates\user\Surveys\surveys.html:5 .\gramapp\views.py:275
+#: .\sample_data.txt:77
+msgid "Surveys"
+msgstr "सर्वेक्षण"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:284
+msgid "Manage community surveys and responses."
+msgstr "सामुदायिक सर्वेक्षण और प्रतिक्रियाओं को प्रबंधित करें।"
+
+#: .\gramapp\templates\staff\staff_dashboard.html:290
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:11
+msgid "Manage Surveys"
+msgstr "सर्वेक्षण प्रबंधित करें"
+
+#: .\gramapp\templates\staff\staff_login.html:5
+#, fuzzy
+#| msgid "Staff Profile - Panchayat App"
+msgid "Staff Login - Panchayat App"
+msgstr "कर्मचारी प्रोफ़ाइल - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\staff_login.html:14
+#: .\gramapp\templates\user\user_login.html:13
+#: .\gramapp\templates\user\user_register.html:12
+msgid "Back to Home"
+msgstr "मुखपृष्ठ पर वापस जाएं"
+
+#: .\gramapp\templates\staff\staff_login.html:34
+#: .\gramapp\templates\user\user_login.html:32
+#: .\gramapp\templates\user\user_register.html:66
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\gramapp\templates\staff\staff_login.html:41
+#, fuzzy
+#| msgid "Enter your username"
+msgid "Enter your staff username"
+msgstr "अपना उपयोगकर्ता नाम दर्ज करें"
+
+#: .\gramapp\templates\staff\staff_login.html:48
+#: .\gramapp\templates\user\user_login.html:46
+#: .\gramapp\templates\user\user_register.html:92
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\gramapp\templates\staff\staff_login.html:55
+#: .\gramapp\templates\user\user_login.html:53
+#, fuzzy
+#| msgid "Confirm your password"
+msgid "Enter your password"
+msgstr "अपना पासवर्ड पुष्टि करें"
+
+#: .\gramapp\templates\staff\staff_login.html:62
+#: .\gramapp\templates\user\user_login.html:60
+msgid "Invalid username or password. Please try again."
+msgstr "अमान्य उपयोगकर्ता नाम या पासवर्ड। कृपया पुन: प्रयास करें।"
+
+#: .\gramapp\templates\staff\staff_login.html:78
+msgid "Not registered? Contact your administrator for staff access."
+msgstr ""
+
+#: .\gramapp\templates\staff\staff_profile.html:3
+msgid "Staff Profile - Panchayat App"
+msgstr "कर्मचारी प्रोफ़ाइल - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\staff_profile.html:15
+#: .\gramapp\templates\user\user_profile.html:14
+msgid "Back to Dashboard"
+msgstr "डैशबोर्ड पर वापस जाएं"
+
+#: .\gramapp\templates\staff\staff_profile.html:23
+#: .\gramapp\templates\user\user_profile.html:24
+#: .\gramapp\templates\user\user_register.html:118
+msgid "Profile Picture"
+msgstr "प्रोफाइल तस्वीर"
+
+#: .\gramapp\templates\staff\staff_profile.html:25
+#: .\gramapp\templates\user\user_profile.html:27
+msgid "Default Profile"
+msgstr "डिफ़ॉल्ट प्रोफ़ाइल"
+
+#: .\gramapp\templates\staff\staff_profile.html:38
+msgid "Staff Details"
+msgstr "कर्मचारी विवरण"
+
+#: .\gramapp\templates\staff\staff_profile.html:45
+msgid "Department"
+msgstr "विभाग"
+
+#: .\gramapp\templates\staff\staff_profile.html:53
+msgid "Joined On"
+msgstr "शामिल होने की तिथि"
+
+#: .\gramapp\templates\staff\staff_profile.html:60
+msgid "Assigned Certificate Applications"
+msgstr "आवंटित प्रमाणपत्र आवेदन"
+
+#: .\gramapp\templates\staff\staff_profile.html:70
+#: .\gramapp\templates\user\Certificates\certificates.html:66
+msgid "ID"
+msgstr "आईडी"
+
+#: .\gramapp\templates\staff\staff_profile.html:99
+msgid "No assigned certificates at the moment."
+msgstr "इस समय कोई आवंटित प्रमाणपत्र नहीं हैं।"
+
+#: .\gramapp\templates\staff\surveys\add_survey.html:3
+msgid "Add Survey - Panchayat App"
+msgstr "सर्वेक्षण जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\surveys\add_survey.html:11
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:18
+msgid "Add New Survey"
+msgstr "नया सर्वेक्षण जोड़ें"
+
+#: .\gramapp\templates\staff\surveys\add_survey.html:19
+#: .\gramapp\templates\staff\surveys\view_responses.html:19
+msgid "Survey Details"
+msgstr "सर्वेक्षण विवरण"
+
+#: .\gramapp\templates\staff\surveys\add_survey.html:47
+msgid "Add Survey"
+msgstr "सर्वेक्षण जोड़ें"
+
+#: .\gramapp\templates\staff\surveys\add_survey.html:55
+msgid "Back to Surveys"
+msgstr "सर्वेक्षण पर वापस जाएं"
+
+#: .\gramapp\templates\staff\surveys\delete_survey.html:3
+msgid "Delete Survey - Panchayat App"
+msgstr "सर्वेक्षण हटाएँ - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\surveys\delete_survey.html:14
+msgid "Delete Survey"
+msgstr "सर्वेक्षण हटाएँ"
+
+#: .\gramapp\templates\staff\surveys\delete_survey.html:19
+msgid "Are you sure you want to delete the survey"
+msgstr "क्या आप वाकई इस सर्वेक्षण को हटाना चाहते हैं"
+
+#: .\gramapp\templates\staff\surveys\delete_survey.html:21
+msgid "This action is irreversible."
+msgstr "यह क्रिया अपरिवर्तनीय है।"
+
+#: .\gramapp\templates\staff\surveys\delete_survey.html:31
+msgid "Yes"
+msgstr ""
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:3
+msgid "Manage Surveys - Panchayat App"
+msgstr "सर्वेक्षण प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:33
+#: .\gramapp\templates\staff\surveys\view_responses.html:29
+msgid "Active"
+msgstr "सक्रिय"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:33
+#: .\gramapp\templates\staff\surveys\view_responses.html:29
+msgid "Closed"
+msgstr "बंद"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:46
+#, fuzzy
+#| msgid "View Jobs"
+msgid "View"
+msgstr "नौकरियाँ देखें"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:50
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:90
+msgid "Close"
+msgstr "बंद करें"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:50
+msgid "Activate"
+msgstr "सक्रिय करें"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:65
+msgid "No surveys available."
+msgstr "कोई सर्वेक्षण उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:75
+#, fuzzy
+#| msgid "Citizen Feedback on Surveys"
+msgid "Citizen Feedback"
+msgstr "सर्वेक्षण पर नागरिक प्रतिक्रिया"
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:88
+msgid "From:"
+msgstr ""
+
+#: .\gramapp\templates\staff\surveys\manage_surveys.html:103
+msgid "No feedback available."
+msgstr "कोई प्रतिक्रिया उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:3
+msgid "Survey Responses - Panchayat App"
+msgstr "सर्वेक्षण प्रतिक्रियाएँ - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:11
+msgid "Survey Responses"
+msgstr "सर्वेक्षण प्रतिक्रियाएँ"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:26
+msgid "Created On"
+msgstr "बनाया गया"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:40
+msgid "User Responses"
+msgstr "उपयोगकर्ता प्रतिक्रियाएँ"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:49
+msgid "User"
+msgstr "उपयोगकर्ता"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:50
+msgid "Response"
+msgstr "प्रतिक्रिया"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:51
+msgid "Submitted At"
+msgstr "प्रस्तुत करने की तिथि"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:58
+msgid "No response provided"
+msgstr "कोई प्रतिक्रिया प्रदान नहीं की गई"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:68
+msgid "No responses available."
+msgstr "कोई प्रतिक्रियाएँ उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\staff\surveys\view_responses.html:77
+msgid "Back to Survey List"
+msgstr "सर्वेक्षण सूची पर वापस जाएँ"
+
+#: .\gramapp\templates\staff\tax\add_tax.html:4
+#: .\gramapp\templates\staff\tax\add_tax.html:12
+#: .\gramapp\templates\staff\tax\tax_management.html:13
+msgid "Add New Tax"
+msgstr "नया कर जोड़ें"
+
+#: .\gramapp\templates\staff\tax\add_tax.html:24
+#: .\gramapp\templates\staff\tax\edit_tax.html:24
+#: .\gramapp\templates\staff\tax\tax_management.html:25
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:54
+msgid "Tax Name"
+msgstr "कर का नाम"
+
+#: .\gramapp\templates\staff\tax\add_tax.html:39
+#: .\gramapp\templates\staff\tax\edit_tax.html:31
+msgid "Outstanding Amount (₹)"
+msgstr "बकाया राशि (₹)"
+
+#: .\gramapp\templates\staff\tax\add_tax.html:48
+msgid "Add Tax"
+msgstr "कर जोड़ें"
+
+#: .\gramapp\templates\staff\tax\edit_tax.html:4
+#: .\gramapp\templates\staff\tax\edit_tax.html:12
+msgid "Edit Tax"
+msgstr "कर संपादित करें"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:26
+msgid "Outstanding"
+msgstr "बकाया"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:41
+msgid "No taxes available."
+msgstr "कोई कर उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:51
+msgid "Recent Tax Payments"
+msgstr "हाल के कर भुगतान"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:58
+msgid "Tax Type"
+msgstr "कर प्रकार"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:59
+msgid "Amount"
+msgstr "राशि"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:60
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:56
+msgid "Payment Date"
+msgstr "भुगतान की तारीख"
+
+#: .\gramapp\templates\staff\tax\tax_management.html:73
+msgid "No tax payments recorded."
+msgstr "कोई कर भुगतान दर्ज नहीं किया गया।"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:4
+msgid "Add Tourism Spot - Panchayat App"
+msgstr "पर्यटन स्थल जोड़ें - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:12
+msgid "Add New Tourism Spot"
+msgstr "नया पर्यटन स्थल जोड़ें"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:24
+msgid "Spot Name"
+msgstr "स्थल का नाम"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:48
+#: .\gramapp\templates\user\Tourism\tourism.html:24
+msgid "Best Time to Visit"
+msgstr "यात्रा करने का सर्वोत्तम समय"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:51
+#: .\gramapp\templates\staff\tourism\add_tourism.html:59
+msgid "Optional"
+msgstr "वैकल्पिक"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:56
+msgid "Contact Information"
+msgstr "संपर्क जानकारी"
+
+#: .\gramapp\templates\staff\tourism\add_tourism.html:65
+msgid "Add Spot"
+msgstr "स्थल जोड़ें"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:4
+msgid "Tourism Management - Panchayat App"
+msgstr "पर्यटन प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:12
+msgid "Local Tourism Management"
+msgstr "स्थानीय पर्यटन प्रबंधन"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:19
+msgid "Add New Spot"
+msgstr "नया पर्यटन स्थल जोड़ें"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:28
+msgid "Tourism Spots"
+msgstr "पर्यटन स्थल"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:37
+#: .\gramapp\templates\staff\tourism\tourism_management.html:69
+msgid "Best Time"
+msgstr "सर्वोत्तम समय"
+
+#: .\gramapp\templates\staff\tourism\tourism_management.html:57
+#: .\gramapp\templates\staff\tourism\tourism_management.html:79
+msgid "No tourism spots available."
+msgstr "कोई पर्यटन स्थल उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:4
+msgid "Birth Certificate - Panchayat App"
+msgstr "जन्म प्रमाण पत्र - पंचायत ऐप"
+
+# ## Birth
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:5
+#: .\gramapp\templates\user\Certificates\certificates.html:17
+msgid "Birth Certificate"
+msgstr "जन्म प्रमाणपत्र"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:10
+msgid "Apply for Birth Certificate"
+msgstr "जन्म प्रमाण पत्र के लिए आवेदन करें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:27
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:27
+msgid "Full Name"
+msgstr "पूरा नाम"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:29
+msgid "Enter full name"
+msgstr "पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:33
+msgid "Date of Birth"
+msgstr "जन्म तिथि"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:38
+msgid "Parent's Name"
+msgstr "माता-पिता का नाम"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:40
+msgid "Enter parent’s name"
+msgstr "माता-पिता का नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:44
+#: .\gramapp\templates\user\Certificates\death_certificate.html:50
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:45
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:50
+msgid "Upload Required Documents"
+msgstr "आवश्यक दस्तावेज़ अपलोड करें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:47
+#: .\gramapp\templates\user\Certificates\death_certificate.html:53
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:47
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:52
+msgid "Only PDF files are allowed."
+msgstr "केवल PDF फाइलें स्वीकार्य हैं।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:51
+#: .\gramapp\templates\user\Certificates\death_certificate.html:57
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:51
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:56
+msgid "Submit Application"
+msgstr "आवेदन सबमिट करें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:58
+#: .\gramapp\templates\user\Certificates\death_certificate.html:64
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:58
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:63
+msgid "Required Documents & Conditions"
+msgstr "आवश्यक दस्तावेज़ और शर्तें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:61
+#: .\gramapp\templates\user\Certificates\death_certificate.html:67
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:61
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:66
+msgid "Required Documents"
+msgstr "आवश्यक दस्तावेज़"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:63
+msgid "Proof of Birth:"
+msgstr "जन्म प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:63
+msgid "Hospital birth certificate or affidavit for home birth."
+msgstr "अस्पताल जन्म प्रमाण पत्र या घरेलू जन्म के लिए हलफनामा।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:64
+msgid "Identity Proof of Parents:"
+msgstr "माता-पिता की पहचान प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:64
+msgid "Aadhaar Card, Voter ID, Passport, or Driving License."
+msgstr "आधार कार्ड, मतदाता पहचान पत्र, पासपोर्ट या ड्राइविंग लाइसेंस।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:65
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:69
+msgid "Address Proof:"
+msgstr "पता प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:65
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:69
+msgid "Ration Card, Utility Bill, or Property Tax Receipt."
+msgstr "राशन कार्ड, बिजली/पानी बिल या संपत्ति कर रसीद।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:66
+msgid "Parent’s Marriage Certificate:"
+msgstr "माता-पिता का विवाह प्रमाण पत्र:"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:66
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:70
+msgid "If available."
+msgstr "यदि उपलब्ध हो।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:67
+#: .\gramapp\templates\user\Certificates\death_certificate.html:72
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:65
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:72
+msgid "Affidavit:"
+msgstr "हलफनामा:"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:67
+msgid "Required for delayed registration beyond 21 days."
+msgstr "२१ दिनों से अधिक की देरी पर हलफनामा आवश्यक।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:70
+#: .\gramapp\templates\user\Certificates\death_certificate.html:75
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:69
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:75
+msgid "Conditions for Application"
+msgstr "आवेदन की शर्तें"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:72
+msgid "Births should be registered within 21 days at the Gram Panchayat."
+msgstr "जन्म को २१ दिनों के भीतर ग्राम पंचायत में पंजीकृत किया जाना चाहिए।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:73
+#: .\gramapp\templates\user\Certificates\death_certificate.html:78
+msgid "Late registrations (21-30 days) require a fee of ₹2."
+msgstr "देर से पंजीकरण (२१-३० दिन) के लिए ₹२ शुल्क आवश्यक है।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:74
+#: .\gramapp\templates\user\Certificates\death_certificate.html:79
+msgid ""
+"Registrations beyond 30 days need permission from authorities and an "
+"affidavit."
+msgstr "३० दिनों से अधिक की देरी पर अधिकारियों की अनुमति और हलफनामा आवश्यक है।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:75
+#: .\gramapp\templates\user\Certificates\death_certificate.html:80
+msgid "For registrations beyond one year, a magistrate’s order is necessary."
+msgstr "एक वर्ष से अधिक की देरी पर मजिस्ट्रेट का आदेश आवश्यक है।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:78
+#: .\gramapp\templates\user\Certificates\death_certificate.html:83
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:76
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:83
+msgid "Application Process"
+msgstr "आवेदन प्रक्रिया"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:80
+#: .\gramapp\templates\user\Certificates\death_certificate.html:85
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:78
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:85
+msgid "Fill in all required details correctly."
+msgstr "सभी आवश्यक विवरण सही ढंग से भरें।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:81
+#: .\gramapp\templates\user\Certificates\death_certificate.html:86
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:79
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:86
+msgid "Attach all necessary documents."
+msgstr "सभी आवश्यक दस्तावेज़ संलग्न करें।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:82
+#: .\gramapp\templates\user\Certificates\death_certificate.html:87
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:80
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:87
+msgid "Submit the form."
+msgstr "फॉर्म सबमिट करें।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:83
+msgid ""
+"After verification, the birth certificate will be issued within 5-7 working "
+"days."
+msgstr "सत्यापन के बाद, जन्म प्रमाण पत्र ५-७ कार्यदिवस में जारी किया जाएगा।"
+
+#: .\gramapp\templates\user\Certificates\birth_certificate.html:86
+#: .\gramapp\templates\user\Certificates\death_certificate.html:91
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:84
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:91
+msgid "For more details, visit the Panchayat Office."
+msgstr "अधिक जानकारी के लिए, पंचायत कार्यालय जाएं।"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:4
+#, fuzzy
+#| msgid "Birth Certificate - Panchayat App"
+msgid "Certificates - Panchayat App"
+msgstr "जन्म प्रमाण पत्र - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:11
+#, fuzzy
+#| msgid "📜 Apply for Certificates"
+msgid "Apply for Certificates"
+msgstr "📜 प्रमाणपत्रों के लिए आवेदन करें"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:20
+#: .\gramapp\templates\user\Certificates\certificates.html:29
+#: .\gramapp\templates\user\Certificates\certificates.html:38
+#: .\gramapp\templates\user\Certificates\certificates.html:47
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:56
+#: .\gramapp\views.py:272
+msgid "Apply Now"
+msgstr "अभी आवेदन करें"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:26
+#: .\gramapp\templates\user\Certificates\death_certificate.html:5
+msgid "Death Certificate"
+msgstr "मृत्यु प्रमाणपत्र"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:35
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:5
+msgid "Marriage Certificate"
+msgstr "विवाह प्रमाणपत्र"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:44
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:5
+msgid "Domicile Certificate"
+msgstr "अधिवास प्रमाणपत्र"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:54
+msgid "Your Applied Certificates"
+msgstr "आपके द्वारा आवेदन किए गए प्रमाणपत्र"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:69
+#: .\gramapp\templates\user\Certificates\certificates.html:90
+msgid "Download"
+msgstr "डाउनलोड करें"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:93
+msgid "Not Available"
+msgstr "उपलब्ध नहीं"
+
+#: .\gramapp\templates\user\Certificates\certificates.html:104
+msgid "You have not applied for any certificates yet."
+msgstr "आपने अभी तक किसी प्रमाणपत्र के लिए आवेदन नहीं किया है।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:4
+msgid "Death Certificate - Panchayat App"
+msgstr "मृत्यु प्रमाण पत्र - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:10
+msgid "Apply for Death Certificate"
+msgstr "मृत्यु प्रमाण पत्र के लिए आवेदन करें"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:27
+msgid "Deceased's Full Name"
+msgstr "मृत व्यक्ति का पूरा नाम"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:29
+msgid "Enter full name of the deceased"
+msgstr "मृत व्यक्ति का पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:33
+msgid "Date of Death"
+msgstr "मृत्यु तिथि"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:38
+msgid "Place of Death"
+msgstr "मृत्यु स्थान"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:40
+msgid "Enter place of death"
+msgstr "मृत्यु स्थान दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:44
+msgid "Cause of Death"
+msgstr "मृत्यु का कारण"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:46
+msgid "Enter cause of death"
+msgstr "मृत्यु का कारण दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:69
+msgid "Medical Certificate:"
+msgstr "चिकित्सा प्रमाण पत्र:"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:69
+msgid "Issued by a hospital or registered medical practitioner."
+msgstr "अस्पताल या पंजीकृत चिकित्सा व्यवसायी द्वारा जारी किया गया।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:70
+msgid "Identity Proof of Deceased:"
+msgstr "मृत व्यक्ति की पहचान प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:70
+msgid "Aadhaar Card, Passport, or Voter ID."
+msgstr "आधार कार्ड, पासपोर्ट, या मतदाता पहचान पत्र।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:71
+msgid "Identity Proof of Applicant:"
+msgstr "आवेदक की पहचान प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:71
+msgid "Aadhaar Card, Voter ID, or Passport."
+msgstr "आधार कार्ड, मतदाता पहचान पत्र या पासपोर्ट।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:72
+msgid "Required in case of delayed registration beyond 21 days."
+msgstr "२१ दिनों से अधिक की देरी पर हलफनामा आवश्यक।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:77
+#, fuzzy
+#| msgid "Births should be registered within 21 days at the Gram Panchayat."
+msgid "Deaths should be registered within 21 days at the Gram Panchayat."
+msgstr "जन्म को २१ दिनों के भीतर ग्राम पंचायत में पंजीकृत किया जाना चाहिए।"
+
+#: .\gramapp\templates\user\Certificates\death_certificate.html:88
+msgid ""
+"After verification, the death certificate will be issued within 5-7 working "
+"days."
+msgstr "सत्यापन के बाद, मृत्यु प्रमाण पत्र ५-७ कार्यदिवस में जारी किया जाएगा।"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:4
+#, fuzzy
+#| msgid "Death Certificate - Panchayat App"
+msgid "Domicile Certificate - Panchayat App"
+msgstr "मृत्यु प्रमाण पत्र - पंचायत ऐप"
+
+# ### Domicile
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:10
+#, fuzzy
+#| msgid "🏡 Apply for Domicile Certificate"
+msgid "Apply for Domicile Certificate"
+msgstr "🏡 अधिवास प्रमाणपत्र के लिए आवेदन करें"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:29
+msgid "Enter your full name"
+msgstr "अपना पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:33
+#, fuzzy
+#| msgid "Enter father's/husband's name"
+msgid "Father's/Husband's Name"
+msgstr "पिता/पति का नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:35
+#, fuzzy
+#| msgid "Enter father's/husband's name"
+msgid "Enter father/husband name"
+msgstr "पिता/पति का नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:39
+#: .\gramapp\templates\user\user_profile.html:51
+#: .\gramapp\templates\user\user_register.html:143
+msgid "Address"
+msgstr "पता"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:41
+#: .\gramapp\templates\user\user_register.html:149
+msgid "Enter your address"
+msgstr "अपना पता दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:63
+#, fuzzy
+#| msgid "Proof of Birth:"
+msgid "Proof of Residence:"
+msgstr "जन्म प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:63
+#, fuzzy
+#| msgid "Aadhaar Card, Voter ID, Passport, or Driving License."
+msgid "Aadhaar Card, Voter ID, Ration Card, or Utility Bill."
+msgstr "आधार कार्ड, मतदाता पहचान पत्र, पासपोर्ट या ड्राइविंग लाइसेंस।"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:64
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:68
+#, fuzzy
+#| msgid "Identity Proof of Parents:"
+msgid "Identity Proof:"
+msgstr "माता-पिता की पहचान प्रमाण:"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:64
+#, fuzzy
+#| msgid "Aadhaar Card, Voter ID, Passport, or Driving License."
+msgid "PAN Card, Passport, or Driving License."
+msgstr "आधार कार्ड, मतदाता पहचान पत्र, पासपोर्ट या ड्राइविंग लाइसेंस।"
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:65
+msgid "Declaration confirming residence duration."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:66
+msgid "Land Records:"
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:66
+msgid "If applicable, property tax or lease agreement."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:71
+msgid ""
+"The applicant must have lived at the given address for a minimum of 3 years."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:72
+msgid "Any false information will lead to legal action."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:73
+msgid "The Panchayat office verifies details before certificate issuance."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\domicile_certificate.html:81
+#, fuzzy
+#| msgid ""
+#| "After verification, the marriage certificate will be issued within 7-10 "
+#| "working days."
+msgid ""
+"After verification, the Domicile certificate will be issued within 7-10 "
+"working days."
+msgstr "सत्यापन के बाद, विवाह प्रमाण पत्र ७-१० कार्यदिवस में जारी किया जाएगा।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:4
+msgid "Marriage Certificate - Panchayat App"
+msgstr "विवाह प्रमाण पत्र - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:10
+msgid "Apply for Marriage Certificate"
+msgstr "विवाह प्रमाण पत्र के लिए आवेदन करें"
+
+# ##### Marriage
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:27
+#, fuzzy
+#| msgid "Enter husband's full name"
+msgid "Husband's Full Name"
+msgstr "पति का पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:29
+msgid "Enter husband’s full name"
+msgstr "पति का पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:33
+msgid "Wife's Full Name"
+msgstr "पत्नी का पूरा नाम"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:35
+#, fuzzy
+#| msgid "Enter wife's full name"
+msgid "Enter wife’s full name"
+msgstr "पत्नी का पूरा नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:39
+msgid "Date of Marriage"
+msgstr "विवाह की तिथि"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:44
+msgid "Place of Marriage"
+msgstr "विवाह स्थल"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:46
+msgid "Enter place of marriage"
+msgstr "विवाह स्थल दर्ज करें"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:68
+#, fuzzy
+#| msgid "Aadhaar Card, Voter ID, Passport, or Driving License."
+msgid "Aadhaar Card, Voter ID, Passport, or Driving License of both spouses."
+msgstr "आधार कार्ड, मतदाता पहचान पत्र, पासपोर्ट या ड्राइविंग लाइसेंस।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:70
+msgid "Marriage Invitation Card:"
+msgstr "विवाह निमंत्रण पत्रिका:"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:71
+msgid "Photographs:"
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:71
+msgid "Passport-sized photos of both spouses."
+msgstr "दोनों पति-पत्नी के पासपोर्ट साइज फोटो।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:72
+msgid "Declaration of marriage from both spouses."
+msgstr "दोनों पति-पत्नी की विवाह घोषणा।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:77
+msgid "Marriage must be registered within 30 days at the Gram Panchayat."
+msgstr "विवाह को ग्राम पंचायत में ३० दिनों के भीतर पंजीकृत किया जाना चाहिए।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:78
+msgid "Late registrations require an affidavit and a penalty fee."
+msgstr "देर से पंजीकरण के लिए हलफनामा और जुर्माना शुल्क आवश्यक है।"
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:79
+msgid ""
+"Both spouses must be at least 18 years (for females) and 21 years (for "
+"males)."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:80
+msgid ""
+"Marriage should be conducted legally as per Hindu Marriage Act or Special "
+"Marriage Act."
+msgstr ""
+
+#: .\gramapp\templates\user\Certificates\marriage_certificate.html:88
+msgid ""
+"After verification, the marriage certificate will be issued within 7-10 "
+"working days."
+msgstr "सत्यापन के बाद, विवाह प्रमाण पत्र ७-१० कार्यदिवस में जारी किया जाएगा।"
+
+#: .\gramapp\templates\user\Events\events.html:4
+msgid "Events - Panchayat App"
+msgstr "कार्यक्रम - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Events\events.html:5
+msgid "Upcoming Events"
+msgstr "आगामी कार्यक्रम"
+
+#: .\gramapp\templates\user\Events\events.html:12
+msgid "Village Events & Gatherings"
+msgstr "गाँव के कार्यक्रम और सभाएँ"
+
+#: .\gramapp\templates\user\Events\events.html:15
+msgid "Stay updated with the latest events happening in your community."
+msgstr "अपने समुदाय में हो रहे नवीनतम कार्यक्रमों से अपडेट रहें।"
+
+#: .\gramapp\templates\user\Events\events.html:28
+msgid "Event Image"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Events\events.html:51
+msgid "No upcoming events at the moment."
+msgstr "इस समय कोई आगामी कार्यक्रम नहीं है।"
+
+#: .\gramapp\templates\user\Gramsabha_Meetings\sabhameet.html:4
+msgid "Panchayat Meetings - Panchayat App"
+msgstr "पंचायत बैठकें - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Gramsabha_Meetings\sabhameet.html:12
+msgid "Upcoming Meetings"
+msgstr "आगामी बैठकें"
+
+#: .\gramapp\templates\user\Gramsabha_Meetings\sabhameet.html:26
+#, fuzzy
+#| msgid "🚫 No upcoming meetings."
+msgid "No upcoming meetings."
+msgstr "🚫 कोई आगामी बैठक नहीं है।"
+
+#: .\gramapp\templates\user\Health_Education\healthedu.html:4
+msgid "Health & Education Schemes - Panchayat App"
+msgstr "स्वास्थ्य और शिक्षा योजनाएँ - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Health_Education\healthedu.html:5
+#: .\gramapp\views.py:273 .\sample_data.txt:75
+msgid "Health & Education Schemes"
+msgstr "स्वास्थ्य और शिक्षा योजनाएँ"
+
+#: .\gramapp\templates\user\Health_Education\healthedu.html:31
+#: .\gramapp\templates\user\Health_Education\healthedu.html:53
+#: .\gramapp\views.py:273
+msgid "Learn More"
+msgstr "अधिक जानें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:4
+msgid "Helpdesk Support - Panchayat App"
+msgstr "हेल्पडेस्क सहायता - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:5 .\gramapp\views.py:274
+#: .\sample_data.txt:76
+msgid "Helpdesk Support"
+msgstr "हेल्पडेस्क सहायता"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:12
+msgid "Contact Support"
+msgstr "संपर्क सहायता"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:14
+msgid ""
+"Facing an issue? Need assistance? Contact us, and we'll be happy to help!"
+msgstr ""
+"कोई समस्या हो रही है? सहायता की आवश्यकता है? हमसे संपर्क करें, हम मदद करने के लिए यहां हैं!"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:32
+msgid "Your Name"
+msgstr "आपका नाम"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:35
+msgid "Enter your name"
+msgstr "अपना नाम दर्ज करें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:42
+#: .\gramapp\templates\user\user_register.html:85
+msgid "Enter your email"
+msgstr "अपना ईमेल दर्ज करें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:49
+#: .\gramapp\templates\user\user_register.html:136
+msgid "Enter your phone number"
+msgstr "अपना फोन नंबर दर्ज करें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:56
+msgid "Describe your issue"
+msgstr "अपनी समस्या का विवरण दें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:61
+msgid "Submit Request"
+msgstr "अनुरोध सबमिट करें"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:67
+msgid "Frequently Asked Questions"
+msgstr "अक्सर पूछे जाने वाले प्रश्न"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:68
+msgid "Find answers to common questions."
+msgstr "सामान्य प्रश्नों के उत्तर खोजें।"
+
+#: .\gramapp\templates\user\Helpdesk\helpdesk.html:80
+msgid "No FAQs available at the moment."
+msgstr "इस समय कोई अक्सर पूछे जाने वाले प्रश्न उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:5
+msgid "Job Opportunities - Panchayat App"
+msgstr "नौकरी के अवसर - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:15
+msgid "Find your next career opportunity!"
+msgstr ""
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "Job Application"
+msgstr "नौकरी आवेदन"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "Dear"
+msgstr "प्रिय"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "I would like to apply for the"
+msgstr "मैं इस पद के लिए आवेदन करना चाहता हूँ"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "position at"
+msgstr "पद पर"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "Please let me know the next steps."
+msgstr "कृपया मुझे अगले चरणों के बारे में बताएं।"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:53
+msgid "Thank you,"
+msgstr "धन्यवाद,"
+
+#: .\gramapp\templates\user\Jobs\job_opportunities.html:61
+msgid "No job opportunities available at the moment."
+msgstr "इस समय कोई नौकरी के अवसर उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\user\Panchayat_Profiles\panchayat_profile.html:3
+msgid "Panchayat Profile - Panchayat App"
+msgstr "पंचायत प्रोफाइल - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Panchayat_Profiles\panchayat_profile.html:4
+msgid "Panchayat Profile"
+msgstr "पंचायत प्रोफाइल"
+
+#: .\gramapp\templates\user\Panchayat_Profiles\panchayat_profile.html:14
+msgid "Meet the key members leading the village governance."
+msgstr "गांव प्रशासन का नेतृत्व करने वाले प्रमुख सदस्यों से मिलें।"
+
+#: .\gramapp\templates\user\Panchayat_Profiles\panchayat_profile.html:34
+msgid "No Panchayat members found."
+msgstr "कोई पंचायत सदस्य नहीं मिला।"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:4
+msgid "Gallery - Panchayat App"
+msgstr "गैलरी - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:5
+msgid "Event Photo Gallery"
+msgstr "कार्यक्रम फोटो गैलरी"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:12
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:55
+msgid "Gram Panchayat Events Gallery"
+msgstr "ग्राम पंचायत कार्यक्रम गैलरी"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:15
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:58
+msgid ""
+"Explore memorable moments from various Gram Panchayat events and initiatives."
+msgstr "विभिन्न ग्राम पंचायत कार्यक्रमों और पहलों के यादगार क्षणों का अन्वेषण करें।"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:20
+msgid "Village Event"
+msgstr "गांव का कार्यक्रम"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:24
+msgid "Farmer Meeting"
+msgstr "किसान बैठक"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:28
+msgid "Cultural Program"
+msgstr "सांस्कृतिक कार्यक्रम"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:32
+msgid "Festival Celebration"
+msgstr "त्योहार समारोह"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:36
+msgid "Women Empowerment Event"
+msgstr "महिला सशक्तिकरण कार्यक्रम"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:40
+msgid "Education Initiative"
+msgstr "शिक्षा पहल"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:44
+msgid "Environmental Drive"
+msgstr "पर्यावरण अभियान"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:48
+msgid "Health Awareness Camp"
+msgstr "स्वास्थ्य जागरूकता शिविर"
+
+#: .\gramapp\templates\user\Photo_Gallery\gallery.html:67
+msgid "No images available at the moment."
+msgstr "इस समय कोई छवि उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:4
+msgid "Shramdan & Community Initiatives - Panchayat App"
+msgstr "श्रमदान और सामुदायिक पहल - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:5
+msgid "Shramdan & Community"
+msgstr "श्रमदान और समुदाय"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:11
+msgid "Participate in Community Initiatives"
+msgstr "सामुदायिक पहलों में भाग लें"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:17
+msgid ""
+"Shramdan is an opportunity to give back to the community. Explore events and "
+"participate in various Abhiyaans to make a difference."
+msgstr ""
+"श्रमदान समुदाय को वापस देने का एक अवसर है। कार्यक्रमों का अन्वेषण करें और विभिन्न अभियानों "
+"में भाग लें ताकि बदलाव लाया जा सके।"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:25
+#, fuzzy
+#| msgid "Event Image"
+msgid "Event 1"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:27
+#, fuzzy
+#| msgid "Event Image"
+msgid "Event 2"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:29
+#, fuzzy
+#| msgid "Event Image"
+msgid "Event 3"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:31
+#, fuzzy
+#| msgid "Event Image"
+msgid "Event 4"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:33
+#, fuzzy
+#| msgid "Event Image"
+msgid "Event 5"
+msgstr "कार्यक्रम की छवि"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:39
+msgid "How to Participate"
+msgstr "कैसे भाग लें"
+
+#: .\gramapp\templates\user\Shramdan_Abhiyaan\shramdan.html:41
+msgid ""
+"To participate in Shramdan activities, check out the upcoming events or "
+"contact your local Panchayat office."
+msgstr ""
+"श्रमदान गतिविधियों में भाग लेने के लिए, आगामी कार्यक्रम देखें या अपने स्थानीय पंचायत "
+"कार्यालय से संपर्क करें।"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:3
+msgid "Submit Feedback - Panchayat App"
+msgstr "प्रतिक्रिया सबमिट करें - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:4
+msgid "Submit Your Feedback"
+msgstr "अपनी प्रतिक्रिया सबमिट करें"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:10
+msgid "We Value Your Feedback"
+msgstr "हम आपकी प्रतिक्रिया को महत्व देते हैं"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:13
+msgid ""
+"Let us know your suggestions or concerns. Your input helps us improve the "
+"community experience."
+msgstr ""
+"हमें अपने सुझाव या चिंताओं के बारे में बताएं। आपकी प्रतिक्रिया सामुदायिक अनुभव को सुधारने में "
+"मदद करती है।"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:23
+msgid "Your Feedback"
+msgstr "आपकी प्रतिक्रिया"
+
+#: .\gramapp\templates\user\Surveys\submit_feedback.html:32
+#: .\gramapp\templates\user\Surveys\surveys.html:33
+#: .\gramapp\templates\user\Surveys\surveys.html:39
+msgid "Submit Feedback"
+msgstr "प्रतिक्रिया भेजें"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:3
+msgid "Survey Results & Insights - Panchayat App"
+msgstr "सर्वेक्षण परिणाम और अंतर्दृष्टि - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:4
+#: .\gramapp\templates\user\Surveys\survey_results.html:11
+msgid "Survey Results & Insights"
+msgstr "सर्वेक्षण परिणाम और अंतर्दृष्टि"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:14
+msgid "View insights and results from completed surveys."
+msgstr "पूरा हुए सर्वेक्षणों के परिणाम और अंतर्दृष्टि देखें।"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:26
+msgid "Ended:"
+msgstr "समाप्त:"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:37
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:38
+msgid "Questions:"
+msgstr "प्रश्न:"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:38
+msgid "Total Responses:"
+msgstr "कुल प्रतिक्रियाएँ:"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:40
+msgid "Created by:"
+msgstr "द्वारा निर्मित:"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:47
+msgid "View Responses"
+msgstr "प्रतिक्रिया देखें"
+
+#: .\gramapp\templates\user\Surveys\survey_results.html:51
+msgid "No survey results available."
+msgstr "कोई सर्वेक्षण परिणाम उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:4
+msgid "Surveys - Panchayat App"
+msgstr "सर्वेक्षण - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:11
+msgid "Contribute Your Opinions and Feedback"
+msgstr "अपनी राय और प्रतिक्रिया दें"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:14
+msgid ""
+"Your voice matters! Participate in our surveys and help shape the future of "
+"your community. Share your thoughts and make a difference."
+msgstr ""
+"आपकी आवाज़ महत्वपूर्ण है! हमारे सर्वेक्षणों में भाग लें और अपने समुदाय का भविष्य आकार दें। अपनी "
+"राय साझा करें और बदलाव लाएँ।"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:21
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:5
+msgid "Ongoing Surveys"
+msgstr "चल रहे सर्वेक्षण"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:23
+msgid "Take part in the latest surveys conducted by your Panchayat."
+msgstr "आपकी पंचायत द्वारा आयोजित नवीनतम सर्वेक्षणों में भाग लें।"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:27
+msgid "View Surveys"
+msgstr "सर्वेक्षण देखें"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:35
+msgid "Share your valuable feedback directly with us."
+msgstr "अपनी मूल्यवान प्रतिक्रिया सीधे हमारे साथ साझा करें।"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:45
+msgid "Results & Insights"
+msgstr "परिणाम और अंतर्दृष्टि"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:47
+msgid "Explore outcomes and insights from completed surveys."
+msgstr "संपन्न सर्वेक्षणों के परिणाम और अंतर्दृष्टि देखें।"
+
+#: .\gramapp\templates\user\Surveys\surveys.html:51
+msgid "View Results"
+msgstr "परिणाम देखें"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:4
+msgid "Ongoing Surveys - Panchayat App"
+msgstr "चल रहे सर्वेक्षण - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:12
+msgid "Participate in Active Surveys"
+msgstr "सक्रिय सर्वेक्षणों में भाग लें"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:15
+msgid "Your opinion matters! Take part in currently open surveys."
+msgstr "आपकी राय महत्वपूर्ण है! वर्तमान में खुले सर्वेक्षणों में भाग लें।"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:27
+msgid "Ends:"
+msgstr "समाप्ति:"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:40
+msgid "By:"
+msgstr ""
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:47
+msgid "Completed"
+msgstr "पूरा हुआ"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:52
+msgid "Take Survey"
+msgstr "सर्वेक्षण करें"
+
+#: .\gramapp\templates\user\Surveys\surveys_ongoing.html:57
+msgid "No ongoing surveys available."
+msgstr "कोई चल रहे सर्वेक्षण उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\user\Tourism\tourism.html:3
+msgid "Local Tourism - Panchayat App"
+msgstr "स्थानीय पर्यटन - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Tourism\tourism.html:9 .\gramapp\views.py:281
+msgid "Local Tourism & Assistance"
+msgstr "स्थानीय पर्यटन और सहायता"
+
+#: .\gramapp\templates\user\Tourism\tourism.html:24
+msgid "Anytime"
+msgstr "किसी भी समय"
+
+#: .\gramapp\templates\user\Tourism\tourism.html:25
+msgid "Not available"
+msgstr "उपलब्ध नहीं"
+
+#: .\gramapp\templates\user\Tourism\tourism.html:29
+msgid "No tourism spots available at the moment."
+msgstr "इस समय कोई पर्यटन स्थल उपलब्ध नहीं हैं।"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:4
+msgid "Village Dashboard - Panchayat App"
+msgstr "गांव डैशबोर्ड - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:12
+msgid "Village Statistics"
+msgstr "गांव की सांख्यिकी"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:15
+msgid "Key insights and metrics about the village development and initiatives."
+msgstr "गांव के विकास और पहलों के बारे में महत्वपूर्ण जानकारी और मीट्रिक्स।"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:25
+msgid "Literacy Rate"
+msgstr "साक्षरता दर"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:41
+msgid "Employment Rate"
+msgstr "रोजगार दर"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:49
+msgid "Recent Updates"
+msgstr "हाल की अपडेट"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:52
+msgid "Latest announcements and ongoing initiatives in the village."
+msgstr "गांव की नवीनतम घोषणाएं और चल रही पहल।"
+
+#: .\gramapp\templates\user\Village_Dashboard\village_dashboard.html:62
+msgid "No recent updates available."
+msgstr "कोई हाल की अपडेट उपलब्ध नहीं है।"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:4
+msgid "Tax Management - Panchayat App"
+msgstr "कर प्रबंधन - पंचायत ऐप"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:11
+msgid "Manage & Pay Your Taxes"
+msgstr "अपने कर प्रबंधित करें और भुगतान करें"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:12
+msgid "Secure and hassle-free tax payment"
+msgstr "सुरक्षित और परेशानी मुक्त कर भुगतान"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:26
+msgid "Outstanding Amount:"
+msgstr "बकाया राशि:"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:39
+msgid "Pay Now"
+msgstr "अभी भुगतान करें"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:42
+msgid "Tax paid for this year ✅"
+msgstr "इस वर्ष के लिए कर भुगतान किया गया ✅"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:49
+msgid "Your Payment History"
+msgstr "आपका भुगतान इतिहास"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:55
+msgid "Amount Paid"
+msgstr "भुगतान की गई राशि"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:57
+msgid "Receipt"
+msgstr "रसीद"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:69
+msgid "Download Receipt"
+msgstr "रसीद डाउनलोड करें"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:75
+msgid "No payments made yet."
+msgstr "अभी तक कोई भुगतान नहीं किया गया है।"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:85
+msgid "Payment Receipt"
+msgstr "भुगतान रसीद"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:86
+msgid "Tax:"
+msgstr "कर:"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:87
+msgid "Amount Paid:"
+msgstr "भुगतान की गई राशि:"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:88
+msgid "Date:"
+msgstr "तारीख:"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:89
+msgid "Payment ID:"
+msgstr "भुगतान आईडी:"
+
+#: .\gramapp\templates\user\Water_Property_Tax\tax.html:120
+msgid "Payment successful!"
+msgstr ""
+
+#: .\gramapp\templates\user\user_dashboard.html:6
+#, fuzzy
+#| msgid "Village Dashboard - Panchayat App"
+msgid "User Dashboard - Panchayat App"
+msgstr "गांव डैशबोर्ड - पंचायत ऐप"
+
+#: .\gramapp\templates\user\user_dashboard.html:7
+#, fuzzy
+#| msgid "View Dashboard"
+msgid "User Dashboard"
+msgstr "डैशबोर्ड देखें"
+
+#: .\gramapp\templates\user\user_login.html:39
+msgid "Enter your username"
+msgstr "अपना उपयोगकर्ता नाम दर्ज करें"
+
+#: .\gramapp\templates\user\user_login.html:74
+msgid "Not registered?"
+msgstr "पंजीकृत नहीं हैं?"
+
+#: .\gramapp\templates\user\user_login.html:76
+msgid "Create an account"
+msgstr "खाता बनाएं"
+
+#: .\gramapp\templates\user\user_profile.html:40
+msgid "Personal Details"
+msgstr "व्यक्तिगत जानकारी"
+
+#: .\gramapp\templates\user\user_profile.html:57
+msgid "Aadhar No"
+msgstr "आधार नंबर"
+
+#: .\gramapp\templates\user\user_profile.html:63
+msgid "PAN No"
+msgstr "पैन नंबर"
+
+#: .\gramapp\templates\user\user_register.html:21
+msgid "Create an Account"
+msgstr "खाता बनाएँ"
+
+#: .\gramapp\templates\user\user_register.html:40
+msgid "First Name"
+msgstr "पहला नाम"
+
+#: .\gramapp\templates\user\user_register.html:46
+msgid "Enter your first name"
+msgstr "अपना पहला नाम दर्ज करें"
+
+#: .\gramapp\templates\user\user_register.html:53
+msgid "Last Name"
+msgstr "अंतिम नाम"
+
+#: .\gramapp\templates\user\user_register.html:59
+msgid "Enter your last name"
+msgstr "अपना अंतिम नाम दर्ज करें"
+
+#: .\gramapp\templates\user\user_register.html:72
+msgid "Choose a username"
+msgstr "एक उपयोगकर्ता नाम चुनें"
+
+#: .\gramapp\templates\user\user_register.html:98
+msgid "Create a password"
+msgstr "एक पासवर्ड बनाएं"
+
+#: .\gramapp\templates\user\user_register.html:105
+msgid "Confirm Password"
+msgstr "पासवर्ड की पुष्टि करें"
+
+#: .\gramapp\templates\user\user_register.html:111
+msgid "Confirm your password"
+msgstr "अपना पासवर्ड पुष्टि करें"
+
+#: .\gramapp\templates\user\user_register.html:156
+msgid "Aadhar Number"
+msgstr "आधार नंबर"
+
+#: .\gramapp\templates\user\user_register.html:162
+msgid "Enter your Aadhar number"
+msgstr "अपना आधार नंबर दर्ज करें"
+
+#: .\gramapp\templates\user\user_register.html:169
+msgid "PAN Number"
+msgstr "पैन नंबर"
+
+#: .\gramapp\templates\user\user_register.html:175
+msgid "Enter your PAN number"
+msgstr "अपना पैन नंबर दर्ज करें"
+
+#: .\gramapp\templates\user\user_register.html:189
+msgid "Already have an account?"
+msgstr "पहले से ही एक खाता है?"
+
+#: .\gramapp\templates\user\user_register.html:191
+msgid "Login here"
+msgstr "यहाँ लॉगिन करें"
+
+# ########### certificates ############
+#: .\gramapp\urls.py:36
+#, fuzzy
+#| msgid "Certificates"
+msgid "certificates/"
+msgstr "प्रमाणपत्र"
+
+#: .\gramapp\urls.py:37
+msgid "certificates/birth-certificate/"
+msgstr ""
+
+#: .\gramapp\urls.py:38
+msgid "certificates/death-certificate/"
+msgstr ""
+
+#: .\gramapp\urls.py:39
+#, fuzzy
+#| msgid "Marriage Certificate"
+msgid "certificates/marriage-certificate/"
+msgstr "विवाह प्रमाणपत्र"
+
+#: .\gramapp\urls.py:40
+#, fuzzy
+#| msgid "Domicile Certificate"
+msgid "certificates/domicile-certificate/"
+msgstr "अधिवास प्रमाणपत्र"
+
+#: .\gramapp\views.py:269
+msgid "Water and Property Tax"
+msgstr "जल और संपत्ति कर"
+
+#: .\gramapp\views.py:269
+msgid "Manage and pay your taxes efficiently."
+msgstr "अपने करों का कुशलतापूर्वक प्रबंधन और भुगतान करें।"
+
+#: .\gramapp\views.py:269
+msgid "View Details"
+msgstr "विवरण देखें"
+
+#: .\gramapp\views.py:270 .\sample_data.txt:73
+msgid "Shramdan & Abhiyaans"
+msgstr "श्रमदान और अभियान"
+
+#: .\gramapp\views.py:270
+msgid "Participate in community initiatives."
+msgstr "सामुदायिक पहलों में भाग लें।"
+
+#: .\gramapp\views.py:270
+msgid "Explore Events"
+msgstr "कार्यक्रमों का अन्वेषण करें"
+
+#: .\gramapp\views.py:271 .\sample_data.txt:74
+msgid "Gramsabha Meetings"
+msgstr "ग्रामसभा बैठकें"
+
+#: .\gramapp\views.py:271
+msgid "Stay updated on upcoming discussions."
+msgstr "आगामी चर्चाओं के बारे में अपडेट रहें।"
+
+#: .\gramapp\views.py:271
+msgid "See Schedule"
+msgstr "अनुसूची देखें"
+
+#: .\gramapp\views.py:272
+msgid "Apply for birth, death or marriage certificates."
+msgstr "जन्म, मृत्यु या विवाह प्रमाणपत्र के लिए आवेदन करें।"
+
+#: .\gramapp\views.py:273
+msgid "Explore available schemes and benefits."
+msgstr "उपलब्ध योजनाओं और लाभों का अन्वेषण करें।"
+
+#: .\gramapp\views.py:274
+msgid "Get assistance with your queries."
+msgstr "अपने प्रश्नों के लिए सहायता प्राप्त करें।"
+
+#: .\gramapp\views.py:274
+msgid "Contact Us"
+msgstr "हमसे संपर्क करें"
+
+#: .\gramapp\views.py:275
+msgid "Contribute your opinions and feedback."
+msgstr "अपनी राय और प्रतिक्रिया दें।"
+
+#: .\gramapp\views.py:275
+msgid "Participate"
+msgstr "भाग लें"
+
+#: .\gramapp\views.py:276 .\sample_data.txt:78
+msgid "Event Announcements"
+msgstr "कार्यक्रम घोषणाएँ"
+
+#: .\gramapp\views.py:276
+msgid "Check out the latest events in the village."
+msgstr "गाँव में नवीनतम कार्यक्रम देखें।"
+
+#: .\gramapp\views.py:276
+msgid "View Events"
+msgstr "कार्यक्रम देखें"
+
+#: .\gramapp\views.py:277
+msgid "Relive memories from past events."
+msgstr "पिछले कार्यक्रमों की यादों को फिर से जीएं।"
+
+#: .\gramapp\views.py:277
+msgid "Browse Photos"
+msgstr "फोटो देखें"
+
+#: .\gramapp\views.py:278
+msgid "Access village statistics and updates."
+msgstr "गाँव के आँकड़े और अपडेट देखें।"
+
+#: .\gramapp\views.py:278
+msgid "View Dashboard"
+msgstr "डैशबोर्ड देखें"
+
+#: .\gramapp\views.py:279
+msgid "Learn about Panchayat members and their roles."
+msgstr "पंचायत सदस्यों और उनकी भूमिकाओं के बारे में जानें।"
+
+#: .\gramapp\views.py:279
+msgid "Meet the Team"
+msgstr "टीम से मिलें"
+
+#: .\gramapp\views.py:280
+msgid "Find job openings in your village."
+msgstr "अपने गाँव में नौकरी के अवसर खोजें।"
+
+#: .\gramapp\views.py:280
+msgid "View Jobs"
+msgstr "नौकरियाँ देखें"
+
+#: .\gramapp\views.py:281
+msgid "Explore local tourist spots & help services."
+msgstr "स्थानीय पर्यटन स्थलों और सहायता सेवाओं का अन्वेषण करें।"
+
+#: .\gramapp\views.py:281
+msgid "View Locations"
+msgstr "स्थान देखें"
+
+#: .\gramapp\views.py:454
+msgid "Please upload a document."
+msgstr ""
+
+#: .\gramapp\views.py:459 .\gramapp\views.py:460 .\gramapp\views.py:526
+#: .\gramapp\views.py:562
+#, fuzzy
+#| msgid "Only PDF files are allowed."
+msgid "Only PDF files are allowed!"
+msgstr "केवल PDF फाइलें स्वीकार्य हैं।"
+
+#: .\gramapp\views.py:470 .\gramapp\views.py:471
+msgid "Application submitted successfully!"
+msgstr ""
+
+#: .\gramapp\views.py:489 .\gramapp\views.py:521 .\gramapp\views.py:557
+msgid "All fields are required."
+msgstr ""
+
+#: .\gramapp\views.py:502
+#, fuzzy
+#| msgid "Assigned Certificate Applications"
+msgid "Death Certificate Application Submitted Successfully."
+msgstr "आवंटित प्रमाणपत्र आवेदन"
+
+#: .\gramapp\views.py:539
+msgid "Your marriage certificate application has been submitted."
+msgstr ""
+
+#: .\gramapp\views.py:574
+msgid "Your domicile certificate application has been submitted."
+msgstr ""
+
+#: .\gramapp\views.py:965
+msgid "Birth"
+msgstr "जन्म"
+
+#: .\gramapp\views.py:966
+msgid "Death"
+msgstr "मृत्यु"
+
+#: .\gramapp\views.py:967
+msgid "Marriage"
+msgstr "विवाह"
+
+#: .\gramapp\views.py:968
+msgid "Domicile"
+msgstr "अधिवास"
+
+#~ msgid "English"
+#~ msgstr "अंग्रेज़ी"
+
+#~ msgid "Hindi"
+#~ msgstr "हिन्दी"
+
+#~ msgid "Marathi"
+#~ msgstr "मराठी"
+
+#~ msgid "📜 Apply for Birth Certificate"
+#~ msgstr "📜 जन्म प्रमाणपत्र के लिए आवेदन करें"
+
+#~ msgid "Select date of birth"
+#~ msgstr "जन्म तिथि चुनें"
+
+#~ msgid "📩 Submit Application"
+#~ msgstr "📩 आवेदन जमा करें"
+
+#~ msgid "📄 Required Documents & Conditions"
+#~ msgstr "📄 आवश्यक दस्तावेज़ और शर्तें"
+
+#~ msgid "📌 Required Documents"
+#~ msgstr "📌 आवश्यक दस्तावेज़"
+
+#~ msgid "⚠️ Conditions for Application"
+#~ msgstr "⚠️ आवेदन के लिए शर्तें"
+
+#~ msgid "📝 Application Process"
+#~ msgstr "📝 आवेदन प्रक्रिया"
+
+# ####### Death
+#~ msgid "📜 Apply for Death Certificate"
+#~ msgstr "📜 मृत्यु प्रमाणपत्र के लिए आवेदन करें"
+
+#~ msgid "Enter deceased's full name"
+#~ msgstr "मृत व्यक्ति का पूरा नाम दर्ज करें"
+
+#~ msgid "Select date of death"
+#~ msgstr "मृत्यु तिथि चुनें"
+
+#~ msgid "👤 Full Name"
+#~ msgstr "👤 पूरा नाम"
+
+#~ msgid "👨‍👩‍👦 Father's/Husband's Name"
+#~ msgstr "👨‍👩‍👦 पिता/पति का नाम"
+
+#~ msgid "🏠 Address"
+#~ msgstr "🏠 पता"
+
+#~ msgid "📎 Upload Required Documents"
+#~ msgstr "📎 आवश्यक दस्तावेज़ अपलोड करें"
+
+#~ msgid "Select your marriage date"
+#~ msgstr "अपनी विवाह तिथि चुनें"
+
+#~ msgid "🗓️"
+#~ msgstr "🗓️"
+
+#~ msgid "⏰"
+#~ msgstr "⏰"
+
+#~ msgid "📜 Health & Education Schemes"
+#~ msgstr "📜 स्वास्थ्य और शिक्षा योजनाएँ"
+
+#~ msgid "🏥 Health Schemes"
+#~ msgstr "🏥 स्वास्थ्य योजनाएँ"
+
+#~ msgid "📚 Education Schemes"
+#~ msgstr "📚 शिक्षा योजनाएँ"
+
+#~ msgid "🔗 Learn More"
+#~ msgstr "🔗 और अधिक जानें"
+
+#~ msgid "Events Gallery"
+#~ msgstr "कार्यक्रम गैलरी"
+
+#~ msgid "Explore moments from various Gram Panchayat events and initiatives."
+#~ msgstr "विभिन्न ग्राम पंचायत कार्यक्रमों और पहलों के क्षणों का अन्वेषण करें।"
+
+#~ msgid "Not specified"
+#~ msgstr "निर्दिष्ट नहीं"
+
+#~ msgid "To apply for"
+#~ msgstr "इस पद के लिए आवेदन करने के लिए"
+
+#~ msgid "please contact"
+#~ msgstr "कृपया संपर्क करें"
+
+#~ msgid "Manage services efficiently."
+#~ msgstr "सेवाओं को कुशलतापूर्वक प्रबंधित करें।"
+
+#~ msgid "Total Jobs"
+#~ msgstr "कुल नौकरियां"
+
+#~ msgid "Total Members"
+#~ msgstr "कुल सदस्य"
+
+#~ msgid "Total Images"
+#~ msgstr "कुल छवियां"
+
+#~ msgid "Total Surveys"
+#~ msgstr "कुल सर्वेक्षण"
+
+#~ msgid "Total Places"
+#~ msgstr "कुल स्थान"
+
+#~ msgid "✅ Approve"
+#~ msgstr "✅ स्वीकृत करें"
+
+#~ msgid "❌ Reject"
+#~ msgstr "❌ अस्वीकार करें"
+
+#~ msgid "Outstanding Amount"
+#~ msgstr "बकाया राशि"
+
+#~ msgid "Total Meetings"
+#~ msgstr "कुल बैठकें"
+
+#~ msgid "Add Image to Gallery"
+#~ msgstr "गैलरी में छवि जोड़ें"
+
+#~ msgid "Delete Feedback - Panchayat App"
+#~ msgstr "प्रतिक्रिया हटाएँ - पंचायत ऐप"
+
+#~ msgid "Delete Feedback"
+#~ msgstr "प्रतिक्रिया हटाएँ"
+
+#~ msgid "Are you sure you want to delete this feedback?"
+#~ msgstr "क्या आप वाकई इस प्रतिक्रिया को हटाना चाहते हैं?"
+
+#~ msgid "Anonymous"
+#~ msgstr "अनाम"
+
+#~ msgid "Submitted on"
+#~ msgstr "प्रस्तुत किया गया"
+
+#~ msgid "Yes, Delete Feedback"
+#~ msgstr "हाँ, प्रतिक्रिया हटाएँ"
+
+#~ msgid "Yes, Delete Survey"
+#~ msgstr "हाँ, सर्वेक्षण हटाएँ"
+
+#~ msgid "Available Surveys"
+#~ msgstr "उपलब्ध सर्वेक्षण"
+
+#~ msgid "View feedback submitted by citizens regarding surveys."
+#~ msgstr "नागरिकों द्वारा प्रस्तुत सर्वेक्षण प्रतिक्रिया देखें।"
+
+#~ msgid "Date Submitted"
+#~ msgstr "प्रस्तुत करने की तारीख"
+
+#~ msgid "Responses submitted by users for the survey"
+#~ msgstr "सर्वेक्षण के लिए उपयोगकर्ताओं द्वारा प्रस्तुत प्रतिक्रियाएँ"
+
+#~ msgid "Helpdesk"
+#~ msgstr "हेल्पडेस्क"
+
+#~ msgid "Manage Job Opportunities"
+#~ msgstr "रोजगार के अवसर प्रबंधित करें"
+
+#~ msgid "Manage Local Tourism"
+#~ msgstr "स्थानीय पर्यटन प्रबंधित करें"
+
+#~ msgid "Notifications"
+#~ msgstr "सूचनाएं"

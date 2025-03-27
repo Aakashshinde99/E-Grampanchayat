@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Job Opportunities Management" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        🏢 {% trans "Job Opportunities Management" %}
+    </h1>
+
+    <!-- ✅ Add Job Button -->
+    <div class="text-center">
+        <a href="{% url 'add_job' %}" 
+           class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm sm:text-base">
+            ➕ {% trans "Add New Job" %}
+        </a>
+    </div>
+
+    <!-- ✅ Job List Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
+            📌 {% trans "Available Job Opportunities" %}
+        </h2>
+
+        <!-- ✅ Table View for Desktop -->
+        <div class="hidden sm:block overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-sm">
+                <thead class="bg-blue-600 text-white text-sm sm:text-base">
+                    <tr>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Job Title" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Company" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Email" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Location" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Salary" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm">
+                    {% for job in jobs %}
+                    <tr class="border-b hover:bg-gray-100 transition">
+                        <td class="py-2 px-3 sm:px-4">{{ job.job_title }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ job.company_name }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ job.contact_email }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ job.location }}</td>
+                        <td class="py-2 px-3 sm:px-4">₹{{ job.salary }}</td>
+                        <td class="py-2 px-3 sm:px-4">
+                            <a href="{% url 'delete_job' job.id %}" 
+                               class="text-red-600 hover:underline">🗑️ {% trans "Delete" %}</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="py-2 px-3 sm:px-4 text-center text-gray-600">{% trans "No job opportunities available." %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ✅ Card View for Mobile -->
+        <div class="block sm:hidden space-y-4">
+            {% for job in jobs %}
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <p class="text-sm text-gray-700"><strong>{% trans "Job Title" %}:</strong> {{ job.job_title }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Company" %}:</strong> {{ job.company_name }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Email" %}:</strong> {{ job.contact_email }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Location" %}:</strong> {{ job.location }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Salary" %}:</strong> ₹{{ job.salary }}</p>
+                <div class="mt-3">
+                    <a href="{% url 'delete_job' job.id %}" 
+                       class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
+                        🗑️ {% trans "Delete" %}
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-600 text-center">{% trans "No job opportunities available." %}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

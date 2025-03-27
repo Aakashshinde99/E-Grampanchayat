@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block bottom_nav %}{% endblock %}
+
+{% block title %}{% trans "Staff Dashboard - Panchayat App" %}{% endblock %}
+{% block page_title %}{% trans "Staff Dashboard" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Container for Content -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ User Greeting -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        {% trans "Welcome," %} {{ request.user.first_name | title }}!
+    </h1>
+
+    <!-- ✅ Feature Grid (Auto Layout for Mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-1">
+
+        <!-- ✅ Certificate Management -->
+        <div id="certificate-management"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-blue-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-blue-700 text-2xl">📜</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Certificate Management" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage Birth, Death, Marriage & Domicile Certificates." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'certificate_management' %}"
+                    class="inline-block bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 text-xs sm:text-sm">
+                    {% trans "Manage Certificates" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Tax Management -->
+        <div id="tax-management"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-green-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-green-700 text-2xl">💰</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Tax Management" %}
+            </h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage and track tax payments." %}
+            </p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'tax_management' %}"
+                    class="inline-block bg-green-600 text-white px-3 py-2 rounded-md hover:bg-green-700 text-xs sm:text-sm">
+                    {% trans "Manage Taxes" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Job Opportunities Management -->
+        <div id="job-opportunities"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-indigo-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-indigo-700 text-2xl">💼</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Job Opportunities" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage job postings in the village." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'job_opportunities' %}"
+                    class="inline-block bg-indigo-600 text-white px-3 py-2 rounded-md hover:bg-indigo-700 text-xs sm:text-sm">
+                    {% trans "Manage Jobs" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Local Tourism Management -->
+        <div id="local-tourism"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-yellow-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-yellow-700 text-2xl">🏞</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Local Tourism" %}
+            </h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage tourism spots & assistance." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'tourism_management' %}"
+                    class="inline-block bg-yellow-600 text-white px-3 py-2 rounded-md hover:bg-yellow-700 text-xs sm:text-sm">
+                    {% trans "Manage Tourism" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Village Dashboard Management -->
+        <div id="village-dashboard"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-purple-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-purple-700 text-2xl">📊</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Village Dashboard" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Update village statistics & insights." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_village_dashboard' %}"
+                    class="inline-block bg-purple-600 text-white px-3 py-2 rounded-md hover:bg-purple-700 text-xs sm:text-sm">
+                    {% trans "Manage Dashboard" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Panchayat Meeting Management -->
+        <div id="panchayat-meetings"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-red-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-red-700 text-2xl">📅</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Panchayat Meetings" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Schedule and manage Gram Sabha meetings." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_meetings' %}"
+                    class="inline-block bg-red-600 text-white px-3 py-2 rounded-md hover:bg-red-700 text-xs sm:text-sm">
+                    {% trans "Manage Meetings" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Panchayat Profiles Management -->
+        <div id="panchayat-profiles"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-blue-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-blue-700 text-2xl">🏛</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Panchayat Profiles" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage Panchayat members and their details." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_panchayat' %}"
+                    class="inline-block bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 text-xs sm:text-sm">
+                    {% trans "Manage Profiles" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Health & Education Schemes -->
+        <div id="schemes-management"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-green-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-green-700 text-2xl">📜</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Schemes Management" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage health & education schemes." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_schemes' %}"
+                    class="inline-block bg-green-600 text-white px-3 py-2 rounded-md hover:bg-green-700 text-xs sm:text-sm">
+                    {% trans "Manage Schemes" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Helpdesk & FAQs Management -->
+        <div id="helpdesk-faqs"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-teal-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-teal-700 text-2xl">🆘</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Helpdesk & FAQs" %}
+            </h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage support requests and FAQs." %}
+            </p>
+
+            <!-- ✅ Feature Buttons -->
+            <div class="mt-4 text-center space-y-2">
+                <a href="{% url 'manage_helpdesk' %}"
+                    class="inline-block bg-teal-600 text-white px-3 py-2 rounded-md hover:bg-teal-700 text-xs sm:text-sm">
+                    {% trans "Manage Helpdesk" %}
+                </a>
+                <a href="{% url 'manage_faqs' %}"
+                    class="inline-block bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 text-xs sm:text-sm">
+                    {% trans "Manage FAQs" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Gallery Management -->
+        <div id="gallery-management"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-indigo-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-indigo-700 text-2xl">📸</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Photo Gallery" %}
+            </h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage event images for the user gallery." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_gallery' %}"
+                    class="inline-block bg-indigo-600 text-white px-3 py-2 rounded-md hover:bg-indigo-700 text-xs sm:text-sm">
+                    {% trans "Manage Gallery" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- ✅ Survey Management -->
+        <div id="survey-management"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+            <!-- ✅ Feature Icon -->
+            <div class="bg-teal-100 p-3 rounded-full mx-auto w-fit">
+                <span class="text-teal-700 text-2xl">📊</span>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{% trans "Surveys" %}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{% trans "Manage community surveys and responses." %}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                <a href="{% url 'manage_surveys' %}"
+                    class="inline-block bg-teal-600 text-white px-3 py-2 rounded-md hover:bg-teal-700 text-xs sm:text-sm">
+                    {% trans "Manage Surveys" %}
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Manage Gallery - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        🏡 {% trans "Manage Gallery" %}
+    </h1>
+
+    <!-- ✅ Add New Image Button -->
+    <div class="flex justify-center">
+        <a href="{% url 'add_gallery_image' %}" 
+           class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105">
+            ➕ {% trans "Add New Image" %}
+        </a>
+    </div>
+
+    <!-- ✅ Gallery Images Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
+            📷 {% trans "Gallery Images" %}
+        </h2>
+
+        <!-- ✅ Gallery Images Grid -->
+        {% if images %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for image in images %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md p-3 relative transition-all transform hover:scale-105">
+                <!-- Image -->
+                <img src="{{ image.image.url }}" alt="{{ image.title }}" class="w-full h-40 object-cover rounded-lg">
+
+                <!-- Image Title -->
+                <p class="text-sm font-medium text-gray-800 text-center mt-2">{{ image.title }}</p>
+
+                <!-- Delete Button -->
+                <form action="{% url 'delete_gallery_image' image.id %}" method="POST" class="absolute top-2 right-2">
+                    {% csrf_token %}
+                    <button type="submit" class="text-red-600 hover:text-red-700 transition-all transform hover:scale-110">
+                        🗑 {% trans "Delete" %}
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-gray-500 text-center">{% trans "No images available." %}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

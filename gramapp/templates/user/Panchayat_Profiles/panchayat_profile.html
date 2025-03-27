@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Panchayat Profile - Panchayat App" %}{% endblock %}
+{% block page_title %}🏛️ {% trans "Panchayat Profile" %}{% endblock %}
+
+{% block content %}
+<main class="p-2 mb-12 max-w-4xl mx-auto">
+
+    <!-- ✅ Page Title -->
+    <h2 class="text-lg sm:text-2xl font-semibold text-blue-700 text-center flex items-center justify-center gap-2">
+        👥 {% trans "Panchayat Members" %}
+    </h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mb-4">
+        {% trans "Meet the key members leading the village governance." %}
+    </p>
+
+    <!-- ✅ Responsive Panchayat Members Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+        {% for member in members %}
+        <div class="bg-gray-100 p-3 sm:p-4 rounded-lg shadow-md text-center transition transform hover:scale-105 hover:shadow-lg">
+
+            <!-- ✅ Member Image -->
+            <div class="flex justify-center">
+                <img src="{{ member.image_url }}" alt="{{ member.role }}"
+                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300">
+            </div>
+
+            <!-- ✅ Member Details -->
+            <h3 class="text-sm sm:text-lg font-semibold text-gray-800 mt-2">{{ member.name }}</h3>
+            <p class="text-xs sm:text-sm text-gray-600">{{ member.role }}</p>
+            <p class="text-xs text-gray-500">📞 {{ member.phone_number|default:"N/A" }}</p>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 col-span-4 text-center">{% trans "No Panchayat members found." %}</p>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

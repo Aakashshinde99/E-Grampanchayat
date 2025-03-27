@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+{% block bottom_nav %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Back Button (Fixed Alignment) -->
+<div class="px-4 pt-4">
+    <a href="{% url 'home_view' %}" class="text-blue-600 hover:text-blue-700 hover:underline flex items-center">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        {% trans "Back to Home" %}
+    </a>
+</div>
+
+<!-- ✅ Registration Section -->
+<div class="w-full max-w-md bg-white border border-gray-200 shadow-lg rounded-lg mx-auto mt-3 p-6 transition-all transform hover:scale-100">
+
+    <!-- ✅ Heading -->
+    <h2 class="text-xl font-bold text-center text-gray-800 mb-6">
+        📝 {% trans "Create an Account" %}
+    </h2>
+
+    <!-- ✅ Error Messages -->
+    {% if messages %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-sm text-center mb-4">
+        {% for message in messages %}
+        ❌ {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- ✅ Registration Form -->
+    <form method="POST" action="{% url 'register_view' %}" enctype="multipart/form-data" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- ✅ First Name -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                👤 {% trans "First Name" %}
+            </label>
+            <input 
+                type="text" 
+                name="first_name" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your first name' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Last Name -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                👤 {% trans "Last Name" %}
+            </label>
+            <input 
+                type="text" 
+                name="last_name" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your last name' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Username -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🆔 {% trans "Username" %}
+            </label>
+            <input 
+                type="text" 
+                name="username" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Choose a username' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Email -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                📧 {% trans "Email" %}
+            </label>
+            <input 
+                type="email" 
+                name="email" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your email' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Password -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🔑 {% trans "Password" %}
+            </label>
+            <input 
+                type="password" 
+                name="password1" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Create a password' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Confirm Password -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🔑 {% trans "Confirm Password" %}
+            </label>
+            <input 
+                type="password" 
+                name="password2" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Confirm your password' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Profile Picture -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                📷 {% trans "Profile Picture" %}
+            </label>
+            <input 
+                type="file" 
+                name="profile_picture" 
+                accept="image/*" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md bg-white cursor-pointer">
+        </div>
+
+        <!-- ✅ Phone Number -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                📞 {% trans "Phone Number" %}
+            </label>
+            <input 
+                type="text" 
+                name="phoneno" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your phone number' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Address -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🏠 {% trans "Address" %}
+            </label>
+            <input 
+                type="text" 
+                name="address" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your address' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Aadhar Number -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🆔 {% trans "Aadhar Number" %}
+            </label>
+            <input 
+                type="text" 
+                name="aadharno" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your Aadhar number' %}" 
+                required>
+        </div>
+
+        <!-- ✅ PAN Number -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                🆔 {% trans "PAN Number" %}
+            </label>
+            <input 
+                type="text" 
+                name="panno" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your PAN number' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Register Button -->
+        <button 
+            type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm sm:text-base font-medium shadow-md transition-transform hover:scale-105">
+            {% trans "Register" %}
+        </button>
+    </form>
+
+    <!-- ✅ Login Redirect -->
+    <p class="text-center text-sm text-gray-600 mt-4">
+        {% trans "Already have an account?" %}
+        <a href="{% url 'login_view' %}" class="text-blue-600 hover:text-blue-700 hover:underline">
+            {% trans "Login here" %}
+        </a>
+    </p>
+</div>
+{% endblock %}

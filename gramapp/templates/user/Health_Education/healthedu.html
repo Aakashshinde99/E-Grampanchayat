@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block title %}{% trans "Health & Education Schemes - Panchayat App" %}{% endblock %}
+{% block page_title %}📜 {% trans "Health & Education Schemes" %}{% endblock %}
+
+{% block content %}
+<main class="p-0 mb-12">  <!-- ✅ Removed extra padding for mobile -->
+    
+    <!-- ✅ Filter Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mb-3 px-2">
+        <button onclick="showSection('health')" class="filter-btn w-full sm:w-auto bg-blue-600 text-white px-4 py-2 text-xs rounded-lg hover:bg-blue-700 transition-all">
+            🏥 {% trans "Health Schemes" %}
+        </button>
+        <button onclick="showSection('education')" class="filter-btn w-full sm:w-auto bg-green-600 text-white px-4 py-2 text-xs rounded-lg hover:bg-green-700 transition-all">
+            📚 {% trans "Education Schemes" %}
+        </button>
+    </div>
+
+    <!-- ✅ Health Schemes Section -->
+    <div id="health" class="bg-white shadow-lg rounded-lg p-3 sm:p-5">
+        <h3 class="text-sm sm:text-base font-semibold text-blue-700 mb-3 flex items-center justify-center">🏥 {% trans "Health Schemes" %}</h3>
+        {% if health_schemes %}
+            <ul class="space-y-3">
+                {% for scheme in health_schemes %}
+                    <li class="border-b pb-3">
+                        <p class="text-xs sm:text-sm font-medium text-gray-800 text-center">{{ scheme.title }}</p>
+                        <p class="text-xs text-gray-600 text-center">{{ scheme.eligibility }}</p>
+                        <div class="flex justify-center mt-2">
+                            <a href="{{ scheme.link }}" class="bg-blue-600 text-white px-3 py-1 text-xs sm:text-sm rounded-lg hover:bg-blue-700 transition-all">
+                                🔗 {% trans "Learn More" %}
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-sm text-gray-500 text-center">{% trans "No health schemes available." %}</p>
+        {% endif %}
+    </div>
+
+    <!-- ✅ Education Schemes Section -->
+    <div id="education" class="bg-white shadow-lg rounded-lg p-3 sm:p-5 hidden">
+        <h3 class="text-sm sm:text-base font-semibold text-green-700 mb-3 flex items-center justify-center">📚 {% trans "Education Schemes" %}</h3>
+        {% if education_schemes %}
+            <ul class="space-y-3">
+                {% for scheme in education_schemes %}
+                    <li class="border-b pb-3">
+                        <p class="text-xs sm:text-sm font-medium text-gray-800 text-center">{{ scheme.title }}</p>
+                        <p class="text-xs text-gray-600 text-center">{{ scheme.eligibility }}</p>
+                        <div class="flex justify-center mt-2">
+                            <a href="{{ scheme.link }}" class="bg-green-600 text-white px-3 py-1 text-xs sm:text-sm rounded-lg hover:bg-green-700 transition-all">
+                                🔗 {% trans "Learn More" %}
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-sm text-gray-500 text-center">{% trans "No education schemes available." %}</p>
+        {% endif %}
+    </div>
+</main>
+
+<!-- ✅ JavaScript for Filtering Sections -->
+<script>
+    function showSection(section) {
+        document.getElementById('health').classList.add('hidden');
+        document.getElementById('education').classList.add('hidden');
+        document.getElementById(section).classList.remove('hidden');
+    }
+</script>
+
+{% endblock %}

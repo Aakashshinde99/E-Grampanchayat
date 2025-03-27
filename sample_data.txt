@@ -1,0 +1,84 @@
+# @login_required(login_url='login_view')
+# def panchayat_profile(request):
+#     # Hardcoded Panchayat Members
+#     members = [
+#         {"name": "Ashok Sapkal", "role": "Sarpanch", "image_url": "https://randomuser.me/api/portraits/men/32.jpg"},
+#         {"name": "Shashikala Sawant", "role": "Deputy Sarpanch", "image_url": "https://randomuser.me/api/portraits/women/45.jpg"},
+#         {"name": "Anil Patil", "role": "Secretary", "image_url": "https://randomuser.me/api/portraits/men/47.jpg"},
+#         {"name": "Pooja Sapkal", "role": "Treasurer", "image_url": "https://randomuser.me/api/portraits/women/52.jpg"},
+#         {"name": "Vikram Salunke", "role": "Education Head", "image_url": "https://randomuser.me/api/portraits/men/55.jpg"},
+#         {"name": "Sarika Mhatre", "role": "Healthcare Head", "image_url": "https://randomuser.me/api/portraits/women/60.jpg"}
+#     ]
+
+#     # Hardcoded Roles & Responsibilities
+#     roles = [
+#         {"name": "Sarpanch", "responsibilities": "Oversees all Panchayat activities and decisions."},
+#         {"name": "Deputy Sarpanch", "responsibilities": "Assists the Sarpanch and manages disputes."},
+#         {"name": "Secretary", "responsibilities": "Handles documentation and official communications."},
+#         {"name": "Treasurer", "responsibilities": "Manages finances and budgeting."},
+#         {"name": "Education Head", "responsibilities": "Supervises village schools and literacy programs."},
+#         {"name": "Healthcare Head", "responsibilities": "Ensures proper medical facilities and awareness."}
+#     ]
+
+#     context = {
+#         "members": members,
+#         "roles": roles
+#     }
+#     return render(request, "user/Panchayat_Profiles/panchayat_profile.html", context)
+
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://www.t2india.com/includes/images/indian-festival-bastar-mobile.jpg" 
+                 alt="Village Event" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsaHDTu8bLqs0Hq7q_Zw9WJ8vo_HNv1qtEA&s" 
+                 alt="Farmer Meeting" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://varthana.com/school/wp-content/uploads/2023/01/B135.jpg" 
+                 alt="Cultural Program" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201501/pongal_story_size-650_011515124617.jpg?VersionId=WGq.2qZZPMbkzVWtIoyo8n6KTSpNP09k" 
+                 alt="Festival Celebration" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://socialpillars.org/wp-content/uploads/2022/10/women-rural_istock.jpg" 
+                 alt="Women Empowerment Event" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://www.thestatesman.com/wp-content/uploads/2021/10/QT-online-education-village-1024x683.jpg" 
+                 alt="Education Initiative" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://thecsrjournal.in/wp-content/uploads/2018/10/Canon-Cleanliness-Drive.jpg" 
+                 alt="Environmental Drive" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://anantayurveda.org/wp-content/uploads/2020/05/HealthCamp-1024x768.jpg" 
+                 alt="Health Awareness Camp" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+    </div>
+
+
+
+    <!-- ✅ Menu Links -->
+        <ul class="p-4 space-y-3">
+            <li><a href="{% url 'dashboard_view' %}" class="block text-gray-700 hover:text-green-600">🏡 {% trans "Dashboard" %}</a></li>
+            <li><a href="{% url 'tax' %}" class="block text-gray-700 hover:text-green-600">💰 {% trans "Taxes" %}</a></li>
+            <li><a href="{% url 'certificates_page' %}" class="block text-gray-700 hover:text-green-600">📜 {% trans "Certificates" %}</a></li>
+            <li><a href="{% url 'shramdan_page' %}" class="block text-gray-700 hover:text-green-600">🤝 {% trans "Shramdan & Abhiyaans" %}</a></li>
+            <li><a href="{% url 'sabha_meetings_page' %}" class="block text-gray-700 hover:text-green-600">📅 {% trans "Gramsabha Meetings" %}</a></li>
+            <li><a href="{% url 'health_education_page' %}" class="block text-gray-700 hover:text-green-600">🏥 {% trans "Health & Education Schemes" %}</a></li>
+            <li><a href="{% url 'helpdesk_page' %}" class="block text-gray-700 hover:text-green-600">🆘 {% trans "Helpdesk Support" %}</a></li>
+            <li><a href="{% url 'surveys' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Surveys" %}</a></li>
+            <li><a href="{% url 'events' %}" class="block text-gray-700 hover:text-green-600">📢 {% trans "Event Announcements" %}</a></li>
+            <li><a href="{% url 'user_gallery' %}" class="block text-gray-700 hover:text-green-600">📸 {% trans "Photo Gallery" %}</a></li>
+            <li><a href="{% url 'village_dashboard' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Village Dashboard" %}</a></li>
+            <li><a href="{% url 'panchayat_profile' %}" class="block text-gray-700 hover:text-green-600">🏛 {% trans "Panchayat Profiles" %}</a></li>
+            <li><a href="{% url 'user_job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {% trans "Job Opportunities" %}</a></li>
+            <li><a href="{% url 'user_tourism' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans "Local Tourism" %}</a></li>
+        </ul>

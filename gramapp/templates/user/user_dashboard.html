@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}  
+
+{% block bottom_nav %}{% endblock %} 
+
+{% block title %}{% trans "User Dashboard - Panchayat App" %}{% endblock %}
+{% block page_title %}{% trans "User Dashboard" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Container for Content -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ User Greeting -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        {% trans "Welcome," %} {{ user_details.username | title }}!
+    </h1>
+
+    <!-- ✅ Feature Grid (Auto Layout for Mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-1">
+        {% for feature in features %}
+        <div id="{{ feature.title|slugify }}"
+            class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+            
+            <!-- ✅ Feature Icon -->
+            <div class="bg-green-100 p-3 rounded-full mx-auto w-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-700" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <!-- ✅ Feature Title -->
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 text-center mt-3">{{ feature.title }}</h3>
+
+            <!-- ✅ Feature Description -->
+            <p class="text-gray-600 text-xs sm:text-sm text-center mt-2">{{ feature.description }}</p>
+
+            <!-- ✅ Feature Button -->
+            <div class="mt-4 text-center">
+                {% if feature.url_name %}
+                <a href="{% url feature.url_name %}"
+                    class="inline-block bg-green-600 text-white px-3 py-2 rounded-md hover:bg-green-700 text-xs sm:text-sm">
+                    {{ feature.button_text }}
+                </a>
+                {% else %}
+                <button class="bg-gray-400 text-white px-3 py-2 rounded-md text-xs sm:text-sm cursor-not-allowed">
+                    {{ feature.button_text }}
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

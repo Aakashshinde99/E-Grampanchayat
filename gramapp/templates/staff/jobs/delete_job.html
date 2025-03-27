@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Job - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-red-600 text-center">
+        ⚠️ {% trans "Confirm Deletion" %}
+    </h1>
+
+    <!-- ✅ Confirmation Message -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 max-w-md mx-auto transition-all transform hover:scale-105">
+
+        <p class="text-gray-700 text-center mt-2">{% trans "Are you sure you want to delete the job:" %}</p>
+        <h3 class="text-lg font-semibold text-gray-800 text-center mt-1">{{ job.job_title }}</h3>
+        <p class="text-sm text-gray-500 text-center">{% trans "Company" %}: {{ job.company_name }}</p>
+
+        <!-- ✅ Form -->
+        <form method="POST" class="mt-6">
+            {% csrf_token %}
+
+            <!-- ✅ Form Actions -->
+            <div class="flex justify-between">
+                <a href="{% url 'job_opportunities' %}" 
+                   class="text-gray-600 hover:text-green-600 transition-all transform hover:scale-105">
+                    🔙 {% trans "Cancel" %}
+                </a>
+                <button type="submit" 
+                        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-all transform hover:scale-105">
+                    🗑️ {% trans "Delete" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

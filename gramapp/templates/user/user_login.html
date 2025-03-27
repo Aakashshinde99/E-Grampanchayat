@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block bottom_nav %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Back Button (Fixed Alignment) -->
+<div class="px-2 pt-2">
+    <a href="{% url 'home_view' %}" class="text-blue-600 hover:text-blue-700 hover:underline flex items-center">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        {% trans "Back to Home" %}
+    </a>
+</div>
+
+<!-- ✅ Login Section (Just Below Back Button) -->
+<div class="w-full max-w-sm bg-white border border-gray-200 shadow-lg rounded-lg mx-auto mt-3 p-6 transition-all transform hover:scale-100">
+
+    <!-- ✅ Login Heading -->
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        🔒 {% trans "Login" %}
+    </h2>
+
+    <!-- ✅ Login Form -->
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- ✅ Username Field -->
+        <div>
+            <label for="username" class="block text-sm font-medium text-gray-700 mb-1">
+                👤 {% trans "Username" %}
+            </label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your username' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Password Field -->
+        <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                🔑 {% trans "Password" %}
+            </label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" 
+                placeholder="{% trans 'Enter your password' %}" 
+                required>
+        </div>
+
+        <!-- ✅ Error Message -->
+        {% if form.errors %}
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-sm text-center">
+            ❌ {% trans "Invalid username or password. Please try again." %}
+        </div>
+        {% endif %}
+
+        <!-- ✅ Login Button -->
+        <button 
+            type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm sm:text-base font-medium shadow-md transition-transform hover:scale-105">
+            {% trans "Login" %}
+        </button>
+    </form>
+
+    <!-- ✅ Register Link -->
+    <p class="text-center text-sm text-gray-600 mt-4">
+        {% trans "Not registered?" %}
+        <a href="{% url 'register_view' %}" class="text-blue-600 hover:text-blue-700 hover:underline">
+            {% trans "Create an account" %}
+        </a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- ✅ Load translation module -->
+
+{% block title %}{% trans "Helpdesk Support - Panchayat App" %}{% endblock %}
+{% block page_title %}🆘 {% trans "Helpdesk Support" %}{% endblock %}
+
+{% block content %}
+<main class="p-0 max-w-4xl mx-auto"> <!-- ✅ Removed extra padding for full width -->
+    
+    <!-- ✅ Contact Support Section -->
+    <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 text-center mb-3">📞 {% trans "Contact Support" %}</h2>
+        <p class="text-xs sm:text-sm text-gray-600 text-center mb-4">
+            {% trans "Facing an issue? Need assistance? Contact us, and we'll be happy to help!" %}
+        </p>
+
+        <!-- ✅ Flash Messages -->
+        {% if messages %}
+        <div class="mb-3">
+            {% for message in messages %}
+            <div class="bg-green-100 text-green-700 p-2 text-xs sm:text-sm rounded-md text-center">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form action="{% url 'helpdesk_page' %}" method="POST" enctype="multipart/form-data" class="space-y-3">
+            {% csrf_token %}
+
+            <div>
+                <label class="block text-xs sm:text-sm font-medium text-gray-700">👤 {% trans "Your Name" %}</label>
+                <input type="text" name="name" required
+                    class="w-full mt-1 px-3 py-2 border rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-600"
+                    placeholder="{% trans 'Enter your name' %}">
+            </div>
+
+            <div>
+                <label class="block text-xs sm:text-sm font-medium text-gray-700">📧 {% trans "Email" %}</label>
+                <input type="email" name="email" required
+                    class="w-full mt-1 px-3 py-2 border rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-600"
+                    placeholder="{% trans 'Enter your email' %}">
+            </div>
+
+            <div>
+                <label class="block text-xs sm:text-sm font-medium text-gray-700">📞 {% trans "Phone" %}</label>
+                <input type="tel" name="phone" required
+                    class="w-full mt-1 px-3 py-2 border rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-600"
+                    placeholder="{% trans 'Enter your phone number' %}">
+            </div>
+
+            <div>
+                <label class="block text-xs sm:text-sm font-medium text-gray-700">✍️ {% trans "Message" %}</label>
+                <textarea name="message" rows="4" required
+                    class="w-full mt-1 px-3 py-2 border rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-600"
+                    placeholder="{% trans 'Describe your issue' %}"></textarea>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-600 text-white text-xs sm:text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+                ✉️ {% trans "Submit Request" %}
+            </button>
+        </form>
+    </div>
+
+    <!-- ✅ FAQ Section -->
+    <h2 class="text-base sm:text-lg font-semibold text-blue-700 mt-6 text-center">❓ {% trans "Frequently Asked Questions" %}</h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mb-3">{% trans "Find answers to common questions." %}</p>
+
+    <ul class="bg-white rounded-lg shadow-lg p-3 sm:p-6 space-y-3 mb-12">
+        {% for faq in faqs %}
+        <li class="border-b pb-2">
+            <button class="faq-btn w-full text-left flex justify-between items-center text-xs sm:text-sm font-medium">
+                {{ faq.question }}
+                <span class="toggle-icon text-blue-600">+</span>
+            </button>
+            <p class="faq-content text-gray-600 hidden mt-1 text-xs sm:text-sm">{{ faq.answer }}</p>
+        </li>
+        {% empty %}
+        <li class="text-gray-600 text-xs sm:text-sm text-center">{% trans "No FAQs available at the moment." %}</li>
+        {% endfor %}
+    </ul>
+
+</main>
+
+<!-- ✅ JavaScript for FAQ Toggle -->
+<script>
+    document.querySelectorAll('.faq-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.toggle-icon');
+            content.classList.toggle('hidden');
+            icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+        });
+    });
+</script>
+
+{% endblock %}

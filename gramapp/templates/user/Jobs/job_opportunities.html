@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{% trans "Job Opportunities - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-4 bg-gray-100 min-h-screen">
+    <!-- ✅ Page Heading -->
+    <div class="text-center mb-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-green-700">
+            💼 {% trans "Job Opportunities" %}
+        </h2>
+        <p class="text-gray-600 text-sm mt-1">
+            {% trans "Find your next career opportunity!" %}
+        </p>
+    </div>
+
+    <!-- ✅ Job Listings Grid (Scrollable on Small Screens) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto max-h-[80vh] p-1 sm:p-2">
+        {% for job in jobs %}
+        <div
+            class="bg-white shadow-md rounded-lg overflow-hidden border-l-4 border-green-500 hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+
+            <div class="p-3 sm:p-4">
+                <!-- ✅ Job Title & Company Name -->
+                <h3 class="text-sm sm:text-base font-semibold text-gray-800 truncate">
+                    {{ job.job_title|default:"No Title" }}
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-500 font-medium truncate">
+                    {{ job.company_name|default:"No Company" }}
+                </p>
+
+                <!-- ✅ Job Description -->
+                <p class="text-xs sm:text-sm text-gray-600 mt-2 ">
+                    {{ job.description|default:"No Description Available" }}
+                </p>
+
+                <!-- ✅ Job Details -->
+                <div class="mt-2 space-y-1 text-xs sm:text-sm text-gray-700">
+                    <p>📍 <strong>{% trans "Location" %}:</strong>
+                        {{ job.location|default:"Not specified" }}
+                    </p>
+                    <p>💰 <strong>{% trans "Salary" %}:</strong>
+                        {{ job.salary_lpa }}
+                    </p>
+                    <p>📧 <strong>{% trans "Contact Email" %}:</strong>
+                        {{ job.contact_email|default:"Not provided" }}
+                    </p>
+                </div>
+
+                <!-- ✅ Apply Now Button (Smaller & Mobile Optimized) -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ job.contact_email }}&su={% trans 'Job Application' %}: {{ job.job_title }}&body={% trans 'Dear' %} {{ job.company_name }},%0D%0A%0D%0A{% trans 'I would like to apply for the' %} {{ job.job_title }} {% trans 'position at' %} {{ job.company_name }}. {% trans 'Please let me know the next steps.' %}%0D%0A%0D%0A{% trans 'Thank you,' %}%0D%0A{{ user.get_full_name }}"
+                    target="_blank"
+                    class="mt-3 block bg-blue-600 text-white text-xs sm:text-sm px-2 py-2 rounded-lg text-center hover:bg-blue-700 transition">
+                    📩 {% trans "Apply Now" %}
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 text-center col-span-full">{% trans "No job opportunities available at the moment." %}</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

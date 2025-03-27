@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Manage Panchayat Members - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        🏛 {% trans "Manage Panchayat Members" %}
+    </h1>
+
+    <!-- ✅ Add Member Button -->
+    <div class="text-center">
+        <a href="{% url 'add_panchayat_member' %}" 
+           class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm sm:text-base">
+            ➕ {% trans "Add New Member" %}
+        </a>
+    </div>
+
+    <!-- ✅ Members List Section -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105 mb-9">
+
+        <!-- ✅ Section Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
+            📌 {% trans "Panchayat Members" %}
+        </h2>
+
+        <!-- ✅ Table View for Desktop -->
+        <div class="hidden sm:block overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-sm">
+                <thead class="bg-blue-600 text-white text-sm sm:text-base">
+                    <tr>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Name" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Role" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Phone" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm">
+                    {% for member in members %}
+                    <tr class="border-b hover:bg-gray-100 transition">
+                        <td class="py-2 px-3 sm:px-4">{{ member.name }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ member.role }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ member.phone_number|default:"N/A" }}</td>
+                        <td class="py-2 px-3 sm:px-4">
+                            <a href="{% url 'edit_panchayat_member' member.id %}" 
+                               class="text-blue-600 hover:text-blue-800">
+                                ✏️ {% trans "Edit" %}
+                            </a>
+                            <a href="{% url 'delete_panchayat_member' member.id %}" 
+                               class="text-red-600 hover:text-red-800">
+                                🗑️ {% trans "Delete" %}
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="py-2 px-3 sm:px-4 text-center text-gray-600">{% trans "No members found." %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ✅ Card View for Mobile -->
+        <div class="block sm:hidden space-y-4">
+            {% for member in members %}
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <p class="text-sm text-gray-700"><strong>{% trans "Name" %}:</strong> {{ member.name }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Role" %}:</strong> {{ member.role }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Phone" %}:</strong> {{ member.phone_number|default:"N/A" }}</p>
+                <div class="mt-3 flex space-x-2">
+                    <a href="{% url 'edit_panchayat_member' member.id %}" 
+                       class="bg-blue-600 text-white text-xs px-4 py-2 rounded hover:bg-blue-700 transition w-full text-center">
+                        ✏️ {% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'delete_panchayat_member' member.id %}" 
+                       class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
+                        🗑️ {% trans "Delete" %}
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-600 text-center">{% trans "No members found." %}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

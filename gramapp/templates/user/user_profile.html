@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block bottom_nav %}{% endblock %} <!-- Removes floating bottom nav -->
+
+{% block content %}
+<main class="p-4 max-w-3xl mx-auto">
+
+    <!-- 🔙 Back to Dashboard Button -->
+    <div class="mb-4">
+        <a href="{% url 'dashboard_view' %}" class="text-blue-600 hover:text-blue-700 hover:underline flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            {% trans "Back to Dashboard" %}
+        </a>
+    </div>
+
+    <!-- 👤 Profile Section -->
+    <div class="flex flex-col items-center">
+        <!-- 🖼 Profile Picture -->
+        <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-green-500 shadow-md transform transition duration-300 hover:scale-105">
+            {% if user_profile.profile_picture_base64 %}
+                <img src="data:image/jpeg;base64,{{ user_profile.profile_picture_base64 }}" 
+                     alt="{% trans 'Profile Picture' %}" class="w-full h-full object-cover">
+            {% else %}
+                <img src="https://via.placeholder.com/150" 
+                     alt="{% trans 'Default Profile' %}" class="w-full h-full object-cover">
+            {% endif %}
+        </div>
+
+        <!-- 🏷 User Name -->
+        <h2 class="text-lg sm:text-2xl font-semibold text-gray-800 mt-3 text-center">
+            {{ user_details.first_name|title }} {{ user_details.last_name|title }}
+        </h2>
+        <p class="text-gray-500 text-sm sm:text-base">{{ user_details.email }}</p>
+    </div>
+
+    <!-- ℹ️ Profile Details -->
+    <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-gray-700">{% trans "Personal Details" %}</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Phone -->
+            <div>
+                <label class="block text-gray-600 font-medium mb-1">📞 {% trans "Phone" %}:</label>
+                <p class="border p-2 w-full rounded-md bg-gray-50 text-sm sm:text-base">{{ user_profile.phoneno }}</p>
+            </div>
+
+            <!-- Address -->
+            <div>
+                <label class="block text-gray-600 font-medium mb-1">📍 {% trans "Address" %}:</label>
+                <p class="border p-2 w-full rounded-md bg-gray-50 text-sm sm:text-base">{{ user_profile.address }}</p>
+            </div>
+
+            <!-- Aadhar Number -->
+            <div>
+                <label class="block text-gray-600 font-medium mb-1">🆔 {% trans "Aadhar No" %}:</label>
+                <p class="border p-2 w-full rounded-md bg-gray-50 text-sm sm:text-base">{{ user_profile.aadharno }}</p>
+            </div>
+
+            <!-- PAN Number -->
+            <div>
+                <label class="block text-gray-600 font-medium mb-1">🧾 {% trans "PAN No" %}:</label>
+                <p class="border p-2 w-full rounded-md bg-gray-50 text-sm sm:text-base">{{ user_profile.panno }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🚪 Logout Button -->
+    <div class="mt-6 text-center">
+        <a href="{% url 'logout' %}"
+            class="inline-block px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition text-sm sm:text-base font-medium shadow-md transform hover:scale-105">
+            {% trans "Logout" %}
+        </a>
+    </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Delete FAQ - Panchayat App" %}{% endblock %}
+
+{% block content %}
+<main class="p-2 sm:p-4 mb-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-red-700 text-center">🗑 {% trans "Delete FAQ" %}</h2>
+
+    <div class="mt-6 bg-white shadow-lg rounded-lg p-4 sm:p-6 max-w-lg mx-auto">
+        <p class="text-gray-700 text-center text-lg">{% trans "Are you sure you want to delete this FAQ?" %}</p>
+        <p class="text-sm text-gray-500 text-center mt-1">❓ <strong>{{ faq.question }}</strong></p>
+
+        <form method="POST" class="mt-4 text-center">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-600 text-white text-sm px-3 py-1 rounded-md hover:bg-red-700 transition">
+                🗑 {% trans "Confirm Delete" %}
+            </button>
+        </form>
+
+        <!-- Back Button -->
+        <div class="mt-4 text-center">
+            <a href="{% url 'manage_faqs' %}" class="text-blue-600 hover:underline">🔙 {% trans "Cancel & Go Back" %}</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Certificate Management" %}{% endblock %}
+
+{% block content %}
+<!-- ✅ Main Container -->
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- ✅ Page Heading -->
+    <h1 class="text-lg sm:text-2xl font-bold text-blue-700 text-center">
+        📜 {% trans "Certificate Management" %}
+    </h1>
+
+    <!-- ✅ Certificate Types Loop -->
+    {% for cert_type, certs in certificates.items %}
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 transition-all transform hover:scale-105">
+
+        <!-- ✅ Certificate Type Heading -->
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4">
+            {{ cert_type|title }} {% trans "Certificates" %}
+        </h2>
+
+        <!-- ✅ Table View for Desktop -->
+        <div class="hidden sm:block overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-sm">
+                <thead class="bg-blue-600 text-white text-sm sm:text-base">
+                    <tr>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Citizen" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Submitted" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Document" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Status" %}</th>
+                        <th class="py-2 px-3 sm:px-4 text-left">{% trans "Action" %}</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm">
+                    {% for cert in certs %}
+                    <tr class="border-b hover:bg-gray-100 transition">
+                        <td class="py-2 px-3 sm:px-4">{{ cert.user.username }}</td>
+                        <td class="py-2 px-3 sm:px-4">{{ cert.submitted_at|date:"d M Y" }}</td>
+                        <td class="py-2 px-3 sm:px-4">
+                            <a href="{{ cert.document.url }}" target="_blank" 
+                               class="text-blue-600 hover:underline">📄 {% trans "View Document" %}</a>
+                        </td>
+                        <td class="py-2 px-3 sm:px-4">
+                            {% if cert.status == "Pending" %}
+                                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Pending" %}</span>
+                            {% elif cert.status == "Approved" %}
+                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Approved" %}</span>
+                            {% else %}
+                                <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Rejected" %}</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-2 px-3 sm:px-4">
+                            {% if cert.status == "Pending" %}
+                                <div class="flex space-x-2">
+                                    <a href="{% url 'approve_certificate' cert_type cert.id %}" 
+                                       class="bg-green-600 text-white text-xs px-3 py-1 rounded hover:bg-green-700 transition">
+                                        ✅ {% trans "Approve" %}
+                                    </a>
+                                    <a href="{% url 'reject_certificate' cert_type cert.id %}" 
+                                       class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700 transition">
+                                        ❌ {% trans "Reject" %}
+                                    </a>
+                                </div>
+                            {% else %}
+                                <span class="text-gray-500 text-sm">{% trans "Processed" %}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ✅ Card View for Mobile -->
+        <div class="block sm:hidden space-y-4">
+            {% for cert in certs %}
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <p class="text-sm text-gray-700"><strong>{% trans "Citizen" %}:</strong> {{ cert.user.username }}</p>
+                <p class="text-sm text-gray-700"><strong>{% trans "Submitted" %}:</strong> {{ cert.submitted_at|date:"d M Y" }}</p>
+                <p class="text-sm text-blue-600">
+                    <strong>{% trans "Document" %}:</strong> <a href="{{ cert.document.url }}" target="_blank" class="hover:underline">📄 {% trans "View Document" %}</a>
+                </p>
+                <p class="text-sm">
+                    <strong>{% trans "Status" %}:</strong> 
+                    {% if cert.status == "Pending" %}
+                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Pending" %}</span>
+                    {% elif cert.status == "Approved" %}
+                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Approved" %}</span>
+                    {% else %}
+                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Rejected" %}</span>
+                    {% endif %}
+                </p>
+                {% if cert.status == "Pending" %}
+                    <div class="mt-3 flex space-x-2">
+                        <a href="{% url 'approve_certificate' cert_type cert.id %}" 
+                           class="bg-green-600 text-white text-xs px-4 py-2 rounded hover:bg-green-700 transition w-full text-center">
+                            ✅ {% trans "Approve" %}
+                        </a>
+                        <a href="{% url 'reject_certificate' cert_type cert.id %}" 
+                           class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
+                            ❌ {% trans "Reject" %}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- ✅ No Pending Applications Message -->
+        {% if not certs %}
+        <p class="text-gray-600 text-center mt-3">{% trans "No pending applications." %}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
