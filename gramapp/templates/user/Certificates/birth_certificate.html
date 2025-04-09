@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}  <!-- ✅ Load translation module -->
+{% load i18n %} <!-- ✅ Load translation module -->
 
 {% block title %}{% trans "Birth Certificate - Panchayat App" %}{% endblock %}
 {% block page_title %}{% trans "Birth Certificate" %}{% endblock %}
@@ -14,40 +14,43 @@
 
         <!-- Display messages -->
         {% if messages %}
-            <div class="mb-2">
-                {% for message in messages %}
-                    <p class="text-xs {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
-                        {{ message }}
-                    </p>
-                {% endfor %}
-            </div>
+        <div class="mb-2">
+            {% for message in messages %}
+            <p class="text-xs {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
+                {{ message }}
+            </p>
+            {% endfor %}
+        </div>
         {% endif %}
 
         <div>
             <label class="block text-xs font-medium text-gray-700">{% trans "Full Name" %}</label>
-            <input type="text" name="full_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200" 
-                   placeholder="{% trans 'Enter full name' %}">
+            <input type="text" name="full_name" required
+                class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                placeholder="{% trans 'Enter full name' %}">
         </div>
 
         <div>
             <label class="block text-xs font-medium text-gray-700">{% trans "Date of Birth" %}</label>
-            <input type="date" name="dob" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
+            <input type="date" name="dob" required
+                class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
         </div>
 
         <div>
             <label class="block text-xs font-medium text-gray-700">{% trans "Parent's Name" %}</label>
-            <input type="text" name="parent_name" required class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200" 
-                   placeholder="{% trans 'Enter parent’s name' %}">
+            <input type="text" name="parent_name" required
+                class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                placeholder="{% trans 'Enter parent’s name' %}">
         </div>
 
-        <div class="flex flex-col items-start w-full">
+        <div>
             <label class="block text-xs font-medium text-gray-700">{% trans "Upload Required Documents" %}</label>
-            <input type="file" name="document" required accept=".pdf"
-                   class="w-full mt-1 px-2 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
-            <p class="text-[10px] text-gray-500 mt-1">{% trans "Only PDF files are allowed." %}</p>
+            <input type="file" name="document" accept=".pdf,.jpg,.png,.docx,.txt"
+                class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200" required>
         </div>
-
-        <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white px-3 py-1.5 text-xs rounded-md hover:bg-blue-700 transition-all mx-auto block">
+        
+        <button type="submit"
+            class="w-full sm:w-auto bg-blue-600 text-white px-3 py-1.5 text-xs rounded-md hover:bg-blue-700 transition-all mx-auto block">
             📩 {% trans "Submit Application" %}
         </button>
     </form>
@@ -64,7 +67,8 @@
             <li><strong>{% trans "Identity Proof of Parents:" %}</strong> {% trans "Aadhaar Card, Voter ID, Passport, or Driving License." %}</li>
             <li><strong>{% trans "Address Proof:" %}</strong> {% trans "Ration Card, Utility Bill, or Property Tax Receipt." %}</li>
             <li><strong>{% trans "Parent’s Marriage Certificate:" %}</strong> {% trans "If available." %}</li>
-            <li><strong>{% trans "Affidavit:" %}</strong> {% trans "Required for delayed registration beyond 21 days." %}</li>
+            <li><strong>{% trans "Affidavit:" %}</strong> {% trans "Required for delayed registration beyond 21 days." %}
+            </li>
         </ul>
 
         <h4 class="text-sm font-medium text-gray-700 mt-3">⚠️ {% trans "Conditions for Application" %}</h4>

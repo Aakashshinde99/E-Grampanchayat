@@ -14,8 +14,8 @@
 
     <!-- ✅ Add Job Button -->
     <div class="text-center">
-        <a href="{% url 'add_job' %}" 
-           class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm sm:text-base">
+        <a href="{% url 'add_job' %}"
+            class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm sm:text-base">
             ➕ {% trans "Add New Job" %}
         </a>
     </div>
@@ -50,13 +50,17 @@
                         <td class="py-2 px-3 sm:px-4">{{ job.location }}</td>
                         <td class="py-2 px-3 sm:px-4">₹{{ job.salary }}</td>
                         <td class="py-2 px-3 sm:px-4">
-                            <a href="{% url 'delete_job' job.id %}" 
-                               class="text-red-600 hover:underline">🗑️ {% trans "Delete" %}</a>
+                            <a href="{% url 'edit_job' job.id %}" class="text-yellow-600 hover:underline">✏️ {% trans
+                                "Edit" %}</a> |
+                            <a href="{% url 'delete_job' job.id %}" class="text-red-600 hover:underline">🗑️ {% trans
+                                "Delete" %}</a>
                         </td>
+
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="6" class="py-2 px-3 sm:px-4 text-center text-gray-600">{% trans "No job opportunities available." %}</td>
+                        <td colspan="6" class="py-2 px-3 sm:px-4 text-center text-gray-600">{% trans "No job
+                            opportunities available." %}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -72,12 +76,17 @@
                 <p class="text-sm text-gray-700"><strong>{% trans "Email" %}:</strong> {{ job.contact_email }}</p>
                 <p class="text-sm text-gray-700"><strong>{% trans "Location" %}:</strong> {{ job.location }}</p>
                 <p class="text-sm text-gray-700"><strong>{% trans "Salary" %}:</strong> ₹{{ job.salary }}</p>
-                <div class="mt-3">
-                    <a href="{% url 'delete_job' job.id %}" 
-                       class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
+                <div class="mt-3 flex gap-2">
+                    <a href="{% url 'edit_job' job.id %}"
+                        class="bg-yellow-600 text-white text-xs px-4 py-2 rounded hover:bg-yellow-700 transition w-full text-center">
+                        ✏️ {% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'delete_job' job.id %}"
+                        class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
                         🗑️ {% trans "Delete" %}
                     </a>
                 </div>
+
             </div>
             {% empty %}
             <p class="text-gray-600 text-center">{% trans "No job opportunities available." %}</p>

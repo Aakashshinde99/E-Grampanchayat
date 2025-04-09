@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}  
+{% load i18n %}
 
 {% block title %}{% trans "Shramdan & Community Initiatives - Panchayat App" %}{% endblock %}
 {% block page_title %}{% trans "Shramdan & Community" %}{% endblock %}
@@ -12,30 +12,38 @@
     </h2>
 
     <!-- ✅ About Shramdan Section -->
-    <section class="mb-4 sm:mb-6 px-3 sm:px-6">
+    <section class="mb-2 sm:mb-3 px-3 sm:px-3">
         <p class="text-gray-600 text-sm sm:text-lg text-justify leading-relaxed">
             {% trans "Shramdan is an opportunity to give back to the community. Explore events and participate in various Abhiyaans to make a difference." %}
         </p>
     </section>
 
-    <!-- ✅ Event Image Auto-Scrolling Carousel -->
-    <section class="relative w-full overflow-hidden">
-        <div id="carousel" class="flex w-max animate-scroll">
-            <img src="https://static.mygov.in/media/blog/2018/08/Blog-banner-Shramdaan-a-way-of-participative-governance.jpg" 
-                 alt="{% trans 'Event 1' %}" class="event-image">
-            <img src="https://media.gettyimages.com/id/502599400/photo/gurgaon-indiamembers-of-gujjar-community-hold-a-maha-panchayat-on-marriage-related-issues-at.jpg?s=612x612&w=0&k=20&c=TB5xfJcjFyOqSbwX0RVDSgg5BLOYyB9t2wmz-uNf0Gg=" 
-                 alt="{% trans 'Event 2' %}" class="event-image">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSbbEu1CpH-EY1tD0BUVOO3POEJdJBokasmg&s" 
-                 alt="{% trans 'Event 3' %}" class="event-image">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA5qevKBVdktZiEdfoOIQ3_8gsTTOcPsoXTQ&s" 
-                 alt="{% trans 'Event 4' %}" class="event-image">
-            <img src="https://cdn.cdnparenting.com/articles/2019/02/14193616/1181338459-H.webp" 
-                 alt="{% trans 'Event 5' %}" class="event-image">
+    <!-- ✅ Swiper Carousel Container -->
+    <section class="relative w-full max-w-4xl mx-auto mt-3">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for event in events %}
+                <div class="swiper-slide">
+                    <img src="data:image/jpeg;base64,{{ event.image_base64 }}" alt="{{ event.name }}"
+                    class="w-full h-64 sm:h-80 object-contain rounded-lg shadow-lg">
+                </div>
+                {% empty %}
+                <p class="text-center text-gray-500">{% trans "No events available" %}</p>
+                {% endfor %}
+            </div>
+
+            <!-- ✅ Navigation Buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <!-- ✅ Pagination Dots -->
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
+
     <!-- ✅ How to Participate Section -->
-    <section class="text-center px-3 sm:px-6">
+    <section class="text-center px-3 sm:px-6 mb-12">
         <h3 class="text-lg font-semibold text-blue-600 mb-3">{% trans "How to Participate" %}</h3>
         <p class="text-gray-600 text-sm sm:text-lg leading-relaxed">
             {% trans "To participate in Shramdan activities, check out the upcoming events or contact your local Panchayat office." %}
@@ -43,25 +51,29 @@
     </section>
 </main>
 
-<!-- ✅ Optimized Styles -->
-<style>
-    /* Auto-Scrolling Animation */
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); } /* Moves full width for a loop effect */
-    }
-    
-    .animate-scroll {
-        display: flex;
-        gap: 0;  /* No spacing between images */
-        animation: scroll 30s linear infinite;  /* Continuous smooth scrolling */
-    }
-    
-    /* Edge-to-Edge Full-Screen Images */
-    .event-image {
-        width: 100vw;  /* Full width of the screen */
-        height: 10rem;  /* Optimized for mobile */
-        object-fit: cover;
-    }
-</style>
+<!-- ✅ Swiper.js Styles & Script -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- ✅ Initialize Swiper -->
+<script>
+    window.onload = function () {
+        new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    };
+</script>
+
 {% endblock %}

@@ -12,7 +12,8 @@
     </h1>
 
     <!-- ✅ Survey Details Section -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+    <div
+        class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
 
         <!-- ✅ Section Heading -->
         <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
@@ -24,8 +25,9 @@
             <p><strong>{% trans "Title" %}:</strong> {{ survey.title }}</p>
             <p><strong>{% trans "Description" %}:</strong> {{ survey.description }}</p>
             <p><strong>{% trans "Created On" %}:</strong> {{ survey.created_at|date:"d M Y" }}</p>
-            <p><strong>{% trans "Status" %}:</strong> 
-                <span class="px-2 py-1 rounded-full text-xs sm:text-sm font-medium {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">
+            <p><strong>{% trans "Status" %}:</strong>
+                <span
+                    class="px-2 py-1 rounded-full text-xs sm:text-sm font-medium {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">
                     {% if survey.is_active %}🟢 {% trans "Active" %}{% else %}🔴 {% trans "Closed" %}{% endif %}
                 </span>
             </p>
@@ -33,7 +35,8 @@
     </div>
 
     <!-- ✅ User Responses Section -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+    <div
+        class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
 
         <!-- ✅ Section Heading -->
         <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
@@ -41,22 +44,30 @@
         </h2>
 
         <!-- ✅ Responses Table -->
-        {% if responses %}
+        {% if structured_responses %}
         <div class="overflow-x-auto rounded-lg">
             <table class="w-full border-collapse">
                 <thead class="bg-gray-100">
                     <tr>
                         <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "User" %}</th>
-                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "Response" %}</th>
-                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "Submitted At" %}</th>
+                        {% for question in questions %}
+                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{{ question.text }}
+                        </th>
+                        {% endfor %}
+                        <th class="p-3 text-left text-xs sm:text-sm font-semibold text-gray-700">{% trans "Submitted At"
+                            %}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for response in responses %}
+                    {% for response in structured_responses %} <!-- Updated variable name -->
                     <tr class="border-b hover:bg-gray-50 transition">
-                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.user.username }}</td>
-                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.response|default:_("No response provided") }}</td>
-                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.submitted_at|date:"d M Y, H:i A" }}</td>
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ response.user }}</td>
+                        {% for answer in response.answers %}
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">{{ answer }}</td>
+                        {% endfor %}
+                        <td class="p-3 text-xs sm:text-sm text-gray-700">
+                            {{ response.submitted_at|date:"d M Y, H:i A" }}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -72,8 +83,7 @@
 
     <!-- ✅ Back Link -->
     <div class="text-center">
-        <a href="{% url 'manage_surveys' %}" 
-           class="text-blue-600 hover:text-blue-700 hover:underline transition">
+        <a href="{% url 'manage_surveys' %}" class="text-blue-600 hover:text-blue-700 hover:underline transition">
             🔙 {% trans "Back to Survey List" %}
         </a>
     </div>

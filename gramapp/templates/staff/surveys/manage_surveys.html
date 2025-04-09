@@ -29,7 +29,8 @@
             <!-- Status Tag at Top-Right Corner -->
             <div class="absolute top-2 right-2">
                 <div class="flex items-center gap-1.5">
-                    <span class="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %} shadow-sm">
+                    <span
+                        class="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold {% if survey.is_active %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %} shadow-sm">
                         {% if survey.is_active %}✅ {% trans "Active" %}{% else %}🚫 {% trans "Closed" %}{% endif %}
                     </span>
                 </div>
@@ -50,7 +51,11 @@
                         {% if survey.is_active %}🚫 {% trans "Close" %}{% else %}✅ {% trans "Activate" %}{% endif %}
                     </a>
                 </div>
-                <div class="text-center">
+                <div class="flex gap-2">
+                    <a href="{% url 'edit_survey' survey.id %}"
+                        class="flex-1 bg-gray-600 hover:bg-gray-700 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center shadow-sm transition">
+                        ✏️ {% trans "Edit" %}
+                    </a>
                     <a href="{% url 'delete_survey' survey.id %}"
                         class="flex-1 bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center shadow-sm transition">
                         🗑 {% trans "Delete" %}
@@ -78,30 +83,30 @@
         <!-- ✅ Feedback List -->
         <div class="space-y-4">
             {% if survey_feedbacks %}
-                {% for feedback in survey_feedbacks %}
-                <!-- Feedback Card -->
-                <div class="bg-gray-50 border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-md transition">
-                    <!-- Feedback Details -->
-                    <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-800">
-                                {% trans "From:" %} <span class="font-semibold">{{ feedback.user.username|default:"{% trans 'Anonymous' %}" }}</span>
-                            </p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                {{ feedback.message }}
-                            </p>
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            {{ feedback.submitted_at|date:"d M, Y" }}
-                        </div>
+            {% for feedback in survey_feedbacks %}
+            <!-- Feedback Card -->
+            <div class="bg-gray-50 border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-md transition">
+                <!-- Feedback Details -->
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">
+                            {% trans "From:" %} <span class="font-semibold">{{ feedback.user.username|default:"{% trans 'Anonymous' %}" }}</span>
+                        </p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            {{ feedback.message }}
+                        </p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        {{ feedback.submitted_at|date:"d M, Y" }}
                     </div>
                 </div>
-                {% endfor %}
+            </div>
+            {% endfor %}
             {% else %}
-                <!-- Empty State -->
-                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 text-center">
-                    <p class="text-gray-500 text-sm sm:text-base">🚫 {% trans "No feedback available." %}</p>
-                </div>
+            <!-- Empty State -->
+            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 text-center">
+                <p class="text-gray-500 text-sm sm:text-base">🚫 {% trans "No feedback available." %}</p>
+            </div>
             {% endif %}
         </div>
     </div>

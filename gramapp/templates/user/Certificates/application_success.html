@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow text-center">
+    <h2 class="text-lg font-semibold text-green-600">✅ {% trans "Application Submitted!" %}</h2>
+    <p class="text-gray-700 mt-3 text-sm">
+        {{ message }}
+    </p>
+    <button onclick="window.close()"
+        class="mt-5 px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition">
+         {% trans "Go Back to App" %}
+    </button>
+</div>
+{% endblock %}

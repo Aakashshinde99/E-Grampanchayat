@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% if place %} {% trans "Edit Tourism Spot" %} {% else %} {% trans "Add Tourism Spot" %} {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <!-- Page Title -->
+    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
+        {% if place %} ✏️ {% trans "Edit Tourism Spot" %} {% else %} 🌍 {% trans "Add New Tourism Spot" %} {% endif %}
+    </h1>
+
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 max-w-lg mx-auto mb-10">
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <!-- Spot Name -->
+            <label class="block text-gray-700 text-sm font-semibold">{% trans "Spot Name" %}</label>
+            <input type="text" name="name" value="{{ place.name|default:'' }}" 
+                   class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300" required>
+
+            <!-- Description -->
+            <label class="block text-gray-700 text-sm font-semibold">{% trans "Description" %}</label>
+            <textarea name="description" rows="4"
+                      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">{{ place.description|default:'' }}</textarea>
+
+            <!-- Location -->
+            <label class="block text-gray-700 text-sm font-semibold">{% trans "Location" %}</label>
+            <input type="text" name="location" value="{{ place.location|default:'' }}" 
+                   class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300" required>
+
+            <!-- Best Time to Visit -->
+            <label class="block text-gray-700 text-sm font-semibold">{% trans "Best Time to Visit" %}</label>
+            <input type="text" name="best_time_to_visit" value="{{ place.best_time_to_visit|default:'' }}" 
+                   class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">
+
+            <!-- Contact Information -->
+            <label class="block text-gray-700 text-sm font-semibold">{% trans "Contact Info" %}</label>
+            <input type="text" name="contact_info" value="{{ place.contact_info|default:'' }}" 
+                   class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">
+
+            <!-- Buttons -->
+            <div class="flex gap-2">
+                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                    {% if place %} {% trans "Save Changes" %} {% else %} {% trans "Add Spot" %} {% endif %}
+                </button>
+                <a href="{% url 'tourism_management' %}" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                    {% trans "Cancel" %}
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

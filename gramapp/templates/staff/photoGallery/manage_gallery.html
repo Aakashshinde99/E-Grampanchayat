@@ -4,52 +4,65 @@
 
 {% block content %}
 <!-- ✅ Main Container -->
-<div class="flex flex-col gap-4 p-3 sm:p-4">
+<div class="flex flex-col gap-4 p-2 sm:p-4 max-w-7xl mx-auto">
 
     <!-- ✅ Page Heading -->
-    <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
-        🏡 {% trans "Manage Gallery" %}
-    </h1>
+    <div class="text-center space-y-2">
+        <h1 class="text-xl sm:text-2xl font-bold text-green-700">
+            🏡 {% trans "Manage Gallery" %}
+        </h1>
+        <p class="text-sm text-gray-600">{% trans "Manage community gallery images" %}</p>
+    </div>
 
     <!-- ✅ Add New Image Button -->
     <div class="flex justify-center">
         <a href="{% url 'add_gallery_image' %}" 
-           class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105">
-            ➕ {% trans "Add New Image" %}
+           class="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded-lg shadow-md transition-all transform hover:scale-105 flex items-center gap-2">
+            ➕ <span class="text-sm sm:text-base">{% trans "Add New Image" %}</span>
         </a>
     </div>
 
     <!-- ✅ Gallery Images Section -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-100">
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-4 sm:p-6">
 
-        <!-- ✅ Section Heading -->
-        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
-            📷 {% trans "Gallery Images" %}
-        </h2>
-
-        <!-- ✅ Gallery Images Grid -->
+        <!-- ✅ Gallery Grid -->
         {% if images %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
             {% for image in images %}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-md p-3 relative transition-all transform hover:scale-105">
-                <!-- Image -->
-                <img src="{{ image.image.url }}" alt="{{ image.title }}" class="w-full h-40 object-cover rounded-lg">
+            <div class="group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all">
+                <!-- Image Container -->
+                <div class="aspect-square overflow-hidden rounded-t-lg">
+                    <img src="{{ image.image.url }}" 
+                         alt="{{ image.title }}" 
+                         class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                </div>
 
-                <!-- Image Title -->
-                <p class="text-sm font-medium text-gray-800 text-center mt-2">{{ image.title }}</p>
-
-                <!-- Delete Button -->
-                <form action="{% url 'delete_gallery_image' image.id %}" method="POST" class="absolute top-2 right-2">
-                    {% csrf_token %}
-                    <button type="submit" class="text-red-600 hover:text-red-700 transition-all transform hover:scale-110">
-                        🗑 {% trans "Delete" %}
-                    </button>
-                </form>
+                <!-- Title and Delete Button -->
+                <div class="p-2 sm:p-3">
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 truncate">{{ image.title }}</p>
+                    
+                    <!-- Enhanced Delete Button -->
+                    <form action="{% url 'delete_gallery_image' image.id %}" method="POST" 
+                          class="absolute top-2 right-2 z-10">
+                        {% csrf_token %}
+                        <button type="submit" 
+                                class="bg-white/90 hover:bg-red-100 text-red-600 hover:text-red-700 
+                                       p-1.5 rounded-full shadow-sm transition-all transform hover:scale-110"
+                                title="{% trans 'Delete image' %}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
             {% endfor %}
         </div>
         {% else %}
-        <p class="text-gray-500 text-center">{% trans "No images available." %}</p>
+        <div class="text-center py-8">
+            <p class="text-gray-500 text-sm">📸 {% trans "No images found in gallery" %}</p>
+        </div>
         {% endif %}
     </div>
 </div>

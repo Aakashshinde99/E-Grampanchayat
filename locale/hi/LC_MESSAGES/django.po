@@ -2952,3 +2952,15 @@ msgstr "अधिवास"
 
 #~ msgid "Notifications"
 #~ msgstr "सूचनाएं"
+
+msgid "Upload Documents Here"
+msgstr "यहां दस्तावेज़ अपलोड करें"
+
+msgid "Manage Shramdan & Abhiyaan Events"
+msgstr "श्रवदान और अभियान कार्यक्रम प्रबंधन करें"
+
+msgid "Event Name"
+msgstr "कार्यक्रम का नाम"
+
+msgid "Add Event"
+msgstr "कार्यक्रम जोड़ें"

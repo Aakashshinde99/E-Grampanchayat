@@ -18,7 +18,8 @@
     <!-- 👤 Profile Section -->
     <div class="flex flex-col items-center">
         <!-- 🖼 Profile Picture -->
-        <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-green-500 shadow-md transform transition duration-300 hover:scale-105">
+        <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-green-500 shadow-md 
+        transform transition duration-300 hover:scale-105">
             {% if user_profile.profile_picture_base64 %}
                 <img src="data:image/jpeg;base64,{{ user_profile.profile_picture_base64 }}" 
                      alt="{% trans 'Profile Picture' %}" class="w-full h-full object-cover">

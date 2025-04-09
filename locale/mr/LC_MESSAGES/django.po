@@ -1972,3 +1972,14 @@ msgstr "विवाह"
 msgid "Domicile"
 msgstr "निवास"
 
+msgid "Upload Documents Here"
+msgstr "येथे कागदपत्रे अपलोड करा"
+
+msgid "Manage Shramdan & Abhiyaan Events"
+msgstr "श्रमदान व अभियान कार्यक्रम व्यवस्थापन करा"
+
+msgid "Event Name"
+msgstr "कार्यक्रमाचे नाव"
+
+msgid "Add Event"
+msgstr "कार्यक्रम जोडा"

@@ -43,9 +43,11 @@
 
         <div>
             <label class="block text-xs font-medium text-gray-700">📎 {% trans "Upload Required Documents" %}</label>
-            <input type="file" name="documents" required accept=".pdf" class="w-full mt-1 px-2 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200">
-            <p class="text-[10px] text-gray-500 mt-1">{% trans "Only PDF files are allowed." %}</p>
+            <input type="file" name="document" accept=".pdf,.jpg,.png,.docx,.txt"
+                class="w-full mt-1 px-3 py-1.5 border rounded-md text-xs focus:ring focus:ring-blue-200"
+                required>
         </div>
+        
 
         <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white px-3 py-1.5 text-xs rounded-md hover:bg-blue-700 transition-all mx-auto block">
             📩 {% trans "Submit Application" %}

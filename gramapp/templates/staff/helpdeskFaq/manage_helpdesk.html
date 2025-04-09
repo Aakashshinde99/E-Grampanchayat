@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load i18n %}
+
 {% block title %}{% trans "Manage Helpdesk - Panchayat App" %}{% endblock %}
 
 {% block content %}
 <!-- ✅ Main Container -->
-<div class="flex flex-col gap-4 p-3 sm:p-4">
+<div class="flex flex-col gap-2 p-2">
 
     <!-- ✅ Page Heading -->
     <h1 class="text-lg sm:text-2xl font-bold text-green-700 text-center">
@@ -12,25 +13,26 @@
     </h1>
 
     <!-- ✅ Support Requests Section -->
-    <div
-        class="bg-white border border-gray-200 rounded-lg shadow-md p-4 sm:p-6 transition-all transform hover:scale-105">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-3 sm:p-4">
 
         <!-- ✅ Section Heading -->
-        <h2 class="text-base sm:text-lg font-semibold text-blue-700 mb-4 text-center">
+        <h2 class="text-base sm:text-lg font-semibold text-blue-700 text-center mb-3">
             📩 {% trans "Support Requests" %}
         </h2>
 
-        <!-- ✅ Support Requests List -->
+        <!-- ✅ Support Requests Cards -->
         {% if support_requests %}
-        <ul class="space-y-3">
+        <div class="flex flex-col gap-2">
             {% for request in support_requests %}
-            <li class="border-b pb-3 flex justify-between items-center">
-                <div>
-                    <p class="text-sm font-medium text-gray-800">{{ request.name }}</p>
-                    <p class="text-xs text-gray-500">{{ request.email }}</p>
-                    <p class="text-xs text-gray-500">{{ request.message|truncatechars:50 }}</p>
-                    <p class="text-xs text-gray-500">
-                        <span class="font-semibold">{% trans "Status" %}:</span>
+            <div class="bg-gray-100 border border-gray-300 rounded-lg p-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 shadow-sm transition-all hover:shadow-md">
+                
+                <!-- ✅ Request Details -->
+                <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-900">{{ request.name }}</p>
+                    <p class="text-xs text-gray-600">{{ request.email }}</p>
+                    <p class="text-xs text-gray-600">{{ request.message|truncatechars:50 }}</p>
+                    <p class="text-xs font-semibold">
+                        {% trans "Status" %}:
                         {% if request.status == "Pending" %}
                         <span class="text-yellow-600">{% trans "Pending" %}</span>
                         {% else %}
@@ -38,20 +40,24 @@
                         {% endif %}
                     </p>
                 </div>
-                <a href="{% url 'contact_citizen' request.id %}"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded-md transition-all transform hover:scale-105">
-                    📞 {% trans "Contact" %}
-                </a>
 
-                {% if request.status == "Pending" %}
-                <a href="{% url 'resolve_support_request' request.id %}"
-                    class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md transition-all transform hover:scale-105">
-                    ✅ {% trans "Mark as Resolved" %}
-                </a>
-                {% endif %}
-            </li>
+                <!-- ✅ Action Buttons -->
+                <div class="flex items-center gap-2">
+                    <a href="{% url 'contact_citizen' request.id %}"
+                        class="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm px-2 py-1 rounded-md transition-transform hover:scale-105">
+                        📞 {% trans "Reply" %}
+                    </a>
+
+                    {% if request.status == "Pending" %}
+                    <a href="{% url 'resolve_support_request' request.id %}"
+                        class="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-3 py-1 rounded-md transition-transform hover:scale-105">
+                        ✅ {% trans "Resolve" %}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+        </div>
         {% else %}
         <p class="text-gray-500 text-center">{% trans "No support requests available." %}</p>
         {% endif %}

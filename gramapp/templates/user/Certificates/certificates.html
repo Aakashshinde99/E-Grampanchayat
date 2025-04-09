@@ -12,98 +12,142 @@
 
     <!-- ✅ Certificate Application Grid -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 px-2">
+
         <!-- Birth Certificate -->
-        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
-            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Birth Certificate" %}</p>
-            <button onclick="window.location.href='{% url 'apply_birth_certificate' %}'"
-                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
-                {% trans "Apply Now" %}
-            </button>
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg flex flex-col h-full">
+            <p class="text-sm sm:text-base font-medium text-gray-800 mb-4">
+                {% trans "Birth Certificate" %}
+            </p>
+            <div class="mt-auto">
+                <button onclick="window.location.href='{% url 'apply_birth_certificate' %}'"
+                    class="bg-blue-600 text-white px-2 py-1 sm:px-2 sm:py-1 text-xs rounded-md hover:bg-blue-700 transition">
+                    {% trans "Apply Now" %}
+                </button>
+            </div>
         </div>
 
         <!-- Death Certificate -->
-        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
-            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Death Certificate" %}</p>
-            <button onclick="window.location.href='{% url 'apply_death_certificate' %}'"
-                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
-                {% trans "Apply Now" %}
-            </button>
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg flex flex-col h-full">
+            <p class="text-sm sm:text-base font-medium text-gray-800 mb-4">
+                {% trans "Death Certificate" %}
+            </p>
+            <div class="mt-auto">
+                <button onclick="window.location.href='{% url 'apply_death_certificate' %}'"
+                    class="bg-blue-600 text-white px-2 py-1 sm:px-2 sm:py-1 text-xs rounded-md hover:bg-blue-700 transition">
+                    {% trans "Apply Now" %}
+                </button>
+            </div>
         </div>
 
         <!-- Marriage Certificate -->
-        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
-            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Marriage Certificate" %}</p>
-            <button onclick="window.location.href='{% url 'apply_marriage_certificate' %}'"
-                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
-                {% trans "Apply Now" %}
-            </button>
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg flex flex-col h-full">
+            <p class="text-sm sm:text-base font-medium text-gray-800 mb-4">
+                {% trans "Marriage Certificate" %}
+            </p>
+            <div class="mt-auto">
+                <button onclick="window.location.href='{% url 'apply_marriage_certificate' %}'"
+                    class="bg-blue-600 text-white px-2 py-1 sm:px-2 sm:py-1 text-xs rounded-md hover:bg-blue-700 transition">
+                    {% trans "Apply Now" %}
+                </button>
+            </div>
         </div>
 
         <!-- Domicile Certificate -->
-        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg">
-            <p class="text-sm sm:text-base font-medium text-gray-800">{% trans "Domicile Certificate" %}</p>
-            <button onclick="window.location.href='{% url 'apply_domicile_certificate' %}'"
-                class="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-md hover:bg-blue-700 transition">
-                {% trans "Apply Now" %}
-            </button>
+        <div class="bg-gray-50 p-3 sm:p-4 text-center shadow-sm border border-gray-200 rounded-lg flex flex-col h-full">
+            <p class="text-sm sm:text-base font-medium text-gray-800 mb-4">
+                {% trans "Domicile Certificate" %}
+            </p>
+            <div class="mt-auto">
+                <button onclick="window.location.href='{% url 'apply_domicile_certificate' %}'"
+                    class="bg-blue-600 text-white px-2 py-1 sm:px-2 sm:py-1 text-xs rounded-md hover:bg-blue-700 transition">
+                    {% trans "Apply Now" %}
+                </button>
+            </div>
         </div>
+
     </div>
 
     <!-- ✅ Applied Certificates Section -->
-    <div class="mt-6 bg-white shadow-md rounded-lg p-4 sm:p-6">
-        <h2 class="text-lg sm:text-xl font-bold text-green-700 mb-3">📜 {% trans "Your Applied Certificates" %}</h2>
+    <div class="mt-10 bg-gray-50 shadow-md rounded-lg p-6 mb-12">
+        <h2 class="text-l font-bold text-green-700 mb-4">📜 {% trans "Your Applied Certificates" %}</h2>
 
-        {% for category, applications in applied_services.items %}
-        {% if applications %}
-        <div class="mb-4">
-            <h3 class="text-sm sm:text-lg font-semibold text-gray-700">{{ category }}</h3>
+        {% if applied_services %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for cert_type, applications in applied_services.items %}
+            {% for application in applications %}
+            <div class="bg-white p-5 shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition">
+                <h3 class="text-lg font-bold text-gray-700">{{ category }}</h3>
+                <p class="text-sm text-gray-600 mt-2">{% trans "Submitted on:" %} {{ application.submitted_at|date:"d M
+                    Y" }}</p>
 
-            <!-- ✅ Scrollable Table for Mobile -->
-            <div class="overflow-x-auto">
-                <table class="w-full min-w-full border border-gray-300 bg-white shadow-sm text-xs sm:text-sm">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="py-1 px-2 border text-left">{% trans "ID" %}</th>
-                            <th class="py-1 px-2 border text-left">{% trans "Submitted" %}</th>
-                            <th class="py-1 px-2 border text-left">{% trans "Status" %}</th>
-                            <th class="py-1 px-2 border text-left">{% trans "Download" %}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for application in applications %}
-                        <tr class="border-b">
-                            <td class="py-1 px-2 border">{{ application.id }}</td>
-                            <td class="py-1 px-2 border">{{ application.submitted_at|date:"d M Y" }}</td>
-                            <td class="py-1 px-2 border">
-                                {% if application.status == "Pending" %}
-                                <span class="text-yellow-600 font-semibold">{% trans "Pending" %}</span>
-                                {% elif application.status == "Approved" %}
-                                <span class="text-green-600 font-semibold">{% trans "Approved" %}</span>
-                                {% else %}
-                                <span class="text-red-600 font-semibold">{% trans "Rejected" %}</span>
-                                {% endif %}
-                            </td>
-                            <td class="py-1 px-2 border">
-                                {% if application.status == "Approved" and application.generated_certificate %}
-                                <a href="{{ application.generated_certificate.url }}" class="text-blue-500 underline"
-                                    target="_blank">
-                                    {% trans "Download" %}
-                                </a>
-                                {% else %}
-                                <span class="text-gray-500">{% trans "Not Available" %}</span>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <!-- Status Badge -->
+                <div class="mt-2">
+                    {% if application.status == "Pending" %}
+                    <span class="px-3 py-1 text-sm font-semibold bg-yellow-100 text-yellow-800 rounded-full">🟡 {% trans
+                        "Pending" %}</span>
+                    {% elif application.status == "Approved" %}
+                    <span class="px-3 py-1 text-sm font-semibold bg-green-100 text-green-800 rounded-full">✅ {% trans
+                        "Approved" %}</span>
+                    {% else %}
+                    <span class="px-3 py-1 text-sm font-semibold bg-red-100 text-red-800 rounded-full">❌ {% trans
+                        "Rejected" %}</span>
+                    {% endif %}
+                </div>
+
+                <!-- View Certificate Button -->
+                {% if application.status == "Approved" and application.generated_certificate %}
+                <a href="{% url 'download_certificate' cert_type=cert_type cert_id=application.id %}" target="_blank"
+                    class="mt-4 inline-block bg-blue-600 text-white px-1 py-1 text-xs rounded-md hover:bg-blue-700 transition">
+                    📄 {% trans "View / Download Certificate" %}
+                </a>
+                {% else %}
+                <p class="text-gray-500 mt-4">{% trans "Not Available" %}</p>
+                {% endif %}
             </div>
+            {% endfor %}
+            {% endfor %}
         </div>
-        {% endif %}
-        {% empty %}
+        {% else %}
         <p class="text-gray-600 text-sm">{% trans "You have not applied for any certificates yet." %}</p>
-        {% endfor %}
+        {% endif %}
     </div>
 
+    <!-- ✅ Certificate Popup Modal -->
+    <div id="certificateModal"
+        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-3/4 lg:w-1/2 mb-9">
+            <h3 class="text-lg font-bold text-gray-700">{% trans "Certificate Preview" %}</h3>
+            <iframe id="certificateFrame" class="w-full h-96 mt-3 border rounded-lg"></iframe>
+            <button onclick="closeCertificatePopup()"
+                class="mt-5 bg-red-500 text-white px-2 py-1 rounded-lg hover:bg-red-600 transition">
+                {% trans "Close" %}
+            </button>
+        </div>
+    </div>
 </main>
+
+<!-- ✅ JavaScript for Popup Modal -->
+<script>
+    function openCertificatePopup(url) {
+        // ✅ Check if the URL is valid
+        if (!url || url === "" || url.includes("127.0.0.1")) {
+            alert("Certificate not available to preview. Please try again later.");
+            return;
+        }
+
+        const iframe = document.getElementById('certificateFrame');
+        const modal = document.getElementById('certificateModal');
+
+        iframe.src = url;
+        modal.classList.remove('hidden');
+    }
+
+    function closeCertificatePopup() {
+        const modal = document.getElementById('certificateModal');
+        const iframe = document.getElementById('certificateFrame');
+
+        modal.classList.add('hidden');
+        iframe.src = '';
+    }
+</script>
 {% endblock %}

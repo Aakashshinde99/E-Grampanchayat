@@ -19,10 +19,15 @@
         {% for member in members %}
         <div class="bg-gray-100 p-3 sm:p-4 rounded-lg shadow-md text-center transition transform hover:scale-105 hover:shadow-lg">
 
-            <!-- ✅ Member Image -->
+            <!-- ✅ Member Image (base64 or fallback) -->
             <div class="flex justify-center">
-                <img src="{{ member.image_url }}" alt="{{ member.role }}"
-                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300">
+                {% if member.image_base64 %}
+                    <img src="data:image/jpeg;base64,{{ member.image_base64 }}" alt="{{ member.role }}"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300 object-cover" />
+                {% else %}
+                    <img src="https://via.placeholder.com/100" alt="{{ member.role }}"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300 object-cover" />
+                {% endif %}
             </div>
 
             <!-- ✅ Member Details -->

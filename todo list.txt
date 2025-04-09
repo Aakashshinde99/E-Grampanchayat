@@ -1,13 +1,23 @@
 Language button Done 
-
-
 card margin m-2, m-1
 text size md, sm
 dashbaord card  Language Pending
 profile image base 64 convert text
 app doc upload Pending
 
-notification bell pending 
 
-
+notification bell pending
 apk download QR code page
+
+
+user tax history table to card
+tax payment view details not pdf download 
+shramdan basic image implementation
+meetings - new meeting make green pop up
+Healt Edu Schemes url fixxing
+helpdesk contact back message should display in user account
+direct display surveys dont in ongoing survey page
+
+comment result from surveys
+profile base64
+certificate not download - give view popup not separate pdf

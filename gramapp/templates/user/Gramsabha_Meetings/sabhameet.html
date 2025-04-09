@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}  
+{% load i18n %}
 
 {% block title %}{% trans "Panchayat Meetings - Panchayat App" %}{% endblock %}
 {% block page_title %}{% trans "Panchayat Meetings" %}{% endblock %}
@@ -16,9 +16,18 @@
         {% if meetings %}
         <ul class="space-y-3">
             {% for meeting in meetings %}
+            {% if meeting.is_new %}
+            <li class="bg-yellow-50 p-3 sm:p-4 shadow-md border border-yellow-500 rounded-lg relative">
+                <span class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    {% trans "New" %}
+                </span>
+                {% else %}
             <li class="bg-gray-50 p-3 sm:p-4 shadow-sm border border-gray-200 rounded-lg">
+                {% endif %}
                 <h4 class="text-base sm:text-lg font-medium text-gray-800">{{ meeting.title }}</h4>
-                <p class="text-xs sm:text-sm text-gray-700">🗓️ <span class="font-medium">{{ meeting.date }}</span> | ⏰ <span class="font-medium">{{ meeting.time }}</span></p>
+                <p class="text-xs sm:text-sm text-gray-700">🗓️ <span class="font-medium">{{ meeting.date }}</span> | ⏰
+                    <span class="font-medium">{{ meeting.time }}</span>
+                </p>
             </li>
             {% endfor %}
         </ul>
@@ -27,4 +36,5 @@
         {% endif %}
     </div>
 </main>
+
 {% endblock %}

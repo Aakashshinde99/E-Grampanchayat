@@ -15,8 +15,8 @@ SECRET_KEY = 'django-insecure-4ju2n@$f9d0c=h)_g0lbb%k9&@rf(xa$d$g$&5ri$uf)*gev^4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".replit.dev", ".replit.app", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app", "http://localhost:8000", "http://192.168.0.*"]  # This will allow access from your mobile
+ALLOWED_HOSTS = [".replit.dev", ".replit.app", "127.0.0.1", ".app", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app", "http://localhost:8000", "http://192.168.0.*", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]  # This will allow access from your mobile
 
 # Application definition
 
@@ -30,18 +30,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',  # ✅ Must be before CommonMiddleware!
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+# Allow all origins during testing
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Only use clickjacking protection in deployments because the Development Web View uses 
 # iframes and needs to be a cross origin.
@@ -182,3 +187,8 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
+# File upload limits
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880
+FILE_UPLOAD_PERMISSIONS = 0o644

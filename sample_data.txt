@@ -82,3 +82,50 @@
             <li><a href="{% url 'user_job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {% trans "Job Opportunities" %}</a></li>
             <li><a href="{% url 'user_tourism' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans "Local Tourism" %}</a></li>
         </ul>
+
+
+Gallery
+<!-- <section class="p-0 max-w-6xl mx-auto mb-12"> -->
+
+    <!-- ✅ Page Heading -->
+    <!-- <h2 class="text-sm sm:text-xl font-bold text-blue-700 text-center mt-2">
+        🏡 {% trans "Gram Panchayat Events Gallery" %}
+    </h2>
+    <p class="text-xs sm:text-sm text-gray-600 text-center mt-1 mb-4">
+        {% trans "Explore memorable moments from various Gram Panchayat events and initiatives." %}
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://www.t2india.com/includes/images/indian-festival-bastar-mobile.jpg" 
+                 alt="{% trans 'Village Event' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsaHDTu8bLqs0Hq7q_Zw9WJ8vo_HNv1qtEA&s" 
+                 alt="{% trans 'Farmer Meeting' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://varthana.com/school/wp-content/uploads/2023/01/B135.jpg" 
+                 alt="{% trans 'Cultural Program' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201501/pongal_story_size-650_011515124617.jpg?VersionId=WGq.2qZZPMbkzVWtIoyo8n6KTSpNP09k" 
+                 alt="{% trans 'Festival Celebration' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://socialpillars.org/wp-content/uploads/2022/10/women-rural_istock.jpg" 
+                 alt="{% trans 'Women Empowerment Event' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://www.thestatesman.com/wp-content/uploads/2021/10/QT-online-education-village-1024x683.jpg" 
+                 alt="{% trans 'Education Initiative' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://thecsrjournal.in/wp-content/uploads/2018/10/Canon-Cleanliness-Drive.jpg" 
+                 alt="{% trans 'Environmental Drive' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-md">
+            <img src="https://anantayurveda.org/wp-content/uploads/2020/05/HealthCamp-1024x768.jpg" 
+                 alt="{% trans 'Health Awareness Camp' %}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg">
+        </div>
+    </div>
+</section> -->

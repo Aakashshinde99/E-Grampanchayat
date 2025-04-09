@@ -221,7 +221,7 @@ def register_view(request):
             password=make_password(password1)  # ✅ Hash password
         )
 
-        # 🔹 Convert Image to Base64
+        #  Convert Image to Base64
         profile_picture_base64 = ""
         if profile_picture:
             profile_picture_content = profile_picture.read()  # Read file content
@@ -403,74 +403,197 @@ def generate_tax_receipt(request, payment_id):
 ##################### Shramdan & Abhiyaans #################
 @login_required(login_url='login_view')
 def shramdan_page(request):
-    # Sample photos and events for the horizontal scroll
-    events = [
-        {"name": "Event 1", "image_url": "https://via.placeholder.com/300"},
-        {"name": "Event 2", "image_url": "https://via.placeholder.com/300"},
-        {"name": "Event 3", "image_url": "https://via.placeholder.com/300"},
-        {"name": "Event 4", "image_url": "https://via.placeholder.com/300"},
-        {"name": "Event 5", "image_url": "https://via.placeholder.com/300"},
-    ]
-    # Pass event data to the template
-    context = {
-        "events": events
-    }
-    return render(request, "user/Shramdan_Abhiyaan/shramdan.html", context)
+    events = ShramdanEvent.objects.all().order_by("-uploaded_at")
+    return render(request, "user/Shramdan_Abhiyaan/shramdan.html", {"events": events})
+
+
 
 ################## Sabha Meetings #############
+from datetime import timedelta, date
+
 @login_required(login_url='login_view')
 def sabha_meetings_page(request):
-    meetings = Meeting.objects.all()
+    # ✅ Sort meetings by date (upcoming first) & then time
+    meetings = Meeting.objects.all().order_by("date", "time")  
     return render(request, "user/Gramsabha_Meetings/sabhameet.html", {"meetings": meetings})
+
 
 ############################################ Certificates Page ###########################################
 @login_required(login_url='login_view')
 def certificates_page(request):
     """ Show available certificates and user's applied services """
 
-    # ✅ Fetch applied certificates
+    certificates = [
+        {"name": "Birth Certificate", "url": reverse("apply_birth_certificate")},
+        {"name": "Death Certificate", "url": reverse("apply_death_certificate")},
+        {"name": "Marriage Certificate", "url": reverse("apply_marriage_certificate")},
+        {"name": "Domicile Certificate", "url": reverse("apply_domicile_certificate")},
+    ]
+
     applied_services = {
-        "Birth Certificates": BirthCertificate.objects.filter(user=request.user),
-        "Death Certificates": DeathCertificate.objects.filter(user=request.user),
-        "Marriage Certificates": MarriageCertificate.objects.filter(user=request.user),
-        "Domicile Certificates": DomicileCertificate.objects.filter(user=request.user),
+        "birth": BirthCertificate.objects.filter(user=request.user),
+        "death": DeathCertificate.objects.filter(user=request.user),
+        "marriage": MarriageCertificate.objects.filter(user=request.user),
+        "domicile": DomicileCertificate.objects.filter(user=request.user),
     }
 
+
     context = {
-        "applied_services": applied_services,  # ✅ Pass applied certificates
+        "certificates": certificates,
+        "applied_services": applied_services,
     }
     return render(request, "user/Certificates/certificates.html", context)
 
 
-@csrf_exempt
+from django.http import FileResponse, Http404
+import os
+
 @login_required(login_url='login_view')
+def download_certificate(request, cert_type, cert_id):
+    model_map = {
+        "birth": BirthCertificate,
+        "death": DeathCertificate,
+        "marriage": MarriageCertificate,
+        "domicile": DomicileCertificate,
+    }
+
+    model = model_map.get(cert_type.lower())
+    if not model:
+        raise Http404("Invalid certificate type.")
+
+    cert = model.objects.filter(id=cert_id, user=request.user).first()
+    if not cert or not cert.generated_certificate:
+        raise Http404("Certificate not found or not generated yet.")
+
+    # Get absolute path to file
+    file_path = cert.generated_certificate.path
+    if not os.path.exists(file_path):
+        raise Http404("File missing on server.")
+
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+# ################### Upload Documents ############################
+# from django.core.files.storage import FileSystemStorage
+# from django.http import JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+# import os
+# import time 
+
+# def get_unified_upload_path(user_id, category, filename):
+#     """Matches the model's upload path structure"""
+#     ext = filename.split('.')[-1]
+#     filename = f"{user_id}_{category}_{int(time.time())}.{ext}"
+#     return os.path.join(f"certificates/{category}/user_{user_id}/", filename)
+
+# ALLOWED_EXTENSIONS = ['pdf', 'docx', 'txt', 'jpg', 'png']
+
+# def validate_file(filename):
+#     ext = filename.split('.')[-1].lower()
+#     return ext in ALLOWED_EXTENSIONS
+
+# @csrf_exempt
+# def upload_birth(request):
+#     return handle_unified_upload(request, 'birth', request.user.id)
+
+# @csrf_exempt
+# def upload_death(request):
+#     return handle_unified_upload(request, 'death', request.user.id)
+
+# @csrf_exempt
+# def upload_marriage(request):
+#     return handle_unified_upload(request, 'marriage', request.user.id)
+
+# @csrf_exempt
+# def upload_domicile(request):
+#     return handle_unified_upload(request, 'domicile', request.user.id)
+
+# from django.shortcuts import redirect
+
+# def handle_unified_upload(request, category, user_id):
+#     if request.method == 'POST':
+#         file = request.FILES.get('document')
+#         if not file:
+#             return JsonResponse({'error': 'No file uploaded'}, status=400)
+
+#         if not validate_file(file.name):
+#             return JsonResponse({'error': f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'}, status=400)
+
+#         try:
+#             # Generate path matching model's upload_to
+#             upload_path = get_unified_upload_path(user_id, category, file.name)
+#             full_path = os.path.join(settings.MEDIA_ROOT, upload_path)
+
+#             # Ensure directory exists
+#             os.makedirs(os.path.dirname(full_path), exist_ok=True)
+
+#             # Save file
+#             with open(full_path, 'wb+') as destination:
+#                 for chunk in file.chunks():
+#                     destination.write(chunk)
+
+#             # Store relative path in session (matches what model would store)
+#             request.session[f'{category}_document'] = upload_path
+
+#             # ✅ Use a dynamic redirect based on the category
+#             redirect_map = {
+#                 'birth': 'apply_birth_certificate',
+#                 'death': 'apply_death_certificate',
+#                 'marriage': 'apply_marriage_certificate',
+#                 'domicile': 'apply_domicile_certificate',
+#             }
+
+#             return redirect(redirect_map.get(category, 'certificates_page'))  # Fallback to main page if category is invalid
+
+#         except Exception as e:
+#             return JsonResponse({'error': str(e)}, status=500)
+
+#     # ✅ Render the correct upload page dynamically
+#     template_map = {
+#         'birth': 'user/upload_birth.html',
+#         'death': 'user/upload_death.html',
+#         'marriage': 'user/upload_marriage.html',
+#         'domicile': 'user/upload_domicile.html',
+#     }
+#     return render(request, template_map.get(category, 'user/upload_birth.html'))  # Default to birth if category is missing
+
+
+from django.core.files.storage import FileSystemStorage
+
+@login_required(login_url='login_view')
+@csrf_exempt  # only if needed due to external browser APK interaction
 def apply_birth_certificate(request):
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         dob = request.POST.get('dob')
         parent_name = request.POST.get('parent_name')
+        uploaded_file = request.FILES.get('document')
 
-        if 'document' not in request.FILES:
-            messages.error(request, _("Please upload a document."))
+        if not uploaded_file:
+            messages.error(request, _("Please upload a valid document."))
             return redirect('apply_birth_certificate')
-        document = request.FILES.get('document')
 
-        if not document.name.endswith('.pdf'):
-            messages.error(request, _("Only PDF files are allowed!"))
-            return JsonResponse({"status": "error", "message": _("Only PDF files are allowed!")}, status=400)
+        # Save birth certificate
+        try:
+            birth_cert = BirthCertificate.objects.create(
+                user=request.user,
+                full_name=full_name,
+                dob=dob,
+                parent_name=parent_name,
+                document=uploaded_file
+            )
+            messages.success(request, _("Application submitted successfully!"))
 
-        birth_cert = BirthCertificate.objects.create(
-            user=request.user,
-            full_name=full_name,
-            dob=dob,
-            parent_name=parent_name,
-            document=document
-        )
+            # 🔁 Add optional APK callback message
+            return render(request, 'user/Certificates/application_success.html', {
+                "message": "Your application was successfully submitted. You may now go back to the app."
+            })
 
-        messages.success(request, _("Application submitted successfully!"))
-        return JsonResponse({"status": "success", "message": _("Application submitted successfully!")}, status=200)
+        except Exception as e:
+            messages.error(request, _("Something went wrong: ") + str(e))
+            return redirect('apply_birth_certificate')
 
     return render(request, 'user/Certificates/birth_certificate.html')
+
 
 @csrf_exempt
 @login_required(login_url='login_view')
@@ -480,29 +603,32 @@ def apply_death_certificate(request):
         date_of_death = request.POST.get('date_of_death')
         place_of_death = request.POST.get('place_of_death')
         cause_of_death = request.POST.get('cause_of_death')
-        
-        # ✅ Ensure document input name matches the template
-        document = request.FILES.get('document')  
+        uploaded_file = request.FILES.get('document')
 
-        # ✅ Check for missing fields
-        if not all([deceased_name, date_of_death, place_of_death, cause_of_death, document]):
-            messages.error(request, _("All fields are required."))
+        if not uploaded_file:
+            messages.error(request, _("Please upload a document."))
             return redirect('apply_death_certificate')
 
-        # ✅ Save to database
-        DeathCertificate.objects.create(
-            user=request.user,
-            deceased_name=deceased_name,
-            date_of_death=date_of_death,
-            place_of_death=place_of_death,
-            cause_of_death=cause_of_death,
-            document=document
-        )
+        try:
+            DeathCertificate.objects.create(
+                user=request.user,
+                deceased_name=deceased_name,
+                date_of_death=date_of_death,
+                place_of_death=place_of_death,
+                cause_of_death=cause_of_death,
+                document=uploaded_file
+            )
 
-        messages.success(request, _("Death Certificate Application Submitted Successfully."))
-        return redirect('certificates_page')
+            return render(request, 'user/Certificates/application_success.html', {
+                "message": _("Your death certificate application was submitted successfully. You may now return to the app.")
+            })
+
+        except Exception as e:
+            messages.error(request, _("Something went wrong: ") + str(e))
+            return redirect('apply_death_certificate')
 
     return render(request, 'user/Certificates/death_certificate.html')
+
 
 @csrf_exempt
 @login_required(login_url='login_view')
@@ -512,34 +638,32 @@ def apply_marriage_certificate(request):
         wife_name = request.POST.get('wife_name')
         date_of_marriage = request.POST.get('date_of_marriage')
         place_of_marriage = request.POST.get('place_of_marriage')
-        
-        # ✅ Ensure document input name matches the template
-        document = request.FILES.get('document')  
+        uploaded_file = request.FILES.get('document')
 
-        # ✅ Check if all fields are filled
-        if not all([husband_name, wife_name, date_of_marriage, place_of_marriage, document]):
-            messages.error(request, _("All fields are required."))
+        if not uploaded_file:
+            messages.error(request, _("Please upload a valid document."))
             return redirect('apply_marriage_certificate')
 
-        # ✅ Validate File Type (Only PDF)
-        if not document.name.endswith('.pdf'):
-            messages.error(request, _("Only PDF files are allowed!"))
+        try:
+            MarriageCertificate.objects.create(
+                user=request.user,
+                husband_name=husband_name,
+                wife_name=wife_name,
+                date_of_marriage=date_of_marriage,
+                place_of_marriage=place_of_marriage,
+                document=uploaded_file
+            )
+
+            return render(request, 'user/Certificates/application_success.html', {
+                "message": _("Your marriage certificate application has been submitted successfully. You may return to the app now.")
+            })
+
+        except Exception as e:
+            messages.error(request, _("An error occurred while processing your application: ") + str(e))
             return redirect('apply_marriage_certificate')
-
-        # ✅ Save to database
-        MarriageCertificate.objects.create(
-            user=request.user,
-            husband_name=husband_name,
-            wife_name=wife_name,
-            date_of_marriage=date_of_marriage,
-            place_of_marriage=place_of_marriage,
-            document=document
-        )
-
-        messages.success(request, _("Your marriage certificate application has been submitted."))
-        return redirect('certificates_page')
 
     return render(request, 'user/Certificates/marriage_certificate.html')
+
 
 @csrf_exempt
 @login_required(login_url='login_view')
@@ -548,33 +672,32 @@ def apply_domicile_certificate(request):
         full_name = request.POST.get('full_name')
         guardian_name = request.POST.get('guardian_name')
         address = request.POST.get('address')
+        uploaded_file = request.FILES.get('document')
 
-        # ✅ Ensure document input name matches the template
-        document = request.FILES.get('document')  
-
-        # ✅ Check if all fields are filled
-        if not all([full_name, guardian_name, address, document]):
-            messages.error(request, _("All fields are required."))
+        if not uploaded_file:
+            messages.error(request, _("Please upload a valid document."))
             return redirect('apply_domicile_certificate')
 
-        # ✅ Validate File Type (Only PDF)
-        if not document.name.endswith('.pdf'):
-            messages.error(request, _("Only PDF files are allowed!"))
+        try:
+            DomicileCertificate.objects.create(
+                user=request.user,
+                full_name=full_name,
+                guardian_name=guardian_name,
+                address=address,
+                document=uploaded_file
+            )
+
+            return render(request, 'user/Certificates/application_success.html', {
+                "message": _("Your domicile certificate application was submitted successfully. You may now return to the app.")
+            })
+
+        except Exception as e:
+            messages.error(request, _("An error occurred while processing your application: ") + str(e))
             return redirect('apply_domicile_certificate')
-
-        # ✅ Save to database
-        DomicileCertificate.objects.create(
-            user=request.user,
-            full_name=full_name,
-            guardian_name=guardian_name,
-            address=address,
-            document=document
-        )
-
-        messages.success(request, _("Your domicile certificate application has been submitted."))
-        return redirect('certificates_page')
 
     return render(request, 'user/Certificates/domicile_certificate.html')
+
+
 
 ############### Health and Educational Services #############
 @login_required(login_url='login_view')
@@ -591,8 +714,12 @@ def health_education_page(request):
 
 ################### Help Desk Support ####################
 def helpdesk_page(request):
-    """ User can view Helpdesk support and FAQs """
-    faqs = FAQ.objects.all().order_by("-id")  # ✅ Fetch all FAQs from the database
+    """ User can view Helpdesk support, FAQs, and previous requests """
+    faqs = FAQ.objects.all().order_by("-id")  # Fetch FAQs
+    
+    previous_requests = []
+    if request.user.is_authenticated:
+        previous_requests = SupportRequest.objects.filter(email=request.user.email).order_by("-created_at")
 
     if request.method == "POST":
         name = request.POST.get("name")
@@ -601,20 +728,57 @@ def helpdesk_page(request):
         message = request.POST.get("message")
 
         SupportRequest.objects.create(
-            name=name, email=email, phone=phone, message=message
+            name=name, email=email, phone=phone, message=message, user=request.user
         )
-        messages.success(request, "Your request has been submitted successfully!")
+        messages.success(request, "✅ Your request has been submitted successfully!")
         return redirect("helpdesk_page")
 
-    return render(request, "user/Helpdesk/helpdesk.html", {"faqs": faqs})  # ✅ Pass FAQs to template
-
+    return render(request, "user/Helpdesk/helpdesk.html", {
+        "faqs": faqs,
+        "previous_requests": previous_requests
+    })
 
 
 
 ################ Surveys #################
 @login_required(login_url='login_view')
 def surveys(request):
-    return render(request, 'user/Surveys/surveys.html')
+    surveys = Survey.objects.filter(is_active=True)  # Fetch ongoing surveys
+    completed_surveys = SurveyResponse.objects.filter(user=request.user).values_list('survey_id', flat=True)
+
+    return render(request, 'user/Surveys/surveys.html', {
+        'surveys': surveys,
+        'completed_surveys': list(completed_surveys),  # Convert QuerySet to list
+    })
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .models import Survey, SurveyResponse, Question, Response
+
+@login_required(login_url='login_view')
+def survey_detail(request, survey_id):
+    survey = get_object_or_404(Survey, id=survey_id)
+    questions = survey.questions.all().order_by('id')  # Add ordering
+
+    if request.method == "POST":
+        # Check if the user has already completed this survey
+        if SurveyResponse.objects.filter(user=request.user, survey=survey).exists():
+            messages.error(request, "You have already completed this survey.")
+            return redirect("surveys")
+
+        survey_response = SurveyResponse.objects.create(user=request.user, survey=survey)
+
+        # Save responses to each question
+        for question in questions:
+            answer = request.POST.get(f"question_{question.id}")
+            Response.objects.create(survey_response=survey_response, question=question, answer=answer)
+
+        messages.success(request, "Survey submitted successfully! ✅")
+        return redirect("surveys")
+
+    return render(request, "user/surveys/survey_detail.html", {"survey": survey, "questions": questions})
+
 
 @login_required(login_url='login_view')
 def surveys_ongoing(request):
@@ -650,19 +814,32 @@ def survey_results(request):
         'surveys': surveys,
     })
 
-
-
 ################  Events Announcements  ############
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import Event
+
 @login_required(login_url='login_view')
 def events(request):
-    """ Fetch all events from the database and pass them to the template. """
-    all_events = Event.objects.all().order_by('-date')  # ✅ Fetch events sorted by latest date
+    """Fetch all events, convert images to Base64, and pass them to the template."""
+    all_events = Event.objects.all().order_by('-date')
+
+    # ✅ Pass the Base64 image string to the template
+    for event in all_events:
+        event.image_base64 = event.image_base64()  # Call the method
+
     return render(request, 'user/Events/events.html', {"events": all_events})
+
+
 
 ################ Photo Gallery Page ################
 @login_required(login_url='login_view')
 def user_gallery(request):
-    return render(request, 'user/Photo_Gallery/gallery.html')
+    images = GalleryImage.objects.all().order_by("-uploaded_at")
+    return render(request, 'user/Photo_Gallery/gallery.html', {"images": images})
+
+
+
 
 ################ Village Dashboard ################
 @login_required(login_url='login_view')
@@ -682,7 +859,6 @@ def village_dashboard(request):
 ################ Panchayat Profiles ###############
 @login_required(login_url='login_view')
 def panchayat_profile(request):
-    """ Fetches Panchayat members dynamically from the database """
     members = PanchayatMember.objects.all()
     return render(request, "user/Panchayat_Profiles/panchayat_profile.html", {"members": members})
 
@@ -714,9 +890,28 @@ def user_tourism(request):
 ############### User View: Notifications #################
 @login_required(login_url='login_view')
 def get_notifications(request):
-    notifications = Notification.objects.filter(user=request.user, is_read=False).order_by("-created_at")[:5]
-    notification_list = [{"message": n.message, "created_at": n.created_at.strftime("%d %b %Y, %H:%M")} for n in notifications]
-    return JsonResponse({"notifications": notification_list, "unread_count": notifications.count()})
+    notifications = Notification.objects.filter(
+        user=request.user, 
+        is_read=False
+    ).order_by("-created_at")[:5]
+    
+    notification_list = [{
+        "message": n.message, 
+        "created_at": n.created_at.strftime("%d %b %Y, %H:%M")
+    } for n in notifications]
+    
+    return JsonResponse({
+        "notifications": notification_list, 
+        "unread_count": notifications.count()
+    })
+
+@login_required(login_url='login_view')
+def mark_notifications_as_read(request):
+    if request.method == "POST":
+        # Mark all unread notifications as read
+        Notification.objects.filter(user=request.user, is_read=False).update(is_read=True)
+        return JsonResponse({"status": "success"})
+    return JsonResponse({"status": "error"}, status=400)
 
 
 #################################### Staff related views #####################################
@@ -977,40 +1172,156 @@ def certificate_management(request):
             return redirect("dashboard_view")
 
         certificates = {
-            "birth": BirthCertificate.objects.filter(status="Pending"),
-            "death": DeathCertificate.objects.filter(status="Pending"),
-            "marriage": MarriageCertificate.objects.filter(status="Pending"),
-            "domicile": DomicileCertificate.objects.filter(status="Pending"),
+            "birth": BirthCertificate.objects.all(),
+            "death": DeathCertificate.objects.all(),
+            "marriage": MarriageCertificate.objects.all(),
+            "domicile": DomicileCertificate.objects.all(),
         }
-
         # Translate certificate type names
         translated_certificates = {
             CERTIFICATE_TYPE_TRANSLATIONS[key]: value for key, value in certificates.items()
         }
 
-        return render(
-            request, 
-            "staff/certificate/certificate_management.html",
-            {"certificates": translated_certificates}
-        )
+        return render(request, "staff/certificate/certificate_management.html", {"certificates": translated_certificates})
     except UserProfile.DoesNotExist:
         return redirect("dashboard_view")
+
+############# Approve Certificate View #######################
+from django.core.files.base import ContentFile
+from django.db import transaction
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .models import BirthCertificate, DeathCertificate, MarriageCertificate, DomicileCertificate, Notification
+
+
+@login_required(login_url='staff_login')
+def approve_certificate(request, cert_type, cert_id):
+    """
+    Approves a certificate, updates its status, generates a PDF, and notifies the user.
+    """
+    user_profile = request.user.profile.first()
+
+    # ✅ Check if user is a staff member
+    if not user_profile or user_profile.user_type != "staff":
+        messages.error(request, "Unauthorized access!")
+        return redirect("logout_view")
+
+    # ✅ Ensure cert_type is lowercase to match model_map keys
+    cert_type = cert_type.lower()
+
+    # ✅ Model mapping for dynamic certificate handling
+    model_map = {
+        "birth": BirthCertificate,
+        "death": DeathCertificate,
+        "marriage": MarriageCertificate,
+        "domicile": DomicileCertificate,
+    }
+
+    if cert_type not in model_map:
+        messages.error(request, "Invalid certificate type.")
+        return redirect("certificate_management")
+
+    model = model_map[cert_type]
+    certificate = get_object_or_404(model, id=cert_id)
+
+    # ✅ Database transaction to ensure atomicity
+    with transaction.atomic():
+        # ✅ Update certificate status and approved_by
+        print(f"Before save: {certificate.status}")  # Debugging print
+        certificate.status = "Approved"
+        certificate.approved_by = request.user
+        certificate.save()
+        certificate.refresh_from_db()
+        print(f"After save: {certificate.status}")  # Debugging print
+
+        # ✅ Generate and attach the updated PDF
+        pdf_data = generate_certificate_pdf(certificate)  # Now returns io.BytesIO
+        pdf_file = ContentFile(pdf_data.getvalue(), name=f"{cert_type}_certificate_{certificate.id}.pdf")
+
+        certificate.generated_certificate.save(pdf_file.name, pdf_file, save=True)
+        certificate.refresh_from_db()  # Ensure changes persist
+
+    # ✅ Send notification to the user
+    Notification.objects.create(
+        user=certificate.user,
+        message=f"Your {cert_type.capitalize()} Certificate has been approved! 🎉",
+        notification_type="success",
+        related_object_id=certificate.id,
+    )
+
+    messages.success(request, f"{cert_type.capitalize()} Certificate Approved!")
+    return redirect("certificate_management")
+
+
+############# Reject Certificate View #######################
+from django.shortcuts import get_object_or_404, redirect, reverse  # Add reverse to imports
+from django.db import transaction
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='staff_login')
+def reject_certificate(request, cert_type, cert_id):
+    try:
+        user_profile = request.user.profile.first()
+
+        if not user_profile or user_profile.user_type != "staff":
+            messages.error(request, "Unauthorized access!")
+            return redirect("dashboard_view")
+
+        # Ensure cert_type is lowercase for consistency
+        cert_type = cert_type.lower()
+
+        model_map = {
+            "birth": BirthCertificate,
+            "death": DeathCertificate,
+            "marriage": MarriageCertificate,
+            "domicile": DomicileCertificate,
+        }
+
+        if cert_type not in model_map:
+            messages.error(request, "Invalid certificate type.")
+            return redirect("certificate_management")
+
+        model = model_map[cert_type]
+        certificate = get_object_or_404(model, id=cert_id)
+
+        with transaction.atomic():
+            certificate.status = "Rejected"
+            certificate.save()
+            certificate.refresh_from_db()  # Force immediate database refresh
+
+        # Send notification
+        Notification.objects.create(
+            user=certificate.user,
+            message=f"Your {cert_type.capitalize()} Certificate has been rejected.",
+            notification_type="error",
+            related_object_id=certificate.id,
+        )
+
+        messages.success(request, f"{cert_type.capitalize()} Certificate Rejected.")
+        
+        # Redirect with cache-busting parameter
+        return redirect(f"{reverse('certificate_management')}?rejected={cert_id}&t={int(time.time())}")
+    
+    except Exception as e:
+        messages.error(request, f"Error rejecting certificate: {str(e)}")
+        return redirect("certificate_management")
 
 ############# Generate Certificate View #######################
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from reportlab.lib.colors import black
-from django.core.files.base import ContentFile
+from reportlab.lib.colors import black, blue, red
 import io
 import qrcode
-from django.conf import settings
 import os
+from django.conf import settings
 
 def generate_certificate_pdf(certificate):
     """
     Generates a professional-looking PDF certificate with styling, logo, and a QR code.
     """
-    buffer = io.BytesIO()
+    buffer = io.BytesIO()  # ✅ Create a BytesIO buffer
     c = canvas.Canvas(buffer, pagesize=A4)
     width, height = A4
 
@@ -1026,17 +1337,17 @@ def generate_certificate_pdf(certificate):
     c.setFont("Helvetica-Bold", 18)
     c.drawCentredString(width / 2, height - 130, "Gram Panchayat Certificate")
 
-    # ✅ Certificate Details (Updated)
+    # ✅ Certificate Details
     c.setFont("Helvetica-Bold", 14)
     c.drawString(100, height - 200, f"Certificate Type: {certificate.__class__.__name__}")
-
     c.setFont("Helvetica", 12)
     c.drawString(100, height - 230, f"Certificate ID: {certificate.id}")
     c.drawString(100, height - 260, f"Name: {certificate.user.first_name} {certificate.user.last_name}")
 
     # ✅ Corrected Status Display
+    status_color = blue if certificate.status == "Approved" else red
     c.setFont("Helvetica-Bold", 12)
-    c.setFillColor(blue if certificate.status == "Approved" else red)
+    c.setFillColor(status_color)
     c.drawString(100, height - 290, f"Status: {certificate.status}")
 
     # ✅ Issue Date
@@ -1044,7 +1355,7 @@ def generate_certificate_pdf(certificate):
     c.setFillColor(black)
     c.drawString(100, height - 320, f"Issue Date: {certificate.submitted_at.strftime('%d-%m-%Y')}")
 
-    # ✅ QR Code (For Verification)
+    # ✅ QR Code
     qr = qrcode.make(f"Certificate ID: {certificate.id}\nIssued To: {certificate.user.first_name} {certificate.user.last_name}\nStatus: {certificate.status}")
     qr_path = os.path.join(settings.MEDIA_ROOT, f"qr_{certificate.id}.png")
     qr.save(qr_path)
@@ -1059,91 +1370,12 @@ def generate_certificate_pdf(certificate):
     c.drawString(width - 250, 150, "_________________________")
     c.drawString(width - 250, 130, "Government Seal")
 
-    # ✅ Save the PDF
+    # ✅ Finalize and Save the PDF
     c.save()
-    pdf_file = ContentFile(buffer.getvalue(), f"certificate_{certificate.id}.pdf")
-    return pdf_file
+    buffer.seek(0)  # ✅ Move to the beginning of the buffer
+    return buffer  # ✅ Return the BytesIO buffer instead of ContentFile
 
 
-############# Approve Certificate View #######################
-from django.core.files.base import ContentFile
-
-@login_required(login_url='staff_login')
-def approve_certificate(request, cert_type, cert_id):
-    user_profile = request.user.profile.first()
-
-    if not user_profile or user_profile.user_type != "staff":
-        messages.error(request, "Unauthorized access!")
-        return redirect("dashboard_view")
-
-    model_map = {
-        "birth": BirthCertificate,
-        "death": DeathCertificate,
-        "marriage": MarriageCertificate,
-        "domicile": DomicileCertificate,
-    }
-
-    if cert_type not in model_map:
-        messages.error(request, "Invalid certificate type.")
-        return redirect("certificate_management")
-
-    model = model_map[cert_type]
-    certificate = get_object_or_404(model, id=cert_id)
-
-    # ✅ Update status before generating the PDF
-    certificate.status = "Approved"
-    certificate.approved_by = request.user
-    certificate.save()
-
-    # ✅ Generate and attach the updated PDF
-    pdf_file = generate_certificate_pdf(certificate)  # Now includes "Approved"
-    certificate.generated_certificate.save(pdf_file.name, pdf_file, save=True)
-
-    # ✅ Send a notification to the citizen
-    Notification.objects.create(
-        user=certificate.user,
-        message=f"Your {cert_type.capitalize()} Certificate has been approved! 🎉",
-        notification_type="success",
-        related_object_id=certificate.id,
-    )
-
-    messages.success(request, f"{cert_type.capitalize()} Certificate Approved!")
-    return redirect("certificate_management")
-
-############# Reject Certificate View #######################
-@login_required(login_url='staff_login')
-def reject_certificate(request, cert_type, cert_id):
-    user_profile = request.user.profile.first()
-    
-    if not user_profile or user_profile.user_type != "staff":
-        messages.error(request, "Unauthorized access!")
-        return redirect("dashboard_view")
-
-    model_map = {
-        "birth": BirthCertificate,
-        "death": DeathCertificate,
-        "marriage": MarriageCertificate,
-        "domicile": DomicileCertificate,
-    }
-
-    if cert_type not in model_map:
-        messages.error(request, "Invalid certificate type.")
-        return redirect("certificate_management")
-
-    model = model_map[cert_type]
-    certificate = get_object_or_404(model, id=cert_id)
-
-    certificate.status = "Rejected"
-    certificate.save()
-
-    # ✅ Send notification on rejection
-    Notification.objects.create(
-        user=certificate.user,
-        message=f"Your {cert_type.capitalize()} Certificate has been rejected."
-    )
-    
-    messages.warning(request, f"{cert_type.capitalize()} Certificate Rejected.")
-    return redirect("certificate_management")
 
 ####################### Manage Schemes from Staff ########################
 @login_required(login_url='staff_login')
@@ -1222,28 +1454,34 @@ def manage_helpdesk(request):
         "support_requests": support_requests
     })
 
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import SupportRequest
+
 @login_required(login_url='staff_login')
 def contact_citizen(request, request_id):
-    """ Staff can contact citizens via email based on their support request """
+    """ Staff can respond to a citizen's support request within the application """
     support_request = get_object_or_404(SupportRequest, id=request_id)
 
     if request.method == "POST":
         reply_message = request.POST.get("reply_message")
 
-        # Send email to citizen (Django Email)
-        send_mail(
-            subject="Response to Your Support Request",
-            message=f"Dear {support_request.name},\n\n{reply_message}\n\nBest regards,\nPanchayat Support Team",
-            from_email="support@panchayatapp.com",
-            recipient_list=[support_request.email],
-            fail_silently=False,
-        )
-
-        # Mark request as "Resolved"
+        # ✅ Save response in database
+        support_request.response = reply_message
         support_request.status = "Resolved"
         support_request.save()
 
-        messages.success(request, "📩 Response sent to citizen successfully!")
+        # ✅ Create an in-app notification
+        if support_request.user:
+            Notification.objects.create(
+                user=support_request.user,
+                message="Your support request has been answered. Check it now!",
+                notification_type="info",
+                related_object_id=support_request.id
+            )
+
+        messages.success(request, "📩 Response sent successfully!")
         return redirect("manage_helpdesk")
 
     return render(request, "staff/helpdeskFaq/contact_citizen.html", {"support_request": support_request})
@@ -1372,6 +1610,25 @@ def add_job(request):
 
     return render(request, "staff/jobs/add_job.html")
 
+@login_required(login_url='staff_login')
+def edit_job(request, job_id):
+    """ Staff can edit an existing job opportunity. """
+    job = get_object_or_404(JobOpportunity, id=job_id)
+
+    if request.method == "POST":
+        job.job_title = request.POST.get("job_title")
+        job.company_name = request.POST.get("company_name")
+        job.location = request.POST.get("location")
+        job.salary = request.POST.get("salary")
+        job.description = request.POST.get("description")
+        job.contact_email = request.POST.get("contact_email")
+        job.save()
+
+        messages.success(request, "✅ Job opportunity updated successfully!")
+        return redirect("job_opportunities")
+
+    return render(request, "staff/jobs/edit_job.html", {"job": job})
+
 
 @login_required(login_url='staff_login')
 def delete_job(request, job_id):
@@ -1400,7 +1657,7 @@ def tourism_management(request):
 
 @login_required(login_url='staff_login')
 def add_tourism(request):
-    """ Staff can add tourism places """
+    """ Staff can add tourism places using the same form """
     if request.method == "POST":
         name = request.POST.get("name")
         description = request.POST.get("description")
@@ -1416,11 +1673,39 @@ def add_tourism(request):
                 best_time_to_visit=best_time_to_visit,
                 contact_info=contact_info
             )
-            messages.success(request, "New tourism spot added successfully!")
+            messages.success(request, "✅ New tourism spot added successfully!")
             return redirect("tourism_management")
 
-    return render(request, "staff/tourism/add_tourism.html")
+    return render(request, "staff/tourism/tourism_form.html")
 
+
+@login_required(login_url='staff_login')
+def edit_tourism(request, tourism_id):
+    """ Staff can edit tourism places using the same form """
+    place = get_object_or_404(LocalTourism, id=tourism_id)
+
+    if request.method == "POST":
+        name = request.POST.get("name")
+        description = request.POST.get("description")
+        location = request.POST.get("location")
+        best_time_to_visit = request.POST.get("best_time_to_visit")
+        contact_info = request.POST.get("contact_info")
+
+        if not name or not location:
+            messages.error(request, "⚠️ Name and Location are required fields.")
+            return render(request, "staff/tourism/tourism_form.html", {"place": place})
+
+        place.name = name
+        place.description = description
+        place.location = location
+        place.best_time_to_visit = best_time_to_visit
+        place.contact_info = contact_info
+        place.save()
+
+        messages.success(request, "✅ Tourism spot updated successfully!")
+        return redirect("tourism_management")
+
+    return render(request, "staff/tourism/tourism_form.html", {"place": place})
 
 @login_required(login_url='staff_login')
 def delete_tourism(request, tourism_id):
@@ -1495,10 +1780,20 @@ def add_panchayat_member(request):
         name = request.POST.get("name")
         role = request.POST.get("role")
         phone_number = request.POST.get("phone_number")
-        image_url = request.POST.get("image_url")
+        image_file = request.FILES.get("image_file")
+
+        image_base64 = None
+        if image_file:
+            image_content = image_file.read()
+            image_base64 = base64.b64encode(image_content).decode('utf-8')
 
         if name and role:
-            PanchayatMember.objects.create(name=name, role=role, phone_number=phone_number, image_url=image_url)
+            PanchayatMember.objects.create(
+                name=name,
+                role=role,
+                phone_number=phone_number,
+                image_base64=image_base64
+            )
             messages.success(request, "✅ Panchayat member added successfully!")
             return redirect("manage_panchayat")
 
@@ -1518,14 +1813,18 @@ def delete_panchayat_member(request, member_id):
 
 @login_required(login_url='staff_login')
 def edit_panchayat_member(request, member_id):
-    """ Staff can edit Panchayat members """
     member = get_object_or_404(PanchayatMember, id=member_id)
 
     if request.method == "POST":
         member.name = request.POST.get("name", member.name)
         member.role = request.POST.get("role", member.role)
         member.phone_number = request.POST.get("phone_number", member.phone_number)
-        member.image_url = request.POST.get("image_url", member.image_url)
+
+        image_file = request.FILES.get("image_file")
+        if image_file:
+            image_content = image_file.read()
+            member.image_base64 = base64.b64encode(image_content).decode('utf-8')
+
         member.save()
         messages.success(request, "✅ Panchayat member updated successfully!")
         return redirect("manage_panchayat")
@@ -1534,16 +1833,12 @@ def edit_panchayat_member(request, member_id):
 
 
 
+##################### Gallery Views #####################
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import GalleryImage
 
-# ✅ User-side gallery
-@login_required(login_url='login_view')
-def user_gallery(request):
-    images = GalleryImage.objects.all().order_by("-uploaded_at")
-    return render(request, 'user/Photo_Gallery/gallery.html', {"images": images})
 
 # ✅ Staff can manage gallery images
 @login_required(login_url='staff_login')
@@ -1603,13 +1898,45 @@ def add_survey(request):
     if request.method == "POST":
         title = request.POST.get("title")
         description = request.POST.get("description")
+        question_texts = request.POST.getlist("question_text[]")
+        question_types = request.POST.getlist("question_type[]")
+        question_choices = request.POST.getlist("question_choices[]")
 
         if title and description:
-            Survey.objects.create(title=title, description=description)
+            survey = Survey.objects.create(title=title, description=description)
+
+            for text, q_type, choices in zip(question_texts, question_types, question_choices):
+                Question.objects.create(
+                    survey=survey,
+                    text=text,
+                    question_type=q_type,
+                    choices=choices if q_type == "mcq" else "",
+                )
+
             messages.success(request, "✅ New Survey Added Successfully!")
             return redirect("manage_surveys")
 
     return render(request, "staff/surveys/add_survey.html")
+
+@login_required(login_url='staff_login')
+def edit_survey(request, survey_id):
+    """ Allow staff to edit an existing survey """
+    survey = get_object_or_404(Survey, id=survey_id)
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        is_active = request.POST.get("is_active") == "on"
+
+        survey.title = title
+        survey.description = description
+        survey.is_active = is_active
+        survey.save()
+
+        messages.success(request, "Survey updated successfully! ✅")
+        return redirect("manage_surveys")
+
+    return render(request, "staff/surveys/edit_survey.html", {"survey": survey})
 
 
 @login_required(login_url='staff_login')
@@ -1639,13 +1966,49 @@ def delete_survey(request, survey_id):
     return render(request, "staff/surveys/delete_survey.html", {"survey": survey})
 
 
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Survey, SurveyResponse, Question, Response
+from django.db.models import Prefetch
+
 @login_required(login_url='staff_login')
 def view_survey_responses(request, survey_id):
-    """ Staff can view responses for a specific survey """
     survey = get_object_or_404(Survey, id=survey_id)
-    responses = SurveyResponse.objects.filter(survey=survey)
+    questions = survey.questions.all().order_by('id')  # Explicit ordering
 
-    return render(request, "staff/surveys/view_responses.html", {"survey": survey, "responses": responses})
+    responses = (
+        SurveyResponse.objects.filter(survey=survey)
+        .select_related("user")
+        .prefetch_related(
+            Prefetch(
+                "responses",
+                queryset=Response.objects.select_related("question").order_by('question__id'),
+                to_attr="prefetched_responses"
+            )
+        )
+        .order_by('-submitted_at')
+    )
+
+    formatted_responses = []
+    for response in responses:
+        answers_dict = {resp.question.id: resp.answer for resp in response.prefetched_responses}
+
+        # Map answers to the ordered questions
+        formatted_answers = [answers_dict.get(q.id, "No response") for q in questions]
+        
+        formatted_responses.append({
+            "user": response.user.username,
+            "submitted_at": response.submitted_at,
+            "answers": formatted_answers,  # Now ordered by question ID
+        })
+
+    context = {
+        "survey": survey,
+        "questions": questions,
+        "structured_responses": formatted_responses,  # Rename for clarity
+    }
+    return render(request, "staff/surveys/view_responses.html", context)
+
 
 
 @login_required(login_url='staff_login')
@@ -1667,3 +2030,108 @@ def delete_feedback(request, feedback_id):
         return redirect("manage_feedback")
 
     return render(request, "staff/surveys/delete_feedback.html", {"feedback": feedback})
+
+################ EVENTS ################
+import base64
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Event
+
+@login_required(login_url='staff_login')
+def events_management(request):
+    """ Staff can manage all events """
+    events = Event.objects.all().order_by('-date')
+
+    # ✅ Generate base64 images dynamically for display
+    for event in events:
+        event.image_base64 = event.image_base64()
+
+    return render(request, "staff/events/events_management.html", {"events": events})
+
+
+@login_required(login_url='staff_login')
+def add_event(request):
+    """ Add a new event """
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        location = request.POST.get("location")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+        image = request.FILES.get("image")  # ✅ Get the uploaded file
+
+        # ✅ Save event with the uploaded image
+        event = Event.objects.create(
+            title=title,
+            description=description,
+            location=location,
+            date=date,
+            time=time,
+            image=image,  # ✅ Store only the image file
+        )
+
+        messages.success(request, "✅ Event added successfully!")
+        return redirect("events_management")
+
+    return render(request, "staff/events/event_form.html")
+
+
+@login_required(login_url='staff_login')
+def edit_event(request, event_id):
+    """ Edit an existing event """
+    event = get_object_or_404(Event, id=event_id)
+
+    if request.method == "POST":
+        event.title = request.POST.get("title")
+        event.description = request.POST.get("description")
+        event.location = request.POST.get("location")
+        event.date = request.POST.get("date")
+        event.time = request.POST.get("time")
+
+        image = request.FILES.get("image")
+        if image:
+            event.image = image  # ✅ Update the image if a new one is uploaded
+
+        event.save()
+        messages.success(request, "✅ Event updated successfully!")
+        return redirect("events_management")
+
+    return render(request, "staff/events/event_form.html", {"event": event})
+
+@login_required(login_url='staff_login')
+def delete_event(request, event_id):
+    """ Delete an event """
+    event = get_object_or_404(Event, id=event_id)
+    event.delete()
+    messages.success(request, "🗑️ Event deleted successfully!")
+    return redirect("events_management")
+
+
+################# SHRAMDAN images ################
+from .models import ShramdanEvent
+import base64
+
+@login_required(login_url='staff_login')
+def manage_shramdan_events(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        image = request.FILES.get("image")
+        
+        if name and image:
+            image_data = base64.b64encode(image.read()).decode('utf-8')
+            ShramdanEvent.objects.create(name=name, image_base64=image_data)
+            messages.success(request, "✅ Event added successfully!")
+            return redirect("manage_shramdan_events")
+        else:
+            messages.error(request, "❌ All fields are required!")
+
+    events = ShramdanEvent.objects.all().order_by("-uploaded_at")
+    return render(request, "staff/shramdan_images/manage_shramdan_events.html", {"events": events})
+
+
+@login_required(login_url='staff_login')
+def delete_shramdan_event(request, event_id):
+    event = get_object_or_404(ShramdanEvent, id=event_id)
+    event.delete()
+    messages.success(request, "🗑 Event deleted successfully!")
+    return redirect("manage_shramdan_events")

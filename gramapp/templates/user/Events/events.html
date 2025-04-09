@@ -18,19 +18,23 @@
     <!-- ✅ Event Cards Grid (Optimized for Mobile) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 px-2">
         {% for event in events %}
-        <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
-            
-            <!-- ✅ Event Image (Full Width for Mobile) -->
+        <div
+            class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
+
+            <!-- ✅ Event Image -->
             <div class="relative">
-                {% if event.image %}
-                <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-44 object-cover">
+                {% if event.image_base64 %}
+                <img src="data:image/jpeg;base64,{{ event.image_base64 }}" alt="{{ event.title }}"
+                    class="w-full h-auto rounded-lg">
                 {% else %}
-                <img src="https://source.unsplash.com/400x300/?festival,village" alt="{% trans 'Event Image' %}" class="w-full h-44 object-cover">
+                <img src="https://source.unsplash.com/400x300/?festival,village" alt="{% trans 'Event Image' %}"
+                    class="w-full h-auto">
                 {% endif %}
                 <span class="absolute top-2 right-2 bg-green-600 text-white text-[10px] px-2 py-1 rounded-md shadow-md">
                     🗓 {{ event.date }}
                 </span>
             </div>
+
 
             <!-- ✅ Event Details -->
             <div class="p-3 sm:p-4">
@@ -41,7 +45,7 @@
 
                 <!-- ✅ Location & Time -->
                 <div class="text-[10px] sm:text-xs text-gray-500 flex flex-wrap items-center gap-2 mb-2">
-                    <span class="flex items-center gap-1">📍 {{ event.location }}</span> 
+                    <span class="flex items-center gap-1">📍 {{ event.location }}</span>
                     <span class="flex items-center gap-1">⏰ {{ event.time }}</span>
                 </div>
             </div>

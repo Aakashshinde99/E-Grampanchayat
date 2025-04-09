@@ -11,8 +11,13 @@ from . import views
 
 
 urlpatterns = [
+#     path('upload/birth/', views.upload_birth, name='upload_birth'),
+#     path('upload/death/', views.upload_death, name='upload_death'),
+#     path('upload/marriage/', views.upload_marriage, name='upload_marriage'),
+#     path('upload/domicile/', views.upload_domicile, name='upload_domicile'),
+
     ############################################# User related all functions #####################################################
-     path('debug-language/', views.debug_language, name='debug_language'),
+    path('debug-language/', views.debug_language, name='debug_language'),
 
     ################### Home Page ############################
     path('', views.home_view, name='home_view'),
@@ -38,6 +43,9 @@ urlpatterns = [
     path(_('certificates/death-certificate/'), views.apply_death_certificate, name='apply_death_certificate'),
     path(_('certificates/marriage-certificate/'), views.apply_marriage_certificate, name='apply_marriage_certificate'),
     path(_('certificates/domicile-certificate/'), views.apply_domicile_certificate, name='apply_domicile_certificate'),
+    
+    path('my-certificate/<str:cert_type>/<int:cert_id>/view/', views.download_certificate, name='download_certificate'),
+
 
     ################## Shramdan & Abhiyaans ############################
     path('shramdan/', views.shramdan_page, name='shramdan_page'),
@@ -56,6 +64,7 @@ urlpatterns = [
     path('ongoing/', views.surveys_ongoing, name='surveys_ongoing'),
     path('submit-feedback/', views.submit_feedback, name='submit_feedback'),
     path('results/', views.survey_results, name='survey_results'),
+    path('survey/<int:survey_id>/', views.survey_detail, name='survey_detail'),
 
     #################### Events ############################
     path('events', views.events, name='events'),
@@ -81,6 +90,7 @@ urlpatterns = [
 
     #################### Notifications ############################
     path("notifications/", views.get_notifications, name="get_notifications"),
+    path("notifications/mark-read/", views.mark_notifications_as_read, name="mark_notifications_read"),
 
     ############################################# Staff related all functions #####################################################
     path('staff-login/', views.staff_login, name='staff_login'),
@@ -93,10 +103,12 @@ urlpatterns = [
     path("staff/add-tax/", views.add_tax, name="add_tax"),
     path("staff/edit-tax/<int:tax_id>/", views.edit_tax, name="edit_tax"),
 
+    ###################### Meetings Management ############################
     path("staff/meetings/", views.manage_meetings, name="manage_meetings"),
     path("staff/meetings/add/", views.add_meeting, name="add_meeting"),
     path("staff/meetings/delete/<int:meeting_id>/", views.delete_meeting, name="delete_meeting"),
     
+    ###################### Certificate Management ############################
     path('staff-certificates/', views.certificate_management, name='certificate_management'),
     path('staff-certificates/<str:cert_type>/<int:cert_id>/approve/', views.approve_certificate,name='approve_certificate'),
     path('staff-certificates/<str:cert_type>/<int:cert_id>/reject/',views.reject_certificate, name='reject_certificate'),
@@ -120,9 +132,11 @@ urlpatterns = [
     ##################### Surveys ############################
     path('staff/surveys/', views.manage_surveys, name='manage_surveys'),
     path('staff/surveys/add/', views.add_survey, name='add_survey'),
+    path('staff/surveys/edit/<int:survey_id>/', views.edit_survey, name='edit_survey'),
     path('survey/toggle-status/<int:survey_id>/', views.toggle_survey_status, name='toggle_survey_status'),
     path('staff/surveys/delete/<int:survey_id>/', views.delete_survey, name='delete_survey'),
     path('staff/surveys/responses/<int:survey_id>/', views.view_survey_responses, name='view_survey_responses'),
+    path('survey/<int:survey_id>/', views.survey_detail, name='survey_detail'),
 
     path('staff/feedback/', views.manage_feedback, name='manage_feedback'),
     path('staff/feedback/delete/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
@@ -131,11 +145,15 @@ urlpatterns = [
     path("staff/job-opportunities/", views.job_opportunities, name="job_opportunities"),
     path("staff/job-opportunities/add/", views.add_job, name="add_job"),
     path("staff/job-opportunities/delete/<int:job_id>/", views.delete_job, name="delete_job"),
+    path("staff/job-opportunities/edit/<int:job_id>/", views.edit_job, name="edit_job"),
+
 
     #################### Local Tourism ############################
     path("staff/tourism-management/", views.tourism_management, name="tourism_management"),
     path("staff/tourism-management/add/", views.add_tourism, name="add_tourism"),
     path("staff/tourism-management/delete/<int:tourism_id>/", views.delete_tourism, name="delete_tourism"),
+    path("staff/tourism-management/edit/<int:tourism_id>/", views.edit_tourism, name="edit_tourism"),
+
 
     ##################### Village Dashboard ############################
     path("staff/village-dashboard/", views.manage_village_dashboard, name="manage_village_dashboard"),
@@ -151,6 +169,16 @@ urlpatterns = [
     path("staff/gallery/", views.manage_gallery, name="manage_gallery"),
     path("staff/gallery/add/", views.add_gallery_image, name="add_gallery_image"),
     path("staff/gallery/delete/<int:image_id>/", views.delete_gallery_image, name="delete_gallery_image"),
+
+    ####################### Staff Event Management ########################
+    path('staff/events/', views.events_management, name='events_management'),
+    path('staff/events/add/', views.add_event, name='add_event'),
+    path('staff/events/edit/<int:event_id>/', views.edit_event, name='edit_event'),
+    path('staff/events/delete/<int:event_id>/', views.delete_event, name='delete_event'),
+
+     ##################### Shramdan Images Management ########################
+    path("staff/shramdan/manage/", views.manage_shramdan_events, name="manage_shramdan_events"),
+    path("staff/shramdan/delete/<int:event_id>/", views.delete_shramdan_event, name="delete_shramdan_event"),
 
 ]
 

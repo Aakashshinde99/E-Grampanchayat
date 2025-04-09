@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- ✅ Main Container -->
-<div class="flex flex-col gap-4 p-3 sm:p-4">
+<div class="flex flex-col gap-4 p-3 sm:p-4 mb-12">
 
     <!-- ✅ Page Heading -->
     <h1 class="text-lg sm:text-2xl font-bold text-blue-700 text-center">
@@ -39,32 +39,40 @@
                         <td class="py-2 px-3 sm:px-4">{{ cert.user.username }}</td>
                         <td class="py-2 px-3 sm:px-4">{{ cert.submitted_at|date:"d M Y" }}</td>
                         <td class="py-2 px-3 sm:px-4">
-                            <a href="{{ cert.document.url }}" target="_blank" 
-                               class="text-blue-600 hover:underline">📄 {% trans "View Document" %}</a>
-                        </td>
-                        <td class="py-2 px-3 sm:px-4">
-                            {% if cert.status == "Pending" %}
-                                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Pending" %}</span>
-                            {% elif cert.status == "Approved" %}
-                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Approved" %}</span>
+                            {% if cert.document %}
+                            <a href="{{ cert.document.url }}" target="_blank" class="text-blue-600 hover:underline">
+                                📄 {% trans "View Document" %}
+                            </a>
                             {% else %}
-                                <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Rejected" %}</span>
+                            <span class="text-gray-500">{% trans "No document uploaded" %}</span>
                             {% endif %}
                         </td>
                         <td class="py-2 px-3 sm:px-4">
                             {% if cert.status == "Pending" %}
-                                <div class="flex space-x-2">
-                                    <a href="{% url 'approve_certificate' cert_type cert.id %}" 
-                                       class="bg-green-600 text-white text-xs px-3 py-1 rounded hover:bg-green-700 transition">
-                                        ✅ {% trans "Approve" %}
-                                    </a>
-                                    <a href="{% url 'reject_certificate' cert_type cert.id %}" 
-                                       class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700 transition">
-                                        ❌ {% trans "Reject" %}
-                                    </a>
-                                </div>
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{%
+                                trans "Pending" %}</span>
+                            {% elif cert.status == "Approved" %}
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{%
+                                trans "Approved" %}</span>
                             {% else %}
-                                <span class="text-gray-500 text-sm">{% trans "Processed" %}</span>
+                            <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans
+                                "Rejected" %}</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-2 px-3 sm:px-4">
+                            {% if cert.status == "Pending" %}
+                            <div class="flex space-x-2">
+                                <a href="{% url 'approve_certificate' cert_type cert.id %}"
+                                    class="bg-green-600 text-white text-xs px-3 py-1 rounded hover:bg-green-700 transition">
+                                    ✅ {% trans "Approve" %}
+                                </a>
+                                <a href="{% url 'reject_certificate' cert_type cert.id %}"
+                                    class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700 transition">
+                                    ❌ {% trans "Reject" %}
+                                </a>
+                            </div>
+                            {% else %}
+                            <span class="text-gray-500 text-sm">{% trans "Processed" %}</span>
                             {% endif %}
                         </td>
                     </tr>
@@ -79,30 +87,89 @@
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
                 <p class="text-sm text-gray-700"><strong>{% trans "Citizen" %}:</strong> {{ cert.user.username }}</p>
                 <p class="text-sm text-gray-700"><strong>{% trans "Submitted" %}:</strong> {{ cert.submitted_at|date:"d M Y" }}</p>
-                <p class="text-sm text-blue-600">
-                    <strong>{% trans "Document" %}:</strong> <a href="{{ cert.document.url }}" target="_blank" class="hover:underline">📄 {% trans "View Document" %}</a>
+
+                <!-- ✅ Dynamic Fields Based on Type -->
+                {% if cert.full_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Full Name" %}:</strong> {{ cert.full_name }}</p>
+                {% endif %}
+                {% if cert.dob %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Date of Birth" %}:</strong> {{ cert.dob }}</p>
+                {% endif %}
+                {% if cert.parent_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Parent's Name" %}:</strong> {{ cert.parent_name }}
                 </p>
-                <p class="text-sm">
-                    <strong>{% trans "Status" %}:</strong> 
-                    {% if cert.status == "Pending" %}
-                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Pending" %}</span>
-                    {% elif cert.status == "Approved" %}
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Approved" %}</span>
+                {% endif %}
+                {% if cert.deceased_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Deceased Name" %}:</strong> {{ cert.deceased_name }}
+                </p>
+                {% endif %}
+                {% if cert.date_of_death %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Date of Death" %}:</strong> {{ cert.date_of_death }}
+                </p>
+                {% endif %}
+                {% if cert.place_of_death %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Place of Death" %}:</strong> {{ cert.place_of_death }}</p>
+                {% endif %}
+                {% if cert.cause_of_death %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Cause of Death" %}:</strong> {{ cert.cause_of_death }}</p>
+                {% endif %}
+                {% if cert.husband_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Husband's Name" %}:</strong> {{ cert.husband_name }}
+                </p>
+                {% endif %}
+                {% if cert.wife_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Wife's Name" %}:</strong> {{ cert.wife_name }}</p>
+                {% endif %}
+                {% if cert.date_of_marriage %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Marriage Date" %}:</strong> {{ cert.date_of_marriage }}</p>
+                {% endif %}
+                {% if cert.place_of_marriage %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Marriage Place" %}:</strong> {{ cert.place_of_marriage }}</p>
+                {% endif %}
+                {% if cert.guardian_name %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Father's/Husband's Name" %}:</strong> {{ cert.guardian_name }}</p>
+                {% endif %}
+                {% if cert.address %}
+                <p class="text-sm text-gray-700"><strong>{% trans "Address" %}:</strong> {{ cert.address }}</p>
+                {% endif %}
+
+
+                <!-- ✅ Document -->
+                <p class="text-xs text-blue-600">
+                    <strong>{% trans "Document" %}:</strong>
+                    {% if cert.document %}
+                    <a href="{{ cert.document.url }}" target="_blank" class="text-blue-600 hover:underline">
+                        📄 {% trans "View Document" %}
+                    </a>
                     {% else %}
-                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Rejected" %}</span>
+                    <span class="text-gray-500">{% trans "No document uploaded" %}</span>
                     {% endif %}
                 </p>
+
+                <!-- ✅ Status -->
+                <p class="text-sm mt-1">
+                    <strong>{% trans "Status" %}:</strong>
+                    {% if cert.status == "Pending" %}
+                    <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Pending" %}</span>
+                    {% elif cert.status == "Approved" %}
+                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Approved" %}</span>
+                    {% else %}
+                    <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold">{% trans "Rejected" %}</span>
+                    {% endif %}
+                </p>
+
+                <!-- ✅ Action Buttons -->
                 {% if cert.status == "Pending" %}
-                    <div class="mt-3 flex space-x-2">
-                        <a href="{% url 'approve_certificate' cert_type cert.id %}" 
-                           class="bg-green-600 text-white text-xs px-4 py-2 rounded hover:bg-green-700 transition w-full text-center">
-                            ✅ {% trans "Approve" %}
-                        </a>
-                        <a href="{% url 'reject_certificate' cert_type cert.id %}" 
-                           class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
-                            ❌ {% trans "Reject" %}
-                        </a>
-                    </div>
+                <div class="mt-3 flex space-x-2">
+                    <a href="{% url 'approve_certificate' cert_type cert.id %}"
+                        class="bg-green-600 text-white text-xs px-4 py-2 rounded hover:bg-green-700 transition w-full text-center">
+                        ✅ {% trans "Approve" %}
+                    </a>
+                    <a href="{% url 'reject_certificate' cert_type cert.id %}"
+                        class="bg-red-600 text-white text-xs px-4 py-2 rounded hover:bg-red-700 transition w-full text-center">
+                        ❌ {% trans "Reject" %}
+                    </a>
+                </div>
                 {% endif %}
             </div>
             {% endfor %}
@@ -115,4 +182,14 @@
     </div>
     {% endfor %}
 </div>
+<script>
+    // Add this at the bottom of your template
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('rejected')) {
+            // Force a hard refresh to ensure updated status shows
+            window.location.href = "{% url 'certificate_management' %}";
+        }
+    });
+</script>
 {% endblock %}

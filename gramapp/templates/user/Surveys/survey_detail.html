@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ survey.title }} - {% trans "Survey" %}{% endblock %}
+
+{% block content %}
+<main class="p-4 sm:p-6 max-w-3xl mx-auto bg-white border border-gray-200 rounded-md shadow-md">
+
+    <!-- ✅ Survey Header -->
+    <h2 class="text-lg font-semibold text-center text-blue-800">{{ survey.title }}</h2>
+    <p class="text-xs text-gray-600 text-center mb-4">{{ survey.description }}</p>
+
+    <!-- ✅ Survey Form -->
+    <form method="POST" action="{% url 'survey_detail' survey.id %}" class="space-y-4">
+        {% csrf_token %}
+        
+        {% for question in questions %}
+        <div class="mb-3 p-3 border border-gray-300 rounded-md">
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                ❓ {{ question.text }}
+            </label>
+
+            {% if question.question_type == "text" %}
+                <input type="text" name="question_{{ question.id }}" required 
+                       class="w-full text-sm px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-300">
+            
+            {% elif question.question_type == "number" %}
+                <input type="number" name="question_{{ question.id }}" required 
+                       class="w-full text-sm px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-300">
+            
+            {% elif question.question_type == "yes_no" %}
+                <div class="flex gap-3">
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="question_{{ question.id }}" value="Yes" required>
+                        <span>Yes</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="question_{{ question.id }}" value="No" required>
+                        <span>No</span>
+                    </label>
+                </div>
+
+            {% elif question.question_type == "mcq" %}
+                <select name="question_{{ question.id }}" required 
+                        class="w-full text-sm px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-300">
+                    {% for choice in question.get_choices %}
+                        <option value="{{ choice }}">{{ choice }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <!-- ✅ Submit Button -->
+        <button type="submit" 
+                class="w-full bg-blue-600 text-white text-sm px-3 py-2 rounded-md hover:bg-blue-700">
+            🚀 {% trans "Submit Survey" %}
+        </button>
+    </form>
+</main>
+{% endblock %}

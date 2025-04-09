@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Manage Shramdan Events{% endblock %}
+
+{% block content %}
+<div class="p-2 space-y-6">
+
+    <h1 class="text-lg font-bold text-green-700 text-center">🛠️ {% trans "Manage Shramdan & Abhiyaan Events" %}</h1>
+
+    <!-- Add Form -->
+    <form method="POST" enctype="multipart/form-data" class="bg-white p-4 rounded shadow-md max-w-xl mx-auto">
+        {% csrf_token %}
+        <div class="space-y-3">
+            <label class="block text-sm font-medium text-gray-700">{% trans "Event Name" %}</label>
+            <input type="text" name="name" required class="w-full border px-3 py-2 rounded" />
+
+            <label class="block text-sm font-medium text-gray-700">{% trans "Upload Image" %}</label>
+            <input type="file" name="image" required class="w-full border px-3 py-2 rounded" />
+
+            <button type="submit" class="bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700">
+                ✅ {% trans "Add Event" %}
+            </button>
+        </div>
+    </form>
+
+    <!-- Existing Events -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {% for event in events %}
+        <div class="border p-3 rounded shadow relative">
+            <img src="data:image/jpeg;base64,{{ event.image_base64 }}" alt="{{ event.name }}" class="w-full h-40 object-contain rounded mb-2" />
+            <p class="text-center font-semibold">{{ event.name }}</p>
+
+            <form action="{% url 'delete_shramdan_event' event.id %}" method="POST" class="absolute top-2 right-2">
+                {% csrf_token %}
+                <button class="bg-white/80 text-red-600 text-sm px-2 py-1 rounded-full shadow hover:text-red-800 hover:scale-110">
+                    🗑
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

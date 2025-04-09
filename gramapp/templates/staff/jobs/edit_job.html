@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Job Opportunity" %}{% endblock %}
+
+{% block content %}
+<div class="flex flex-col gap-4 p-3 sm:p-4">
+
+    <h1 class="text-lg sm:text-2xl font-bold text-yellow-700 text-center">
+        ✏️ {% trans "Edit Job Opportunity" %}
+    </h1>
+
+    <form method="POST" class="bg-white border border-gray-200 rounded-lg shadow-md p-4 space-y-4 mb-12">
+        {% csrf_token %}
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Job Title" %}</label>
+        <input type="text" name="job_title" value="{{ job.job_title }}" 
+               class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Company Name" %}</label>
+        <input type="text" name="company_name" value="{{ job.company_name }}" 
+               class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Location" %}</label>
+        <input type="text" name="location" value="{{ job.location }}" 
+               class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Salary" %}</label>
+        <input type="text" name="salary" value="{{ job.salary }}" 
+               class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Email" %}</label>
+        <input type="email" name="contact_email" value="{{ job.contact_email }}" 
+               class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">
+
+        <label class="block text-gray-700 text-sm font-semibold">{% trans "Description" %}</label>
+        <textarea name="description" rows="4"
+                  class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-300">{{ job.description }}</textarea>
+
+        <div class="flex gap-2">
+            <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded-md hover:bg-yellow-700">
+                 {% trans "Save Changes" %}
+            </button>
+            <a href="{% url 'job_opportunities' %}" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                 {% trans "Cancel" %}
+            </a>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
