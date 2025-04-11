@@ -67,15 +67,12 @@
                     class="absolute top-full right-0 mt-2 bg-white text-gray-700 rounded-lg shadow-md w-36 hidden z-50">
                     {% with request.user.profile.first as user_profile %}
                     {% if user_profile and user_profile.user_type == "staff" %}
-                    <a href="{% url 'staff_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans
-                        "Profile" %}</a>
+                    <a href="{% url 'staff_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans "Profile" %}</a>
                     {% else %}
-                    <a href="{% url 'user_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans
-                        "Profile" %}</a>
+                    <a href="{% url 'user_profile' %}" class="block px-3 py-1 text-sm hover:bg-gray-100">{% trans "Profile" %}</a>
                     {% endif %}
                     {% endwith %}
-                    <a href="{% url 'logout' %}" class="block px-3 py-1 text-sm text-red-500 hover:bg-gray-100">{% trans
-                        "Logout" %}</a>
+                    <a href="{% url 'logout' %}" class="block px-3 py-1 text-sm text-red-500 hover:bg-gray-100">{% trans "Logout" %}</a>
                 </div>
             </div>
 
@@ -99,34 +96,20 @@
         {% if user_profile and user_profile.user_type == "citizen" %}
         <!-- ✅ Menu Links -->
         <ul class="p-4 space-y-3">
-            <li><a href="{% url 'dashboard_view' %}" class="block text-gray-700 hover:text-green-600">🏡 {% trans
-                    "Dashboard" %}</a></li>
-            <li><a href="{% url 'tax' %}" class="block text-gray-700 hover:text-green-600">💰 {% trans "Taxes" %}</a>
-            </li>
-            <li><a href="{% url 'certificates_page' %}" class="block text-gray-700 hover:text-green-600">📜 {% trans
-                    "Certificates" %}</a></li>
-            <li><a href="{% url 'shramdan_page' %}" class="block text-gray-700 hover:text-green-600">🤝 {% trans
-                    "Shramdan & Abhiyaans" %}</a></li>
-            <li><a href="{% url 'sabha_meetings_page' %}" class="block text-gray-700 hover:text-green-600">📅 {% trans
-                    "Gramsabha Meetings" %}</a></li>
-            <li><a href="{% url 'health_education_page' %}" class="block text-gray-700 hover:text-green-600">🏥 {% trans
-                    "Health & Education Schemes" %}</a></li>
-            <li><a href="{% url 'helpdesk_page' %}" class="block text-gray-700 hover:text-green-600">🆘 {% trans
-                    "Helpdesk Support" %}</a></li>
-            <li><a href="{% url 'surveys' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Surveys"
-                    %}</a></li>
-            <li><a href="{% url 'events' %}" class="block text-gray-700 hover:text-green-600">📢 {% trans "Event
-                    Announcements" %}</a></li>
-            <li><a href="{% url 'user_gallery' %}" class="block text-gray-700 hover:text-green-600">📸 {% trans "Photo
-                    Gallery" %}</a></li>
-            <li><a href="{% url 'village_dashboard' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans
-                    "Village Dashboard" %}</a></li>
-            <li><a href="{% url 'panchayat_profile' %}" class="block text-gray-700 hover:text-green-600">🏛 {% trans
-                    "Panchayat Profiles" %}</a></li>
-            <li><a href="{% url 'user_job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {%
-                    trans "Job Opportunities" %}</a></li>
-            <li><a href="{% url 'user_tourism' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans "Local
-                    Tourism" %}</a></li>
+            <li><a href="{% url 'dashboard_view' %}" class="block text-gray-700 hover:text-green-600">🏡 {% trans "Dashboard" %}</a></li>
+            <li><a href="{% url 'tax' %}" class="block text-gray-700 hover:text-green-600">💰 {% trans "Taxes" %}</a></li>
+            <li><a href="{% url 'certificates_page' %}" class="block text-gray-700 hover:text-green-600">📜 {% trans "Certificates" %}</a></li>
+            <li><a href="{% url 'shramdan_page' %}" class="block text-gray-700 hover:text-green-600">🤝 {% trans "Shramdan & Abhiyaans" %}</a></li>
+            <li><a href="{% url 'sabha_meetings_page' %}" class="block text-gray-700 hover:text-green-600">📅 {% trans "Gramsabha Meetings" %}</a></li>
+            <li><a href="{% url 'health_education_page' %}" class="block text-gray-700 hover:text-green-600">🏥 {% trans "Health & Education Schemes" %}</a></li>
+            <li><a href="{% url 'helpdesk_page' %}" class="block text-gray-700 hover:text-green-600">🆘 {% trans "Helpdesk Support" %}</a></li>
+            <li><a href="{% url 'surveys' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Surveys" %}</a></li>
+            <li><a href="{% url 'events' %}" class="block text-gray-700 hover:text-green-600">📢 {% trans "Event Announcements" %}</a></li>
+            <li><a href="{% url 'user_gallery' %}" class="block text-gray-700 hover:text-green-600">📸 {% trans "Photo Gallery" %}</a></li>
+            <li><a href="{% url 'village_dashboard' %}" class="block text-gray-700 hover:text-green-600">📊 {% trans "Village Dashboard" %}</a></li>
+            <li><a href="{% url 'panchayat_profile' %}" class="block text-gray-700 hover:text-green-600">🏛 {% trans "Panchayat Profiles" %}</a></li>
+            <li><a href="{% url 'user_job_opportunities' %}" class="block text-gray-700 hover:text-green-600">💼 {% trans "Job Opportunities" %}</a></li>
+            <li><a href="{% url 'user_tourism' %}" class="block text-gray-700 hover:text-green-600">🌍 {% trans "Local Tourism" %}</a></li>
         </ul>
 
         <!-- ✅ Sidebar for Staff -->
