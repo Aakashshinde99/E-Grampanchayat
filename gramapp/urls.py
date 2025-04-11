@@ -11,16 +11,13 @@ from . import views
 
 
 urlpatterns = [
-#     path('upload/birth/', views.upload_birth, name='upload_birth'),
-#     path('upload/death/', views.upload_death, name='upload_death'),
-#     path('upload/marriage/', views.upload_marriage, name='upload_marriage'),
-#     path('upload/domicile/', views.upload_domicile, name='upload_domicile'),
 
     ############################################# User related all functions #####################################################
     path('debug-language/', views.debug_language, name='debug_language'),
 
+    path('', views.welcomePage, name='welcomePage'),
     ################### Home Page ############################
-    path('', views.home_view, name='home_view'),
+    path('home/', views.home_view, name='home_view'),
 
     ################### Language Selector ############################
     path("switch-language/<str:lang_code>/", views.switch_language, name="switch_language"),

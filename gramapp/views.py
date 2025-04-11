@@ -95,18 +95,16 @@ def debug_language(request):
 
 ######################################### User related functions ##########################################
 
+############# Welcome Page ###############
+def welcomePage(request):
+    return render(request, 'welcome.html', {'hide_profile_menu': True})
+
 ############# Home Page ###############
 def home_view(request):
-    """
-    Render the home page for the Grampanchayat portal.
-    """
     return render(request, 'home.html', {'hide_profile_menu': True})
 
 ############ user login #############
 from django.contrib.auth.hashers import check_password
-# from .models import User
-
-
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -124,19 +122,15 @@ def login_view(request):
                     return redirect("dashboard_view")  # Citizen Dashboard
                 
                 elif user_profile.user_type == "staff":
-                    messages.error(request, "Staff members must log in via the staff portal.")
                     return redirect("staff_login")  # Redirect staff to staff login
                 
                 else:
-                    messages.error(request, "Invalid user type. Contact admin.")
                     return redirect("login_view")  # Block any unexpected user types
 
             except UserProfile.DoesNotExist:
-                messages.error(request, "User profile not found! Contact admin.")
                 return redirect("login_view")
 
         else:
-            messages.error(request, "Invalid username or password.")
             return redirect("login_view")
 
     return render(request, "user/user_login.html")
@@ -238,7 +232,6 @@ def register_view(request):
             user_type="citizen"  # ✅ Default user type is 'citizen'
         )
 
-        messages.success(request, "Account created successfully! You can now log in.")
         return redirect('login_view')
 
     return render(request, 'user/user_register.html', {'hide_profile_menu': True})
@@ -290,7 +283,6 @@ def user_profile(request):
     try:
         user_profile = request.user.profile.get()  # ✅ Fetch UserProfile instance correctly
     except UserProfile.DoesNotExist:
-        messages.error(request, "Profile does not exist.")
         return redirect("dashboard_view")  # Redirect if no profile exists
 
     if user_profile.user_type != "citizen":  # ✅ Restrict to citizens only
@@ -318,7 +310,6 @@ def user_profile(request):
 ########### User Logout Button ############
 def logout_view(request):
     logout(request)  # ✅ Logs out the user
-    messages.success(request, "Logged out successfully.")
     return redirect('home_view')
 
 
