@@ -1252,13 +1252,11 @@ msgstr "गाव डॅशबोर्ड व्यवस्थापित क
 
 
 
-msgid "Literacy Rate"
-msgstr "साक्षरता दर (%)"
 
 
 
-msgid "Employment Rate"
-msgstr "रोजगार दर (%)"
+
+
 
 msgid "Update Statistics"
 msgstr "आकडेवारी अपडेट करा"
