@@ -291,15 +291,20 @@
 
 
             // Toggle Notification Dropdown
+            let markTimeout;
             notificationButton.addEventListener("click", function (event) {
                 event.stopPropagation();
                 notificationDropdown.classList.toggle("hidden");
-
-                // Mark notifications as read when dropdown is opened
+            
+                // Mark as read after a short delay
                 if (!notificationDropdown.classList.contains("hidden")) {
-                    markAllAsRead();
+                    clearTimeout(markTimeout);
+                    markTimeout = setTimeout(() => {
+                        markAllAsRead();
+                    }, 5000); // 5 seconds delay
                 }
             });
+
 
             // Hide dropdown when clicking outside
             document.addEventListener("click", function (event) {
