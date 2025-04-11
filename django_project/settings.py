@@ -15,8 +15,8 @@ SECRET_KEY = 'django-insecure-4ju2n@$f9d0c=h)_g0lbb%k9&@rf(xa$d$g$&5ri$uf)*gev^4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".replit.dev", ".replit.app", "127.0.0.1", ".app", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]
-CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app", "http://localhost:8000", "http://192.168.0.*", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]  # This will allow access from your mobile
+ALLOWED_HOSTS = ["egrampanchayat.onrender.com",".replit.dev", ".replit.app", "127.0.0.1", ".app", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://egrampanchayat.onrender.com/","https://*.replit.dev", "https://*.replit.app", "http://localhost:8000", "http://192.168.0.*", "https://maximum-reliably-mole.ngrok-free.app", "https://1c91-115-96-216-75.ngrok-free.app"]  # This will allow access from your mobile
 
 # Application definition
 
