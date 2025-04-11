@@ -1991,11 +1991,9 @@ msgstr "पंचायत बैठकें - पंचायत ऐप"
 msgid "Upcoming Meetings"
 msgstr "आगामी बैठकें"
 
-#: .\gramapp\templates\user\Gramsabha_Meetings\sabhameet.html:26
-#, fuzzy
-#| msgid "🚫 No upcoming meetings."
+
 msgid "No upcoming meetings."
-msgstr "🚫 कोई आगामी बैठक नहीं है।"
+msgstr "कोई आगामी बैठक नहीं है।"
 
 #: .\gramapp\templates\user\Health_Education\healthedu.html:4
 msgid "Health & Education Schemes - Panchayat App"
