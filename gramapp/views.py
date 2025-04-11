@@ -1045,12 +1045,12 @@ def add_tax(request):
         outstanding_amount = request.POST.get("outstanding_amount")
 
         if not tax_name or not outstanding_amount:
-            messages.error(request, "All fields are required!")
+           
             return redirect("add_tax")
 
         # Ensure tax name is unique
         if Tax.objects.filter(tax_name=tax_name).exists():
-            messages.error(request, "A tax with this name already exists.")
+           
             return redirect("add_tax")
 
         # Create the new tax
@@ -1059,7 +1059,7 @@ def add_tax(request):
             description=description,
             outstanding_amount=outstanding_amount
         )
-        messages.success(request, f"New tax '{tax_name}' added successfully!")
+        
         return redirect("tax_management")
 
     return render(request, "staff/tax/add_tax.html")
@@ -1081,7 +1081,7 @@ def edit_tax(request, tax_id):
         tax.outstanding_amount = new_amount
         tax.save()
 
-        messages.success(request, f"Updated {tax.tax_name} tax amount to ₹{new_amount}.")
+       
         return redirect("tax_management")
 
     return render(request, "staff/tax/edit_tax.html", {"tax": tax})
@@ -1117,7 +1117,7 @@ def add_meeting(request):
             location=location,
             created_by=request.user,
         )
-        messages.success(request, "📅 Meeting added successfully!")
+       
         return redirect("manage_meetings")
 
     return render(request, "staff/meeting/add_meeting.html")
@@ -1130,7 +1130,7 @@ def delete_meeting(request, meeting_id):
 
     if request.method == "POST":
         meeting.delete()
-        messages.success(request, "🚫 Meeting deleted successfully!")
+        
         return redirect("manage_meetings")
 
     return render(request, "staff/meeting/delete_meeting.html", {"meeting": meeting})
@@ -1187,7 +1187,7 @@ def approve_certificate(request, cert_type, cert_id):
 
     # ✅ Check if user is a staff member
     if not user_profile or user_profile.user_type != "staff":
-        messages.error(request, "Unauthorized access!")
+       
         return redirect("logout_view")
 
     # ✅ Ensure cert_type is lowercase to match model_map keys
@@ -1202,7 +1202,7 @@ def approve_certificate(request, cert_type, cert_id):
     }
 
     if cert_type not in model_map:
-        messages.error(request, "Invalid certificate type.")
+       
         return redirect("certificate_management")
 
     model = model_map[cert_type]
@@ -1263,7 +1263,7 @@ def reject_certificate(request, cert_type, cert_id):
         }
 
         if cert_type not in model_map:
-            messages.error(request, "Invalid certificate type.")
+            
             return redirect("certificate_management")
 
         model = model_map[cert_type]
@@ -1282,13 +1282,13 @@ def reject_certificate(request, cert_type, cert_id):
             related_object_id=certificate.id,
         )
 
-        messages.success(request, f"{cert_type.capitalize()} Certificate Rejected.")
+        
         
         # Redirect with cache-busting parameter
         return redirect(f"{reverse('certificate_management')}?rejected={cert_id}&t={int(time.time())}")
     
     except Exception as e:
-        messages.error(request, f"Error rejecting certificate: {str(e)}")
+        
         return redirect("certificate_management")
 
 ############# Generate Certificate View #######################
