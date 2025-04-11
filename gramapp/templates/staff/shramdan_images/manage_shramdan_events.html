@@ -4,7 +4,7 @@
 {% block title %}Manage Shramdan Events{% endblock %}
 
 {% block content %}
-<div class="p-2 space-y-6">
+<div class="p-2 space-y-6 mb-10">
 
     <h1 class="text-lg font-bold text-green-700 text-center">🛠️ {% trans "Manage Shramdan & Abhiyaan Events" %}</h1>
 
@@ -13,13 +13,13 @@
         {% csrf_token %}
         <div class="space-y-3">
             <label class="block text-sm font-medium text-gray-700">{% trans "Event Name" %}</label>
-            <input type="text" name="name" required class="w-full border px-3 py-2 rounded" />
+            <input type="text" name="name" required class="w-full border px-2 py-1 rounded" />
 
             <label class="block text-sm font-medium text-gray-700">{% trans "Upload Image" %}</label>
-            <input type="file" name="image" required class="w-full border px-3 py-2 rounded" />
+            <input type="file" name="image" required class="w-full border px-2 py-1 rounded" />
 
             <button type="submit" class="bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700">
-                ✅ {% trans "Add Event" %}
+                 {% trans "Add Event" %}
             </button>
         </div>
     </form>
