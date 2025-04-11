@@ -1983,3 +1983,58 @@ msgstr "कार्यक्रमाचे नाव"
 
 msgid "Add Event"
 msgstr "कार्यक्रम जोडा"
+
+msgid "Contact Email"
+msgstr "संपर्क ईमेल"
+
+msgid "No tourism spots available."
+msgstr "कोणतेही पर्यटन स्थळ उपलब्ध नाहीत."
+
+msgid "Employment Rate (%)"
+msgstr "रोजगार दर (%)"
+
+
+msgid "No images found in gallery"
+msgstr "गॅलरीमध्ये कोणतीही चित्रे सापडली नाहीत"
+
+msgid "Citizen Feedback"
+msgstr "नागरिक अभिप्राय"
+
+msgid "Questions"
+msgstr "प्रश्न"
+
+msgid "Add Question"
+msgstr "प्रश्न जोडा"
+
+msgid "Create Survey"
+msgstr "सर्वेक्षण तयार करा"
+
+msgid "Events Management"
+msgstr "कार्यक्रम व्यवस्थापन"
+
+msgid "Add New Event"
+msgstr "नवीन कार्यक्रम जोडा"
+
+msgid "No events found."
+msgstr "कोणतेही कार्यक्रम सापडले नाहीत."
+
+msgid "Event Title"
+msgstr "कार्यक्रमाचे शीर्षक"
+
+msgid "Add Event"
+msgstr "कार्यक्रम जोडा"
+
+msgid "Create, edit, and manage village events effortlessly."
+msgstr "गावातील कार्यक्रम सहजपणे तयार करा, संपादित करा आणि व्यवस्थापित करा."
+
+msgid "Manage Events"
+msgstr "कार्यक्रम व्यवस्थापित करा"
+
+msgid "Shramdan and Abhiyaans Images"
+msgstr "श्रमदान आणि अभियानांचे चित्रे"
+
+msgid "Upload and manage community Shramdan & Abhiyaan events."
+msgstr "समुदाय श्रमदान आणि अभियान कार्यक्रम अपलोड करा आणि व्यवस्थापित करा."
+
+msgid "Manage Abhiyaans Images"
+msgstr "अभियान चित्रे व्यवस्थापित करा"
