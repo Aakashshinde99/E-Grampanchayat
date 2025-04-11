@@ -1567,31 +1567,31 @@ def add_job(request):
         location = request.POST.get("location")
         salary = request.POST.get("salary")
         description = request.POST.get("description")
-        contact_email = request.POST.get("contact_email")  # ✅ Get email from form
+        contact_email = request.POST.get("contact_email")
 
-        JobOpportunity.objects.create(
+        new_job = JobOpportunity.objects.create(
             job_title=job_title,
             company_name=company_name,
             location=location,
             salary=salary,
             description=description,
-            contact_email=contact_email  # ✅ Save email in database
+            contact_email=contact_email
         )
 
-        # ✅ Notify all users about new job opportunity
         users = User.objects.all()
         for user in users:
             Notification.objects.create(
                 user=user,
                 message=f"New Job Opportunity: {job_title} at {company_name}! Apply now.",
                 notification_type="info",
-                related_object_id=job_title.id
+                related_object_id=new_job.id
             )
 
         messages.success(request, "✅ Job opportunity added successfully!")
         return redirect("job_opportunities")
 
     return render(request, "staff/jobs/add_job.html")
+
 
 @login_required(login_url='staff_login')
 def edit_job(request, job_id):
