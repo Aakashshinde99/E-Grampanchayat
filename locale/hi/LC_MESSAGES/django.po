@@ -2966,4 +2966,24 @@ msgstr "कार्यक्रम जोड़ें"
 msgid "Facing an issue? Submit a request, and our support team will get back to you."
 msgstr "कोई समस्या है? एक अनुरोध सबमिट करें, हमारी सपोर्ट टीम आपसे संपर्क करेगी।"
 
+msgid "Manage Events"
+msgstr "ईवेंट्स प्रबंधित करें"
+
+msgid "Shramdan Images"
+msgstr "श्रमदान की छवियां"
+
+msgid "Manage Abhiyaans Images"
+msgstr "अभियानों की छवियां प्रबंधित करें"
+
+msgid "Upload and manage community Shramdan & Abhiyaan events."
+msgstr "सामुदायिक श्रमदान और अभियानों के ईवेंट्स अपलोड और प्रबंधित करें।"
+
+msgid "Shramdan and Abhiyaans Images"
+msgstr "श्रमदान और अभियानों की छवियां"
+
+msgid "Create, edit, and manage village events effortlessly."
+msgstr "ग्राम ईवेंट्स को आसानी से बनाएं, संपादित करें और प्रबंधित करें।"
+
+msgid "Events Management"
+msgstr "ईवेंट्स प्रबंधन"
 
