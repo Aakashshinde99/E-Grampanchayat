@@ -1720,7 +1720,12 @@ def manage_village_dashboard(request):
                 messages.success(request, "✅ New update added successfully!")
                 return redirect("manage_village_dashboard")
 
-        else:  # ✅ Handling Village Statistics Update
+        else:
+            # ✅ Handling Village Statistics Update
+            if not village_stats:
+                # Create if not exists
+                village_stats = VillageDashboard.objects.create()
+            
             village_stats.population = request.POST.get("population")
             village_stats.literacy_rate = request.POST.get("literacy_rate")
             village_stats.ongoing_projects = request.POST.get("ongoing_projects")
@@ -1728,7 +1733,6 @@ def manage_village_dashboard(request):
             village_stats.village_location = request.POST.get("village_location")
             village_stats.employment_rate = request.POST.get("employment_rate")
             village_stats.save()
-            messages.success(request, "✅ Village statistics updated successfully!")
             return redirect("manage_village_dashboard")
 
     context = {
