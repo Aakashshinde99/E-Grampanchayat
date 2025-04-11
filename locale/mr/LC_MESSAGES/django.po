@@ -1987,11 +1987,8 @@ msgstr "कार्यक्रम जोडा"
 msgid "Contact Email"
 msgstr "संपर्क ईमेल"
 
-msgid "No tourism spots available."
-msgstr "कोणतेही पर्यटन स्थळ उपलब्ध नाहीत."
 
-msgid "Employment Rate (%)"
-msgstr "रोजगार दर (%)"
+
 
 
 msgid "No images found in gallery"
@@ -2021,8 +2018,7 @@ msgstr "कोणतेही कार्यक्रम सापडले न
 msgid "Event Title"
 msgstr "कार्यक्रमाचे शीर्षक"
 
-msgid "Add Event"
-msgstr "कार्यक्रम जोडा"
+
 
 msgid "Create, edit, and manage village events effortlessly."
 msgstr "गावातील कार्यक्रम सहजपणे तयार करा, संपादित करा आणि व्यवस्थापित करा."
