@@ -2962,3 +2962,8 @@ msgstr "कार्यक्रम का नाम"
 
 msgid "Add Event"
 msgstr "कार्यक्रम जोड़ें"
+
+msgid "Facing an issue? Submit a request, and our support team will get back to you."
+msgstr "कोई समस्या है? एक अनुरोध सबमिट करें, हमारी सपोर्ट टीम आपसे संपर्क करेगी।"
+
+
