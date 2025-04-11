@@ -557,7 +557,7 @@ def download_certificate(request, cert_type, cert_id):
 #     return render(request, template_map.get(category, 'user/upload_birth.html'))  # Default to birth if category is missing
 
 
-from django.core.files.storage import FileSystemStorage
+
 
 @login_required(login_url='login_view')
 @csrf_exempt  # only if needed due to external browser APK interaction
@@ -584,9 +584,7 @@ def apply_birth_certificate(request):
             messages.success(request, _("Application submitted successfully!"))
 
             # 🔁 Add optional APK callback message
-            return render(request, 'user/Certificates/application_success.html', {
-                "message": "Your application was successfully submitted. You may now go back to the app."
-            })
+            return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("Something went wrong: ") + str(e))
@@ -619,9 +617,7 @@ def apply_death_certificate(request):
                 document=uploaded_file
             )
 
-            return render(request, 'user/Certificates/application_success.html', {
-                "message": _("Your death certificate application was submitted successfully. You may now return to the app.")
-            })
+            return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("Something went wrong: ") + str(e))
@@ -654,9 +650,7 @@ def apply_marriage_certificate(request):
                 document=uploaded_file
             )
 
-            return render(request, 'user/Certificates/application_success.html', {
-                "message": _("Your marriage certificate application has been submitted successfully. You may return to the app now.")
-            })
+            return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("An error occurred while processing your application: ") + str(e))
@@ -687,9 +681,7 @@ def apply_domicile_certificate(request):
                 document=uploaded_file
             )
 
-            return render(request, 'user/Certificates/application_success.html', {
-                "message": _("Your domicile certificate application was submitted successfully. You may now return to the app.")
-            })
+            return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("An error occurred while processing your application: ") + str(e))
