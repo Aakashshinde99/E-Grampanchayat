@@ -760,7 +760,7 @@ def survey_detail(request, survey_id):
         messages.success(request, "Survey submitted successfully! ✅")
         return redirect("surveys")
 
-    return render(request, "user/surveys/survey_detail.html", {"survey": survey, "questions": questions})
+    return render(request, "user/Surveys/survey_detail.html", {"survey": survey, "questions": questions})
 
 
 @login_required(login_url='login_view')
