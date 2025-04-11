@@ -15,7 +15,10 @@ from .models import (UserProfile,
                      TaxPayment, 
                      Notification, 
                      JobOpportunity,
-                     LocalTourism)
+                     LocalTourism,
+                     VillageDashboard,
+                     FAQ,
+)
 
 # Register models
 admin.site.register(UserProfile)
@@ -26,7 +29,7 @@ admin.site.register(MarriageCertificate)
 admin.site.register(DomicileCertificate)
 admin.site.register(Scheme)
 admin.site.register(SupportRequest)
-# admin.site.register(FAQ)
+admin.site.register(FAQ)
 admin.site.register(Survey)
 admin.site.register(SurveyResponse)
 admin.site.register(Feedback)
@@ -36,4 +39,5 @@ admin.site.register(TaxPayment)
 admin.site.register(Notification)
 admin.site.register(JobOpportunity)
 admin.site.register(LocalTourism)
+admin.site.register(VillageDashboard)
 
