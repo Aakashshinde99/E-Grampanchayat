@@ -2035,3 +2035,12 @@ msgstr "अभियान चित्रे व्यवस्थापित 
 
 msgid "Shramdan Images"
 msgstr "श्रमदान चित्रे"
+
+msgid "Facing an issue? Submit a request, and our support team will get back to you."
+msgstr "समस्या येत आहे? विनंती सबमिट करा, आमचा सपोर्ट टीम तुमच्याशी संपर्क साधेल."
+
+msgid "Find answers to common questions."
+msgstr "सामान्य प्रश्नांची उत्तरे शोधा."
+
+msgid "Submit Request"
+msgstr "विनंती सबमिट करा"
