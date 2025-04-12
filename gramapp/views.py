@@ -96,8 +96,8 @@ def debug_language(request):
 ######################################### User related functions ##########################################
 
 ############# Welcome Page ###############
-# def welcomePage(request):
-#     return render(request, 'welcome.html', {'hide_profile_menu': True})
+def welcomePage(request):
+    return render(request, 'welcome.html', {'hide_profile_menu': True})
 
 ############# Home Page ###############
 def home_view(request):
