@@ -15,9 +15,9 @@ urlpatterns = [
     ############################################# User related all functions #####################################################
     path('debug-language/', views.debug_language, name='debug_language'),
 
-    # path('', views.welcomePage, name='welcomePage'),
+    path('', views.welcomePage, name='welcomePage'),
     ################### Home Page ############################
-    path('', views.home_view, name='home_view'),
+    path('home/', views.home_view, name='home_view'),
 
     ################### Language Selector ############################
     path("switch-language/<str:lang_code>/", views.switch_language, name="switch_language"),
