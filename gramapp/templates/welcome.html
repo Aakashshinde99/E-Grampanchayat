@@ -4,36 +4,101 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Mhate Grampanchayat</title>
+    <title>Welcome - E-Grampanchayat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @keyframes cardEntrance {
+            0% { transform: translateY(20px) scale(0.98); opacity: 0; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
         }
-
-        body, html {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+        .card-animate {
+            animation: cardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-
-        .welcome-image {
-            background: url("{% static 'images/welcome.jpg' %}") no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-            width: 100vw;
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
         }
     </style>
 
     <script>
-        setTimeout(function () {
-            window.location.href = "{% url 'home_view' %}";
-        }, 5000); // Redirect after 5 seconds
+        setTimeout(() => {
+            window.location.href = "home/";
+        }, 6000); // 6 seconds
     </script>
 </head>
-<body>
-    <div class="welcome-image"></div>
+<body class="min-h-screen bg-gradient-to-br from-green-900 to-emerald-900">
+    <!-- Main Container -->
+    <div class="fixed inset-0 flex flex-col items-center justify-center p-4">
+        <!-- Animated Card -->
+        <div class="bg-white/10 card-animate rounded-2xl p-8 shadow-2xl backdrop-blur-sm">
+            <div class="text-center space-y-6">
+                <!-- Lottie Animation -->
+                <div id="welcomeAnimation" class="w-48 h-48 mx-auto -mt-16"></div>
+
+                <!-- Text Content -->
+                <div class="space-y-4">
+                    <h1 class="text-3xl font-bold text-white opacity-0 animate-fade-in">
+                        Welcome to <span class="text-emerald-300">Mhate Village</span>
+                    </h1>
+                    <p class="text-sm text-emerald-100 opacity-0 animate-fade-in" style="animation-delay: 200ms">
+                        Digital Gram Panchayat Portal
+                    </p>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="relative w-16 h-16">
+                        <svg class="absolute inset-0 -rotate-90" viewBox="0 0 36 36">
+                            <circle cx="18" cy="18" r="15.9155" fill="none" 
+                                    class="stroke-emerald-300/20" stroke-width="2"/>
+                            <circle cx="18" cy="18" r="15.9155" fill="none" 
+                                    class="stroke-emerald-300" stroke-width="2" stroke-linecap="round"
+                                    stroke-dasharray="100 100" 
+                                    style="stroke-dashoffset: 100; transition: stroke-dashoffset 5s linear"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="percentage" class="text-sm font-medium text-emerald-300">0%</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-emerald-200 animate-pulse">
+                        Initializing Services...
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <p class="absolute bottom-6 text-sm text-emerald-200/80 text-center">
+            Empowering Rural India Through Technology
+        </p>
+    </div>
+
+    <script>
+        // Modern village-tech animation
+        lottie.loadAnimation({
+            container: document.getElementById('welcomeAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets1.lottiefiles.com/packages/lf20_zw0djhar.json'
+        });
+
+        // Animate progress circle
+        const progressCircle = document.querySelector('circle:last-child');
+        const percentageElement = document.getElementById('percentage');
+        let currentPercentage = 0;
+
+        progressCircle.style.strokeDashoffset = 0;
+        
+        const percentageInterval = setInterval(() => {
+            currentPercentage += 1;
+            percentageElement.textContent = `${currentPercentage}%`;
+            if(currentPercentage >= 100) clearInterval(percentageInterval);
+        }, 70); // Update percentage every 50ms for 5 seconds
+    </script>
 </body>
 </html>
