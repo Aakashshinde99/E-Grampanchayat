@@ -23,10 +23,15 @@
         <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition transform hover:scale-105 hover:shadow-lg p-4">
             
             <!-- ✅ Event Image -->
-            {% if event.image_base64 %}
+<!--             {% if event.image_base64 %}
             <img src="data:image/jpeg;base64,{{ event.image_base64 }}" alt="{{ event.title }}" class="w-full h-40 object-cover rounded-md">
+            {% endif %} -->
+            {% if event.image_base64 %}
+                <img src="data:image/jpeg;base64,{{ event.image_base64 }}" alt="{{ event.title }}" class="w-full h-40 object-cover rounded-md">
+            {% else %}
+                <div class="no-image-placeholder">No image available</div>
             {% endif %}
-
+            
             <!-- ✅ Event Details -->
             <h3 class="text-sm sm:text-lg font-bold text-gray-800 mt-2">{{ event.title }}</h3>
             <p class="text-xs sm:text-sm text-gray-600 mb-2">{{ event.description|truncatewords:20 }}</p>
