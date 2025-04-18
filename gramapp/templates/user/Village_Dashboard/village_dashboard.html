@@ -38,13 +38,14 @@
             <h3 class="text-sm sm:text-lg font-semibold text-purple-800">📍 {% trans "Village Location" %}</h3>
             <p class="text-base sm:text-xl font-bold">
                 {{ village_stats.village_location }} <br>
-                <a href="https://maps.app.goo.gl/XCAui6nHq5cQXAX86&query={{ village_stats.village_location|urlencode }}" 
+                <a href="https://www.google.com/maps/search/?api=1&query={{ village_stats.village_location|urlencode }}" 
                    target="_blank" 
                    class="text-blue-600 underline text-sm sm:text-base hover:text-blue-800">
-                    📍 Open in Google Maps
+                    Open in Google Maps
                 </a>
             </p>
         </div>
+
         
         <div class="bg-indigo-100 p-3 sm:p-4 rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg">
             <h3 class="text-sm sm:text-lg font-semibold text-indigo-800">💼 {% trans "Employment Rate" %}</h3>
