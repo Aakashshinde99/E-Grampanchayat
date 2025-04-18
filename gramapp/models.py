@@ -377,11 +377,15 @@ class Event(models.Model):
         return self.title
 
     def image_base64(self):
-        """ Convert image file to Base64 for display """
+        """Convert image file to Base64 for display."""
         if self.image and self.image.path:
-            with open(self.image.path, "rb") as img_file:
-                return base64.b64encode(img_file.read()).decode("utf-8")
+            try:
+                with open(self.image.path, "rb") as img_file:
+                    return base64.b64encode(img_file.read()).decode("utf-8")
+            except FileNotFoundError:
+                return None
         return None
+
 
     def image_tag(self):
         """ Returns an HTML image tag for admin preview """
