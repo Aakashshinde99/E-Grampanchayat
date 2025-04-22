@@ -463,92 +463,6 @@ def download_certificate(request, cert_type, cert_id):
 
     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
 
-# ################### Upload Documents ############################
-# from django.core.files.storage import FileSystemStorage
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
-# import os
-# import time 
-
-# def get_unified_upload_path(user_id, category, filename):
-#     """Matches the model's upload path structure"""
-#     ext = filename.split('.')[-1]
-#     filename = f"{user_id}_{category}_{int(time.time())}.{ext}"
-#     return os.path.join(f"certificates/{category}/user_{user_id}/", filename)
-
-# ALLOWED_EXTENSIONS = ['pdf', 'docx', 'txt', 'jpg', 'png']
-
-# def validate_file(filename):
-#     ext = filename.split('.')[-1].lower()
-#     return ext in ALLOWED_EXTENSIONS
-
-# @csrf_exempt
-# def upload_birth(request):
-#     return handle_unified_upload(request, 'birth', request.user.id)
-
-# @csrf_exempt
-# def upload_death(request):
-#     return handle_unified_upload(request, 'death', request.user.id)
-
-# @csrf_exempt
-# def upload_marriage(request):
-#     return handle_unified_upload(request, 'marriage', request.user.id)
-
-# @csrf_exempt
-# def upload_domicile(request):
-#     return handle_unified_upload(request, 'domicile', request.user.id)
-
-# from django.shortcuts import redirect
-
-# def handle_unified_upload(request, category, user_id):
-#     if request.method == 'POST':
-#         file = request.FILES.get('document')
-#         if not file:
-#             return JsonResponse({'error': 'No file uploaded'}, status=400)
-
-#         if not validate_file(file.name):
-#             return JsonResponse({'error': f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'}, status=400)
-
-#         try:
-#             # Generate path matching model's upload_to
-#             upload_path = get_unified_upload_path(user_id, category, file.name)
-#             full_path = os.path.join(settings.MEDIA_ROOT, upload_path)
-
-#             # Ensure directory exists
-#             os.makedirs(os.path.dirname(full_path), exist_ok=True)
-
-#             # Save file
-#             with open(full_path, 'wb+') as destination:
-#                 for chunk in file.chunks():
-#                     destination.write(chunk)
-
-#             # Store relative path in session (matches what model would store)
-#             request.session[f'{category}_document'] = upload_path
-
-#             # ✅ Use a dynamic redirect based on the category
-#             redirect_map = {
-#                 'birth': 'apply_birth_certificate',
-#                 'death': 'apply_death_certificate',
-#                 'marriage': 'apply_marriage_certificate',
-#                 'domicile': 'apply_domicile_certificate',
-#             }
-
-#             return redirect(redirect_map.get(category, 'certificates_page'))  # Fallback to main page if category is invalid
-
-#         except Exception as e:
-#             return JsonResponse({'error': str(e)}, status=500)
-
-#     # ✅ Render the correct upload page dynamically
-#     template_map = {
-#         'birth': 'user/upload_birth.html',
-#         'death': 'user/upload_death.html',
-#         'marriage': 'user/upload_marriage.html',
-#         'domicile': 'user/upload_domicile.html',
-#     }
-#     return render(request, template_map.get(category, 'user/upload_birth.html'))  # Default to birth if category is missing
-
-
-
 
 @login_required(login_url='login_view')
 @csrf_exempt  # only if needed due to external browser APK interaction
@@ -573,9 +487,10 @@ def apply_birth_certificate(request):
                 document=uploaded_file
             )
             messages.success(request, _("Application submitted successfully!"))
-
+            return redirect('certificates_page')
+            
             # 🔁 Add optional APK callback message
-            return render(request, 'user/Certificates/certificates.html')
+            # return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("Something went wrong: ") + str(e))
@@ -607,8 +522,8 @@ def apply_death_certificate(request):
                 cause_of_death=cause_of_death,
                 document=uploaded_file
             )
-
-            return render(request, 'user/Certificates/certificates.html')
+            return redirect('certificates_page')
+            # return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("Something went wrong: ") + str(e))
@@ -640,8 +555,8 @@ def apply_marriage_certificate(request):
                 place_of_marriage=place_of_marriage,
                 document=uploaded_file
             )
-
-            return render(request, 'user/Certificates/certificates.html')
+            return redirect('certificates_page')
+            # return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("An error occurred while processing your application: ") + str(e))
@@ -671,8 +586,8 @@ def apply_domicile_certificate(request):
                 address=address,
                 document=uploaded_file
             )
-
-            return render(request, 'user/Certificates/certificates.html')
+            return redirect('certificates_page')
+            # return render(request, 'user/Certificates/certificates.html')
 
         except Exception as e:
             messages.error(request, _("An error occurred while processing your application: ") + str(e))
