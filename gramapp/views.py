@@ -453,13 +453,14 @@ def download_certificate(request, cert_type, cert_id):
         raise Http404("Invalid certificate type.")
 
     cert = model.objects.filter(id=cert_id, user=request.user).first()
-    if not cert or not cert.generated_certificate:
-        raise Http404("Certificate not found or not generated yet.")
+    
+    # if not cert or not cert.generated_certificate:
+    #     raise Http404("Certificate not found or not generated yet.")
 
     # Get absolute path to file
-    file_path = cert.generated_certificate.path
-    if not os.path.exists(file_path):
-        raise Http404("File missing on server.")
+    # file_path = cert.generated_certificate.path
+    # if not os.path.exists(file_path):
+    #     raise Http404("File missing on server.")
 
     # return redirect(cert.generated_certificate.url)
     # ✅ Add Cloudinary transformation to force download
