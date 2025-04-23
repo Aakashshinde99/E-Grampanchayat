@@ -461,8 +461,10 @@ def download_certificate(request, cert_type, cert_id):
     if not os.path.exists(file_path):
         raise Http404("File missing on server.")
 
-    return redirect(cert.generated_certificate.url)
-
+    # return redirect(cert.generated_certificate.url)
+    # ✅ Add Cloudinary transformation to force download
+    cloudinary_url = f"{cert.generated_certificate.url}?fl_attachment"
+    return redirect(cloudinary_url)
 
 @login_required(login_url='login_view')
 @csrf_exempt  # only if needed due to external browser APK interaction
