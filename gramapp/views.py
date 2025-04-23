@@ -454,8 +454,8 @@ def download_certificate(request, cert_type, cert_id):
 
     cert = model.objects.filter(id=cert_id, user=request.user).first()
     
-    # if not cert or not cert.generated_certificate:
-    #     raise Http404("Certificate not found or not generated yet.")
+    if not cert or not cert.generated_certificate:
+        raise Http404("Certificate not found or not generated yet.")
 
     # Get absolute path to file
     # file_path = cert.generated_certificate.path
@@ -464,8 +464,7 @@ def download_certificate(request, cert_type, cert_id):
 
     # return redirect(cert.generated_certificate.url)
     # ✅ Add Cloudinary transformation to force download
-    cloudinary_url = f"{cert.generated_certificate.url}?fl_attachment"
-    return redirect(cloudinary_url)
+    return redirect(cert.generated_certificate.url)
 
 @login_required(login_url='login_view')
 @csrf_exempt  # only if needed due to external browser APK interaction
