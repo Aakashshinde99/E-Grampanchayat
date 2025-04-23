@@ -138,15 +138,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Custom path for uploaded files inside static
-UPLOAD_ROOT = os.path.join(BASE_DIR, 'static/userUploads/certificatesDocStorage')
+# UPLOAD_ROOT = os.path.join(BASE_DIR, 'static/userUploads/certificatesDocStorage')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/user-dashboard/'  # ✅ Default redirect after login
