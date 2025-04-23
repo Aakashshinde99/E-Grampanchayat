@@ -461,7 +461,7 @@ def download_certificate(request, cert_type, cert_id):
     if not os.path.exists(file_path):
         raise Http404("File missing on server.")
 
-    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+    return redirect(cert.generated_certificate.url)
 
 
 @login_required(login_url='login_view')
