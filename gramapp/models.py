@@ -158,7 +158,7 @@ class BirthCertificate(models.Model):
     ) 
 
     # ✅ NEW: Field to store generated certificate PDF
-    generated_certificate = models.FileField(upload_to="generated_certificates/", blank=True, null=True)
+    generated_certificate = models.FileField(blank=True, null=True)
 
     def __str__(self):
         return f"Birth Certificate - {self.full_name}"
